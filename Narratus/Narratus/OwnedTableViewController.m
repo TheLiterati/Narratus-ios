@@ -8,6 +8,7 @@
 
 #import "OwnedTableViewController.h"
 #import "OwnedStoryTableViewCell.h"
+#import "User.h"
 
 @interface OwnedTableViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
@@ -31,6 +32,11 @@
     if (cell == nil) {
         cell =  [tableView dequeueReusableCellWithIdentifier:@"ownedStoryCell"];
     }
+    
+    User *user = [[User alloc] init];
+    cell.ownedStoryTitleLabel.text = user.ownedStories;
+    
+    
     
     return cell;
 }

@@ -8,9 +8,11 @@
 
 #import "FollowedStoryViewController.h"
 #import "FollowedStoryTableViewCell.h"
+#import "User.h"
 
 @interface FollowedStoryViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *followedTableView;
+@property(strong, nonatomic) NSArray *followedStories;
 
 @end
 
@@ -31,6 +33,10 @@
     if (cell == nil) {
         cell =  [tableView dequeueReusableCellWithIdentifier:@"followedStoryCell"];
     }
+    
+    User *user = self.followedStories;
+    
+    cell.followedStoryTitleLabel.text = user.followedStories;
     
     return cell;
 
