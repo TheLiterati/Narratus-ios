@@ -1,19 +1,19 @@
 //
-//  HomeViewController.m
+//  FollowedStoryViewController.m
 //  Narratus
 //
 //  Created by Christina Lee on 5/15/17.
 //  Copyright © 2017 Christina Lee. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "FollowedStoryViewController.h"
 
-@interface HomeViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *lastUpdatedTableView;
+@interface FollowedStoryViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *followedTableView;
 
 @end
 
-@implementation HomeViewController
+@implementation FollowedStoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

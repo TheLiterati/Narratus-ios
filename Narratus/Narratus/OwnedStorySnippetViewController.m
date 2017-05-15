@@ -1,19 +1,19 @@
 //
-//  HomeViewController.m
+//  OwnedStorySnippetViewController.m
 //  Narratus
 //
 //  Created by Christina Lee on 5/15/17.
 //  Copyright © 2017 Christina Lee. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "OwnedStorySnippetViewController.h"
 
-@interface HomeViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *lastUpdatedTableView;
+@interface OwnedStorySnippetViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *storyTableView;
 
 @end
 
-@implementation HomeViewController
+@implementation OwnedStorySnippetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

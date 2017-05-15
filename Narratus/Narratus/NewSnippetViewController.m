@@ -9,6 +9,8 @@
 #import "NewSnippetViewController.h"
 
 @interface NewSnippetViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *snippetTextField;
+
 
 @end
 
@@ -24,6 +26,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)submitButtonPressed:(UIButton *)sender {
+}
 
 
 @end

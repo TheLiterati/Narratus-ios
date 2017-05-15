@@ -1,19 +1,19 @@
 //
-//  HomeViewController.m
+//  StoryTableViewController.m
 //  Narratus
 //
 //  Created by Christina Lee on 5/15/17.
 //  Copyright © 2017 Christina Lee. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "StoryTableViewController.h"
 
-@interface HomeViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *lastUpdatedTableView;
+@interface StoryTableViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *storyTableView;
 
 @end
 
-@implementation HomeViewController
+@implementation StoryTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,7 +24,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 @end

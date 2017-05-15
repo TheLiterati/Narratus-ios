@@ -9,6 +9,9 @@
 #import "NewStoryViewController.h"
 
 @interface NewStoryViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *storyTextField;
 
 @end
 
@@ -24,5 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)submitButtonPressed:(UIButton *)sender {
+}
 
 @end
