@@ -24,7 +24,6 @@
     [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"ownedStoryCell"];
 }
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     OwnedStoryTableViewCell *cell = [_ownedTableView dequeueReusableCellWithIdentifier:@"ownedStoryCell" forIndexPath:indexPath];

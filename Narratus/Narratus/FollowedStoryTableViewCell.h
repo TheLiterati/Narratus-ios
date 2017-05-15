@@ -10,4 +10,8 @@
 
 @interface FollowedStoryTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *followedStoryTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *followedStoryDescriptionLabel;
+
 @end
