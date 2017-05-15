@@ -7,9 +7,11 @@
 //
 
 #import "UserDashboardViewController.h"
+#import "User.h"
 
 @interface UserDashboardViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property(strong, nonatomic) User *user;
 
 @end
 
@@ -17,12 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.userNameLabel.text = _user.ownedStories;
 }
 
 
