@@ -7,6 +7,7 @@
 //
 
 #import "FollowedStoryViewController.h"
+#import "FollowedStoryTableViewCell.h"
 
 @interface FollowedStoryViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *followedTableView;
@@ -23,11 +24,17 @@
     [self.followedTableView registerNib:cellNib forCellReuseIdentifier:@"followedStoryCell"];
 }
 
-//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//
-//
-//}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    FollowedStoryTableViewCell *cell = [_followedTableView dequeueReusableCellWithIdentifier:@"followedStoryCell" forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell =  [tableView dequeueReusableCellWithIdentifier:@"followedStoryCell"];
+    }
+    
+    return cell;
+
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;

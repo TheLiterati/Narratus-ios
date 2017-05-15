@@ -7,6 +7,7 @@
 //
 
 #import "OwnedTableViewController.h"
+#import "OwnedStoryTableViewCell.h"
 
 @interface OwnedTableViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
@@ -24,11 +25,16 @@
 }
 
 
-//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//
-//    
-//}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    OwnedStoryTableViewCell *cell = [_ownedTableView dequeueReusableCellWithIdentifier:@"ownedStoryCell" forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell =  [tableView dequeueReusableCellWithIdentifier:@"ownedStoryCell"];
+    }
+    
+    return cell;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
