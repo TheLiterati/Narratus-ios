@@ -7,6 +7,8 @@
 //
 
 #import "OwnedTableViewController.h"
+#import "OwnedStoryTableViewCell.h"
+#import "User.h"
 
 @interface OwnedTableViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
@@ -19,14 +21,25 @@
     [super viewDidLoad];
     
     self.ownedTableView.dataSource = self;
+    UINib *cellNib = [UINib nibWithNibName:@"ownedStoryCell" bundle:nil];
+    [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"ownedStoryCell"];
 }
 
-
-//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//
-//    
-//}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    OwnedStoryTableViewCell *cell = [_ownedTableView dequeueReusableCellWithIdentifier:@"ownedStoryCell" forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell =  [tableView dequeueReusableCellWithIdentifier:@"ownedStoryCell"];
+    }
+    
+    User *user = [[User alloc] init];
+    cell.ownedStoryTitleLabel.text = user.ownedStories;
+    
+    
+    
+    return cell;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
