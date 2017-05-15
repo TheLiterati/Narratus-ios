@@ -7,9 +7,13 @@
 //
 
 #import "HomeViewController.h"
+#import "Story.h"
+#import "StoryTableViewCell.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *lastUpdatedTableView;
+@property (strong, nonatomic) NSArray<Story *> *allStories;
 
 @end
 
@@ -17,14 +21,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.allStories = [[NSArray<Story *> alloc]init];
+    UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
+    [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.allStories count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
+    cell.titleLabel.text = @"title sample";
+    cell.descriptionLabel.text = @"description sample";
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 
 @end

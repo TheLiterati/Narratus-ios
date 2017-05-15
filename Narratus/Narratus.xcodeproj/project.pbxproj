@@ -34,10 +34,14 @@
 		BC38B84F1ECA47800090A38B /* OwnedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B84E1ECA47800090A38B /* OwnedTableViewController.m */; };
 		BC38B8521ECA479C0090A38B /* FollowedStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8511ECA479C0090A38B /* FollowedStoryViewController.m */; };
 		BC38B8551ECA48260090A38B /* OwnedStorySnippetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */; };
+
 		C0699A381ECA5AC60083E326 /* OwnedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */; };
 		C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */; };
 		C0699A3D1ECA5AD80083E326 /* FollowedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */; };
 		C0699A3E1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */; };
+
+		BC38B8571ECA51890090A38B /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B8561ECA51890090A38B /* sample.json */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,12 +94,16 @@
 		BC38B8511ECA479C0090A38B /* FollowedStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowedStoryViewController.m; sourceTree = "<group>"; };
 		BC38B8531ECA48260090A38B /* OwnedStorySnippetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStorySnippetViewController.h; sourceTree = "<group>"; };
 		BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStorySnippetViewController.m; sourceTree = "<group>"; };
+
 		C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStoryTableViewCell.h; sourceTree = "<group>"; };
 		C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStoryTableViewCell.m; sourceTree = "<group>"; };
 		C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedStoryTableViewCell.xib; sourceTree = "<group>"; };
 		C0699A3A1ECA5AD80083E326 /* FollowedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowedStoryTableViewCell.h; sourceTree = "<group>"; };
 		C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowedStoryTableViewCell.m; sourceTree = "<group>"; };
 		C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowedStoryTableViewCell.xib; sourceTree = "<group>"; };
+
+		BC38B8561ECA51890090A38B /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample.json; path = ../sample.json; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +177,7 @@
 		BC38B8251ECA283C0090A38B /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BC38B8561ECA51890090A38B /* sample.json */,
 				BC38B82E1ECA292B0090A38B /* API.h */,
 				BC38B82F1ECA292B0090A38B /* API.m */,
 				BC38B8221ECA28380090A38B /* User.h */,
@@ -297,6 +306,7 @@
 				BC38B83F1ECA30510090A38B /* StoryTableViewCell.xib in Resources */,
 				C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */,
 				BC38B8051ECA22580090A38B /* LaunchScreen.storyboard in Resources */,
+				BC38B8571ECA51890090A38B /* sample.json in Resources */,
 				BC38B8021ECA22580090A38B /* Assets.xcassets in Resources */,
 				BC38B8001ECA22580090A38B /* Main.storyboard in Resources */,
 				BC38B8351ECA30170090A38B /* SnippetTableViewCell.xib in Resources */,
