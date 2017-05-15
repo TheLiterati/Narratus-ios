@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "Story.h"
 #import "StoryTableViewCell.h"
+#import "StoryViewController.h"
 
 @interface HomeViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lastUpdatedTableView.dataSource = self;
+    self.lastUpdatedTableView.delegate = self;
     self.allStories = [[NSArray<Story *> alloc]init];
     UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
@@ -29,6 +32,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier isEqualToString:@"StoryViewControllerFromHome"]) {
+        Story *currentStory = [[Story alloc]init];
+        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
+        currentStory = self.allStories[selectedIndex];
+        StoryViewController *destinationController = segue.destinationViewController;
+        destinationController.currentStory = currentStory;
+    }
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -44,7 +60,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self performSegueWithIdentifier:@"StoryViewControllerFromHome" sender:self];
 }
 
 
