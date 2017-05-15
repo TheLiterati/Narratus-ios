@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Story.h"
 
 @interface PendingSnippetViewController : UIViewController
+@property (strong, nonatomic) Story *currentStory;
 
 @end
