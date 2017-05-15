@@ -8,7 +8,8 @@
 
 #import "OwnedStorySnippetViewController.h"
 
-@interface OwnedStorySnippetViewController ()
+@interface OwnedStorySnippetViewController ()<UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *storyTableView;
 
 @end
