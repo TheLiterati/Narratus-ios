@@ -34,6 +34,7 @@
 		BC38B84F1ECA47800090A38B /* OwnedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B84E1ECA47800090A38B /* OwnedTableViewController.m */; };
 		BC38B8521ECA479C0090A38B /* FollowedStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8511ECA479C0090A38B /* FollowedStoryViewController.m */; };
 		BC38B8551ECA48260090A38B /* OwnedStorySnippetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */; };
+		BC38B8571ECA51890090A38B /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B8561ECA51890090A38B /* sample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		BC38B8511ECA479C0090A38B /* FollowedStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowedStoryViewController.m; sourceTree = "<group>"; };
 		BC38B8531ECA48260090A38B /* OwnedStorySnippetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStorySnippetViewController.h; sourceTree = "<group>"; };
 		BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStorySnippetViewController.m; sourceTree = "<group>"; };
+		BC38B8561ECA51890090A38B /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample.json; path = ../sample.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		BC38B8251ECA283C0090A38B /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BC38B8561ECA51890090A38B /* sample.json */,
 				BC38B82E1ECA292B0090A38B /* API.h */,
 				BC38B82F1ECA292B0090A38B /* API.m */,
 				BC38B8221ECA28380090A38B /* User.h */,
@@ -280,6 +283,7 @@
 				BC38B83A1ECA303C0090A38B /* PendingSnippetTableViewCell.xib in Resources */,
 				BC38B83F1ECA30510090A38B /* StoryTableViewCell.xib in Resources */,
 				BC38B8051ECA22580090A38B /* LaunchScreen.storyboard in Resources */,
+				BC38B8571ECA51890090A38B /* sample.json in Resources */,
 				BC38B8021ECA22580090A38B /* Assets.xcassets in Resources */,
 				BC38B8001ECA22580090A38B /* Main.storyboard in Resources */,
 				BC38B8351ECA30170090A38B /* SnippetTableViewCell.xib in Resources */,
@@ -474,6 +478,7 @@
 				BC38B80B1ECA22580090A38B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

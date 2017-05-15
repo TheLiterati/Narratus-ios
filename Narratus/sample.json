@@ -1,0 +1,109 @@
+user1: 
+{
+  "username": "Allie",
+  "password": "abc123".
+  "email": "blah@nada.com",
+  "ownedStories": [{"story1._id"}, {"story2._id"}, {"story3._id"}],
+  "followedStories": [{"story4._id"}, {"story5._id"}],
+  "_id": "5917ae0a6730f715c1cfc1c6",
+},
+
+user2: 
+{
+  "username": "Michael",
+  "password": "abcdefg".
+  "email": "michael@great.net",
+  "ownedStories": [{"story6._id"}, {"story7._id"}, {"story8._id"}],
+  "followedStories": [{"story9._id"}, {"story1._id"}],
+  "_id": "5917ae0a6730f715c1cfc1u3",
+},
+
+user3: 
+{
+  "username": "Shelly",
+  "password": "123abc".
+  "email": "shelly@tang.edu",
+  "ownedStories": [{"story2._id"}, {"story5._id"}, {"story6._id"}],
+  "followedStories": [{"story3._id"}, {"story4._id"}],
+  "_id": "5917ae0a6730f715c1cnumu3",
+},
+
+
+story1: 
+{
+  "ownerUsername": "Shelly",
+  "ownerId": "5917ae0a6730f715c1cnumu3",
+  "title": "How Bob Ross paints happy trees",
+  "description": "Once upon a time, there was a happy man with a happy afro.",
+  "created": "2017-01-22",
+  "lastUpdated": snippet.created,
+  "categories": "sci-fi",
+  "open": "true",
+  "snippets": ["snippet1._id", "snippet2._id", "snippet3._id"],
+  "snippetCount": 3,
+  "pendingSnippets": ["pendingSnippet1._id", "pendingSnippet2._id"],
+  "pendingSnippetCount": 2,
+  "_id": "5917u3sa6730f715c1cnumu3",
+},
+
+story2: 
+{
+  "ownerUsername": "Allie",
+  "ownerId": "5917ae0a6730f715c1cfc1c6",
+  "title": "The Hungry Caterpillar",
+  "description": "He was a really really very incredibly hungry little guy.",
+  "created": "2017-01-01",
+  "lastUpdated": snippet.created,
+  "categories": "western",
+  "open": "true",
+  "snippets": ["snippet3._id"],
+  "snippetCount": 1,
+  "pendingSnippets": ["pendingSnippet6._id", "pendingSnippet7._id"],
+  "pendingSnippetCount": 2,
+  "_id": "0090u3sa6730f715c1cnumu3",
+},
+
+story3: 
+{
+  "ownerUsername": "Michael",
+  "ownerId": "5917ae0a6730f715c1cfc1u3",
+  "title": "Beards and handlebar mustaches",
+  "description": "The first thing to do is determine how long your mustache will be.",
+  "created": "2016-12-12",
+  "lastUpdated": snippet.created,
+  "categories": "historical fiction",
+  "open": "true",
+  "snippets": ["snippet2._id"],
+  "snippetCount": 1,
+  "pendingSnippets": ["pendingSnippet2._id"],
+  "pendingSnippetCount": 1,
+  "_id": "2222u3sa6730f715c1cnumu3",
+},
+
+snippet1: 
+{
+  "likes": 0,
+  "snippetContent": "The giant lived in the cave but came out once a week to eat goats and bison.",
+  "created": "2017-03-14",
+  "snippetCreator": "5917ae0a6730f715c1cfc1u3",
+  "pending": "true", 
+  "_id": "1111ae0a6730f715c1cfc1u3",
+  "accepted": "true",
+  "acceptedDate": "2017-03-17",
+  "lastViewedDate": "2017-03-17",
+  "bookmark": "false",
+},
+
+snippet2: 
+{
+  "likes": 0,
+  "snippetContent": "The real question isn't how long the mustache should be, but how many gallons of oil should be used to prevent dry skin.",
+  "created": "2017-02-19",
+  "snippetCreator": "5917ae0a6730f715c1cfc1u3",
+  "pending": "false", 
+  "_id": "3214ae0a6730f715c1cfc1u3",
+  "accepted": "false",
+  "acceptedDate": "2017-05-10",
+  "lastViewedDate": "2017-03-17",
+  "bookmark": "false",
+},
