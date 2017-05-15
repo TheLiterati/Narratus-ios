@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PendingSnippetTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *pendingContentLabel;
 
 @end

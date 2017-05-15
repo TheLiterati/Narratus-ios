@@ -34,14 +34,13 @@
 		BC38B84F1ECA47800090A38B /* OwnedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B84E1ECA47800090A38B /* OwnedTableViewController.m */; };
 		BC38B8521ECA479C0090A38B /* FollowedStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8511ECA479C0090A38B /* FollowedStoryViewController.m */; };
 		BC38B8551ECA48260090A38B /* OwnedStorySnippetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */; };
-
+		BC38B8571ECA51890090A38B /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B8561ECA51890090A38B /* sample.json */; };
+		BC38B85B1ECA67900090A38B /* OwnedSnippetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8591ECA67900090A38B /* OwnedSnippetTableViewCell.m */; };
+		BC38B85C1ECA67900090A38B /* OwnedSnippetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85A1ECA67900090A38B /* OwnedSnippetTableViewCell.xib */; };
 		C0699A381ECA5AC60083E326 /* OwnedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */; };
 		C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */; };
 		C0699A3D1ECA5AD80083E326 /* FollowedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */; };
 		C0699A3E1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */; };
-
-		BC38B8571ECA51890090A38B /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B8561ECA51890090A38B /* sample.json */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,16 +93,16 @@
 		BC38B8511ECA479C0090A38B /* FollowedStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowedStoryViewController.m; sourceTree = "<group>"; };
 		BC38B8531ECA48260090A38B /* OwnedStorySnippetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStorySnippetViewController.h; sourceTree = "<group>"; };
 		BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStorySnippetViewController.m; sourceTree = "<group>"; };
-
+		BC38B8561ECA51890090A38B /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample.json; path = ../sample.json; sourceTree = "<group>"; };
+		BC38B8581ECA67900090A38B /* OwnedSnippetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedSnippetTableViewCell.h; sourceTree = "<group>"; };
+		BC38B8591ECA67900090A38B /* OwnedSnippetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedSnippetTableViewCell.m; sourceTree = "<group>"; };
+		BC38B85A1ECA67900090A38B /* OwnedSnippetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedSnippetTableViewCell.xib; sourceTree = "<group>"; };
 		C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStoryTableViewCell.h; sourceTree = "<group>"; };
 		C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStoryTableViewCell.m; sourceTree = "<group>"; };
 		C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedStoryTableViewCell.xib; sourceTree = "<group>"; };
 		C0699A3A1ECA5AD80083E326 /* FollowedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowedStoryTableViewCell.h; sourceTree = "<group>"; };
 		C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowedStoryTableViewCell.m; sourceTree = "<group>"; };
 		C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowedStoryTableViewCell.xib; sourceTree = "<group>"; };
-
-		BC38B8561ECA51890090A38B /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample.json; path = ../sample.json; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,15 +192,18 @@
 		BC38B82C1ECA289E0090A38B /* view */ = {
 			isa = PBXGroup;
 			children = (
-				BC38B8311ECA30170090A38B /* SnippetTableViewCell.h */,
 				C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */,
 				C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */,
 				C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */,
 				C0699A3A1ECA5AD80083E326 /* FollowedStoryTableViewCell.h */,
 				C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */,
 				C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */,
+				BC38B8311ECA30170090A38B /* SnippetTableViewCell.h */,
 				BC38B8321ECA30170090A38B /* SnippetTableViewCell.m */,
 				BC38B8331ECA30170090A38B /* SnippetTableViewCell.xib */,
+				BC38B8581ECA67900090A38B /* OwnedSnippetTableViewCell.h */,
+				BC38B8591ECA67900090A38B /* OwnedSnippetTableViewCell.m */,
+				BC38B85A1ECA67900090A38B /* OwnedSnippetTableViewCell.xib */,
 				BC38B8361ECA303C0090A38B /* PendingSnippetTableViewCell.h */,
 				BC38B8371ECA303C0090A38B /* PendingSnippetTableViewCell.m */,
 				BC38B8381ECA303C0090A38B /* PendingSnippetTableViewCell.xib */,
@@ -307,6 +309,7 @@
 				C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */,
 				BC38B8051ECA22580090A38B /* LaunchScreen.storyboard in Resources */,
 				BC38B8571ECA51890090A38B /* sample.json in Resources */,
+				BC38B85C1ECA67900090A38B /* OwnedSnippetTableViewCell.xib in Resources */,
 				BC38B8021ECA22580090A38B /* Assets.xcassets in Resources */,
 				BC38B8001ECA22580090A38B /* Main.storyboard in Resources */,
 				BC38B8351ECA30170090A38B /* SnippetTableViewCell.xib in Resources */,
@@ -338,6 +341,7 @@
 				BC38B81B1ECA28100090A38B /* NewStoryViewController.m in Sources */,
 				BC38B84F1ECA47800090A38B /* OwnedTableViewController.m in Sources */,
 				BC38B8551ECA48260090A38B /* OwnedStorySnippetViewController.m in Sources */,
+				BC38B85B1ECA67900090A38B /* OwnedSnippetTableViewCell.m in Sources */,
 				BC38B8521ECA479C0090A38B /* FollowedStoryViewController.m in Sources */,
 				BC38B7F71ECA22580090A38B /* main.m in Sources */,
 				BC38B8151ECA27F40090A38B /* UserDashboardViewController.m in Sources */,
