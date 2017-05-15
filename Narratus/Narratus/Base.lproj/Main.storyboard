@@ -39,7 +39,7 @@
                     <tabBarItem key="tabBarItem" title="HOME" id="vQz-pY-maT"/>
                     <connections>
                         <outlet property="lastUpdatedTableView" destination="J5G-Kz-lin" id="Z4k-6P-FxA"/>
-                        <segue destination="obO-tk-84e" kind="presentation" id="ejB-W8-LXV"/>
+                        <segue destination="obO-tk-84e" kind="presentation" identifier="StoryViewControllerFromHome" id="ejB-W8-LXV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,19 +101,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TITLE" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-Ad-aM4">
-                                <rect key="frame" x="0.0" y="30" width="375" height="66.5"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="66.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="DESCRIPTION" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8mO-Es-GbU">
-                                <rect key="frame" x="0.0" y="106.5" width="375" height="66.5"/>
+                                <rect key="frame" x="0.0" y="150.5" width="375" height="66.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-jp-MSt">
-                                <rect key="frame" x="-0.5" y="627" width="375" height="30"/>
+                                <rect key="frame" x="-0.5" y="578" width="375" height="30"/>
                                 <state key="normal" title="SUBMIT"/>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="as4-Wd-GZd" eventType="touchUpInside" id="WTM-mT-6Yg"/>
@@ -124,7 +124,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKe-xO-U6Q">
-                                <rect key="frame" x="0.0" y="183" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="227" width="375" height="333.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -297,13 +297,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-dy-9OZ">
-                                <rect key="frame" x="-0.5" y="20" width="375" height="234"/>
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="234"/>
                                 <connections>
                                     <segue destination="j4j-Kr-VFH" kind="embed" id="8p0-ug-GBs"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqE-in-fEf">
-                                <rect key="frame" x="-0.5" y="264" width="375" height="134"/>
+                                <rect key="frame" x="-0.5" y="244" width="375" height="134"/>
                                 <connections>
                                     <segue destination="ZbV-oR-uHr" kind="embed" id="DNO-tU-IaU"/>
                                 </connections>
@@ -475,7 +475,7 @@
                     </view>
                     <connections>
                         <outlet property="ownedTableView" destination="G7d-nE-8Yo" id="sAG-BR-MOh"/>
-                        <segue destination="Bxb-qf-PFi" kind="presentation" id="5Eh-5j-b6i"/>
+                        <segue destination="Bxb-qf-PFi" kind="presentation" identifier="OwnedStoryViewController" id="5Eh-5j-b6i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSf-5z-FJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -509,7 +509,7 @@
                     </view>
                     <connections>
                         <outlet property="followedTableView" destination="hX5-sr-SHG" id="rex-Lt-c09"/>
-                        <segue destination="obO-tk-84e" kind="presentation" id="2lu-da-yNH"/>
+                        <segue destination="obO-tk-84e" kind="presentation" identifier="StoryViewControllerFromDash" id="2lu-da-yNH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMb-Tx-5v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -584,6 +584,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ejB-W8-LXV"/>
+        <segue reference="2lu-da-yNH"/>
     </inferredMetricsTieBreakers>
 </document>
