@@ -17,7 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.followedTableView.dataSource = self;
+    UINib *cellNib = [UINib nibWithNibName:@"followedStoryCell" bundle:nil];
+    [self.followedTableView registerNib:cellNib forCellReuseIdentifier:@"followedStoryCell"];
 }
 
 //-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

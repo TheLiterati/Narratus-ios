@@ -19,6 +19,8 @@
     [super viewDidLoad];
     
     self.ownedTableView.dataSource = self;
+    UINib *cellNib = [UINib nibWithNibName:@"ownedStoryCell" bundle:nil];
+    [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"ownedStoryCell"];
 }
 
 
