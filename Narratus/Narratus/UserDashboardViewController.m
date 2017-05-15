@@ -7,9 +7,11 @@
 //
 
 #import "UserDashboardViewController.h"
+#import "User.h"
 
 @interface UserDashboardViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property(strong, nonatomic) User *user;
 
 @end
 
