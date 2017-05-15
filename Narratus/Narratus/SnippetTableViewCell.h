@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Snippet.h"
 
 @interface SnippetTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) Snippet *cellSnippet;
+@property (weak, nonatomic) IBOutlet UILabel *snippetDate;
+@property (weak, nonatomic) IBOutlet UILabel *snippetContent;
+
 
 @end
