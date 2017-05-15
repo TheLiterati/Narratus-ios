@@ -9,6 +9,8 @@
 #import "StoryViewController.h"
 
 @interface StoryViewController ()
+@property (weak, nonatomic) IBOutlet UIView *storyTableView;
+@property (weak, nonatomic) IBOutlet UIView *addSnippetView;
 
 @end
 
@@ -16,14 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
+- (IBAction)toggleSnippetView:(id)sender {
+    
+}
 
 
 @end
