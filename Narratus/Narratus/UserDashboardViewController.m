@@ -7,11 +7,11 @@
 //
 
 #import "UserDashboardViewController.h"
-#import "User.h"
+#import "OwnedTableViewController.h"
+#import "FollowedStoryViewController.h"
 
 @interface UserDashboardViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-@property(strong, nonatomic) User *user;
 
 @end
 
@@ -21,7 +21,6 @@
     [super viewDidLoad];
     self.userNameLabel.text = _user.ownedStories;
 }
-
 
 
 @end

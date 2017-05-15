@@ -8,11 +8,15 @@
 
 #import "SnippetTableViewCell.h"
 
+@interface SnippetTableViewCell ()
+
+@end
+
 @implementation SnippetTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.snippetDate.transform = CGAffineTransformMakeRotation (3.14/2);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

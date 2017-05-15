@@ -10,4 +10,9 @@
 
 @interface OwnedStoryTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *ownedStoryTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *ownedStoryDescriptionLabel;
+
+
 @end

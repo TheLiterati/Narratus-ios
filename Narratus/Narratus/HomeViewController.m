@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lastUpdatedTableView.dataSource = self;
+    self.lastUpdatedTableView.delegate = self;
     self.allStories = [[NSArray<Story *> alloc]init];
     UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
