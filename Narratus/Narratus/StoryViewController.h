@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Story.h"
 
 @interface StoryViewController : UIViewController
+@property (strong, nonatomic) Story *currentStory;
+
 
 @end

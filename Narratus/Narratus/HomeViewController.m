@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "Story.h"
 #import "StoryTableViewCell.h"
+#import "StoryViewController.h"
 
 @interface HomeViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -31,6 +32,19 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier isEqualToString:@"StoryViewControllerFromHome"]) {
+        Story *currentStory = [[Story alloc]init];
+        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
+        currentStory = self.allStories[selectedIndex];
+        StoryViewController *destinationController = segue.destinationViewController;
+        destinationController.currentStory = currentStory;
+    }
+    
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.allStories count];
 }
@@ -44,7 +58,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self performSegueWithIdentifier:@"StoryViewControllerFromHome" sender:self];
 }
 
 
