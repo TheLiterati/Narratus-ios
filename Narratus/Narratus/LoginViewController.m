@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
 
@@ -24,6 +26,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)loginPressed:(UIButton *)sender {
+}
+- (IBAction)signupPressed:(UIButton *)sender {
+}
 
 
 @end
