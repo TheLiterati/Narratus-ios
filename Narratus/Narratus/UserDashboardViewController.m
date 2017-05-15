@@ -1,29 +1,29 @@
 //
-//  ViewController.m
+//  UserDashboardViewController.m
 //  Narratus
 //
 //  Created by Christina Lee on 5/15/17.
 //  Copyright © 2017 Christina Lee. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "UserDashboardViewController.h"
 
-@interface ViewController ()
+@interface UserDashboardViewController ()
 
 @end
 
-@implementation ViewController
+@implementation UserDashboardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end
