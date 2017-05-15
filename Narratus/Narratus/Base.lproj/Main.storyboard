@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-7s-Ggi">
-                                <rect key="frame" x="0.0" y="20" width="375" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                 <connections>
                                     <segue destination="EQv-XS-Ejn" kind="embed" id="e7F-P1-unE"/>
                                 </connections>
@@ -83,6 +83,11 @@
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="height" secondItem="GFQ-qS-5FK" secondAttribute="height" multiplier="0.6" id="qeb-17-myc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addSnippetView" destination="FFW-IA-R77" id="EhW-ck-EZj"/>
+                        <outlet property="newSnippetView" destination="FFW-IA-R77" id="BDS-Pj-EDX"/>
+                        <outlet property="storyTableView" destination="ffH-7s-Ggi" id="aUR-Dc-QK1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08p-rM-88v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
