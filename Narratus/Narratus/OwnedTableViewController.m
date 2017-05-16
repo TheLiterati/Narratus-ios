@@ -11,8 +11,9 @@
 #import "User.h"
 #import "Story.h"
 #import "API.h"
+#import "OwnedStoryViewController.h"
 
-@interface OwnedTableViewController () <UITableViewDataSource>
+@interface OwnedTableViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
 @property (strong, nonatomic) NSArray<Story *> *ownedStories;
 
@@ -24,11 +25,30 @@
     [super viewDidLoad];
     self.ownedStories = [[NSArray<Story *> alloc]init];
     self.ownedTableView.dataSource = self;
+    self.ownedTableView.delegate = self;
     UINib *cellNib = [UINib nibWithNibName:@"OwnedStoryTableViewCell" bundle:nil];
     [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"OwnedStoryTableViewCell"];
     self.ownedTableView.estimatedRowHeight = 50;
     self.ownedTableView.rowHeight = UITableViewAutomaticDimension;
     self.ownedStories = [API sampleStory];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier isEqualToString:@"OwnedStoryViewController"]) {
+        //        Story *currentStory = [[Story alloc]init];
+        //        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
+        //        currentStory = self.allStories[selectedIndex];
+//        StoryViewController *destinationController = segue.destinationViewController;
+        OwnedStoryViewController *destinationController = segue.destinationViewController;
+        //        destinationController.currentStory = currentStory;
+    }
+    
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [self.ownedStories count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,9 +62,10 @@
     return cell;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [self.ownedStories count];
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    OwnedStoryViewController
+    [self performSegueWithIdentifier:@"OwnedStoryViewController" sender:self];
 }
+
 
 @end

@@ -74,9 +74,6 @@
                                 <rect key="frame" x="164" y="429" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="toggleSnippetView:" destination="obO-tk-84e" eventType="touchUpInside" id="omk-kC-No2"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -322,19 +319,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-dy-9OZ">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="234"/>
+                                <rect key="frame" x="-0.5" y="64" width="375" height="234"/>
                                 <connections>
                                     <segue destination="j4j-Kr-VFH" kind="embed" id="8p0-ug-GBs"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqE-in-fEf">
-                                <rect key="frame" x="-0.5" y="244" width="375" height="134"/>
+                                <rect key="frame" x="-0.5" y="308" width="375" height="134"/>
                                 <connections>
                                     <segue destination="ZbV-oR-uHr" kind="embed" id="DNO-tU-IaU"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="web-aO-gRD">
-                                <rect key="frame" x="199" y="441" width="127" height="30"/>
+                                <rect key="frame" x="193" y="483" width="127" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="CLOSED/OPEN"/>
                                 <connections>
@@ -354,10 +351,11 @@
                             <constraint firstItem="vhE-dy-9OZ" firstAttribute="height" secondItem="hxi-yh-2wO" secondAttribute="height" multiplier="0.35" id="qh5-8c-VXh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="wOi-sc-flB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX5-GK-jYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="161"/>
+            <point key="canvasLocation" x="4535.1999999999998" y="160.56971514242881"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lYo-Fg-0GG">
@@ -417,7 +415,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5A4-dL-S8i" id="7Ak-Bs-gH9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -522,7 +520,7 @@
                     </view>
                     <connections>
                         <outlet property="ownedTableView" destination="G7d-nE-8Yo" id="sAG-BR-MOh"/>
-                        <segue destination="Bxb-qf-PFi" kind="presentation" identifier="OwnedStoryViewController" id="5Eh-5j-b6i"/>
+                        <segue destination="vmg-GM-hWC" kind="presentation" identifier="OwnedStoryViewController" id="5Eh-5j-b6i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSf-5z-FJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -583,7 +581,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="13B-pY-NgX" id="cLI-Zc-hcb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -604,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mh-i9-F7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4434" y="-34"/>
+            <point key="canvasLocation" x="5372" y="-34.182908545727138"/>
         </scene>
         <!--Pending Snippet View Controller-->
         <scene sceneID="X8p-ZJ-dLt">
@@ -647,7 +645,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7v-BD-XaH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4433" y="199"/>
+            <point key="canvasLocation" x="5372" y="198.80059970014995"/>
         </scene>
         <!--HOME-->
         <scene sceneID="fHQ-CJ-2eT">
@@ -685,6 +683,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6s-so-oOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2241" y="1818"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iRj-LC-vbj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vmg-GM-hWC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AyS-PG-460">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bxb-qf-PFi" kind="relationship" relationship="rootViewController" id="PdP-Au-eI7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehO-aD-GzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3596" y="160.56971514242881"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

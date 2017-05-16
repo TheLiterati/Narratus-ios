@@ -33,8 +33,6 @@
     [self.storyTableView reloadData];
 }
 
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.allSnippets count];
 }
@@ -46,7 +44,7 @@
     NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
     NSLog(@"%@", dateString);
     cell.snippetContentLabel.text = current.content;
-    cell.snippetDateLabel.text = dateString;
+//    cell.snippetDateLabel.text = dateString;
                                       
     return cell;
 }
