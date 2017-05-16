@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Story.h"
-#import "SnippetTableViewCell.h"
-#import "Snippet.h"
+
 
 @interface StoryTableViewController : UIViewController
 

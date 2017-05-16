@@ -12,8 +12,9 @@
 #import "Story.h"
 #import "API.h"
 #import "StoryManager.h"
+#import "OwnedStoryViewController.h"
 
-@interface OwnedTableViewController () <UITableViewDataSource>
+@interface OwnedTableViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
 @property (strong, nonatomic) NSMutableArray<Story *> *ownedStories;
 
@@ -26,6 +27,7 @@
     [super viewDidLoad];
     self.ownedStories = [[NSMutableArray alloc]init];
     self.ownedTableView.dataSource = self;
+    self.ownedTableView.delegate = self;
     UINib *cellNib = [UINib nibWithNibName:@"OwnedStoryTableViewCell" bundle:nil];
     [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"OwnedStoryTableViewCell"];
     self.ownedTableView.estimatedRowHeight = 50;
@@ -39,10 +41,13 @@
     NSLog(@"%@",[self.ownedStories lastObject]);
     
     self.ownedStories = [StoryManager shared].userStories;
-
-//    [[NSUserDefaults standardUserDefaults] arrayForKey:@"ownedStories"];
     [self.ownedTableView reloadData];
     
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [self.ownedStories count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,11 +61,11 @@
     return cell;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OwnedStoryViewController *ownVC = [self.storyboard instantiateViewControllerWithIdentifier:@"OwnedStoryViewController"];
+    [self.navigationController pushViewController:ownVC animated:YES];
     
-    return [self.ownedStories count];
 }
-
 
 
 @end

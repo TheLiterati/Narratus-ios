@@ -28,6 +28,9 @@
     UINib *snippetNib = [UINib nibWithNibName:@"OwnedSnippetTableViewCell" bundle:nil];
     [self.storyTableView registerNib:snippetNib forCellReuseIdentifier:@"OwnedSnippetTableViewCell"];
     self.confirmedSnippets = [API sampleSnippet];
+    
+    self.storyTableView.estimatedRowHeight = 50;
+    self.storyTableView.rowHeight = UITableViewAutomaticDimension;
     // Do any additional setup after loading the view.
 }
 

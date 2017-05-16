@@ -10,7 +10,9 @@
 #import "OwnedTableViewController.h"
 #import "FollowedStoryViewController.h"
 
+
 @interface UserDashboardViewController () 
+
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @end
@@ -19,9 +21,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.userNameLabel.text = @"username here please";
   
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+//    [self checkUser];
+}
+
+-(void)checkUser {
+    if (!self.user) {
+        LoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+
+}
 
 @end

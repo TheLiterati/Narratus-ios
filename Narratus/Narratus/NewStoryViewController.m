@@ -9,10 +9,10 @@
 #import "NewStoryViewController.h"
 #import "StoryManager.h"
 
-@interface NewStoryViewController () <UITextViewDelegate>
+@interface NewStoryViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
-@property (weak, nonatomic) IBOutlet UITextField *storyTextField;
+@property (weak, nonatomic) IBOutlet UITextView *storyTextView;
 @property (weak, nonatomic) IBOutlet UILabel *characterCounter;
 
 @end
@@ -21,23 +21,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.storyTextField.delegate = self;
+
+    self.storyTextView.delegate = self;
+
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
-    length = self.storyTextField.text.length;
+    length = self.storyTextView.text.length;
     NSInteger remaining = 250 - length;
     self.characterCounter.text = [NSString stringWithFormat:@"%li", remaining];
     if (remaining <= 50) {
-        self.characterCounter.text = [UIColor redColor];
-    }
-    if (remaining == 0) {
-        self.storyTextField.enabled = NO;
+        self.characterCounter.textColor = [UIColor redColor];
     }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return self.storyTextView.text.length + (text.length - range.length) <= 250;
+}
+
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+
     
     Story *newStory = [[Story alloc] init];
     newStory.title = _titleTextField.text;
@@ -46,10 +50,17 @@
     [self.navigationController popViewControllerAnimated:YES];
     
     [[StoryManager shared].userStories addObject:newStory];
-    
-//    [[NSUserDefaults standardUserDefaults] setObject:newStory forKey:@"ownedStories"];
+   
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
+
+    //self.titleTextField.text = title
+    //self.descriptionTextField.text = description
+    //self.storyTextView.text = content
+    UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Success!" message:@"Your story has been submitted!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [success show];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 @end

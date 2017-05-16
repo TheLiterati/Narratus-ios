@@ -19,14 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([self.currentStory.pendingSnippets count] == 10) {
-        self.toggleButton.hidden = YES;
-    }
-    if ([self.currentStory.storySnippets lastObject]) {
-        //If user of last object is same as logged-in user
-        self.toggleButton.hidden = YES;
-    }
-    // if (!logged in user) {
+//    if ([self.currentStory.pendingSnippets count] == 10) {
+//        self.toggleButton.hidden = YES;
+//    }
+//    if ([self.currentStory.storySnippets lastObject]) {
+//        //If user of last object is same as logged-in user
+//        self.toggleButton.hidden = YES;
+//    }
+//     if (!logged in user) {
 //    self.toggleButton.hidden = YES;
 
 }
