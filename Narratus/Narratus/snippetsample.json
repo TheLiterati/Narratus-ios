@@ -1,0 +1,27 @@
+snippet1: 
+{
+  "likes": 0,
+  "snippetContent": "The giant lived in the cave but came out once a week to eat goats and bison.",
+  "created": "2017-03-14",
+  "snippetCreator": "5917ae0a6730f715c1cfc1u3",
+  "pending": "true",
+  "_id": "1111ae0a6730f715c1cfc1u3",
+  "accepted": "true",
+  "acceptedDate": "2017-03-17",
+  "lastViewedDate": "2017-03-17",
+  "bookmark": "false",
+},
+
+snippet2:
+{
+  "likes": 0,
+  "snippetContent": "The real question isn't how long the mustache should be, but how many gallons of oil should be used to prevent dry skin.",
+  "created": "2017-02-19",
+  "snippetCreator": "5917ae0a6730f715c1cfc1u3",
+  "pending": "false",
+  "_id": "3214ae0a6730f715c1cfc1u3",
+  "accepted": "false",
+  "acceptedDate": "2017-05-10",
+  "lastViewedDate": "2017-03-17",
+  "bookmark": "false",
+},
