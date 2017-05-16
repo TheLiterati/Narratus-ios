@@ -64,7 +64,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    OwnedStoryViewController
-    [self performSegueWithIdentifier:@"OwnedStoryViewController" sender:self];
+//    [self performSegueWithIdentifier:@"OwnedStoryViewController" sender:self];
+    OwnedStoryViewController *ownVC = [self.storyboard instantiateViewControllerWithIdentifier:@"OwnedStoryViewController"];
+    [self.navigationController pushViewController:ownVC animated:YES];
+    
 }
 
 

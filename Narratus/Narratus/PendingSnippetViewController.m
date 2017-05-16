@@ -27,8 +27,12 @@
     self.pendingTableView.delegate = self;
     UINib *snippetNib = [UINib nibWithNibName:@"PendingSnippetTableViewCell" bundle:nil];
     [self.pendingTableView registerNib:snippetNib forCellReuseIdentifier:@"PendingSnippetTableViewCell"];
+    
     // Do any additional setup after loading the view.
     self.pendingSnippets = [API sampleSnippet];
+    
+    self.pendingTableView.estimatedRowHeight = 50;
+    self.pendingTableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,5 +50,7 @@
     cell.pendingContentLabel.text = self.pendingSnippets[indexPath.row].content;
     return cell;
 }
+
+
 
 @end

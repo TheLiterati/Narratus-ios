@@ -39,18 +39,18 @@
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [super prepareForSegue:segue sender:sender];
-    
-    if ([segue.identifier isEqualToString:@"StoryViewControllerFromHome"]) {
-//        Story *currentStory = [[Story alloc]init];
-//        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
-//        currentStory = self.allStories[selectedIndex];
-        StoryViewController *destinationController = segue.destinationViewController;
-//        destinationController.currentStory = currentStory;
-    }
-    
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    [super prepareForSegue:segue sender:sender];
+//    
+//    if ([segue.identifier isEqualToString:@"StoryViewControllerFromHome"]) {
+////        Story *currentStory = [[Story alloc]init];
+////        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
+////        currentStory = self.allStories[selectedIndex];
+//        StoryViewController *destinationController = segue.destinationViewController;
+////        destinationController.currentStory = currentStory;
+//    }
+//    
+//}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.allStories count];
@@ -67,7 +67,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"StoryViewControllerFromHome" sender:self];
+//    [self performSegueWithIdentifier:@"StoryViewControllerFromHome" sender:self];
+    StoryViewController *storyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StoryViewController"];
+    [self.navigationController pushViewController:storyVC animated:YES];
+    
     
 }
 

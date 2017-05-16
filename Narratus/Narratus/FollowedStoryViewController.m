@@ -35,14 +35,6 @@
     self.followedTableView.rowHeight = UITableViewAutomaticDimension;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [super prepareForSegue:segue sender:sender];
-    
-    if ([segue.identifier isEqualToString:@"StoryViewControllerFromDash"]) {
-        StoryViewController *destinationController = segue.destinationViewController;
-   }
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.followedStories count];
 }
@@ -60,7 +52,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"StoryViewControllerFromDash" sender:self];
+    StoryViewController *storyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StoryViewController"];
+    [self.navigationController pushViewController:storyVC animated:YES];
 }
 
 
