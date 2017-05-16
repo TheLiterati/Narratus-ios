@@ -9,9 +9,12 @@
 #import "OwnedTableViewController.h"
 #import "OwnedStoryTableViewCell.h"
 #import "User.h"
+#import "Story.h"
+#import "API.h"
 
 @interface OwnedTableViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
+@property (strong, nonatomic) NSArray<Story *> *ownedStories;
 
 @end
 
@@ -19,31 +22,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.ownedStories = [[NSArray<Story *> alloc]init];
     self.ownedTableView.dataSource = self;
-    UINib *cellNib = [UINib nibWithNibName:@"ownedStoryCell" bundle:nil];
-    [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"ownedStoryCell"];
+    UINib *cellNib = [UINib nibWithNibName:@"OwnedStoryTableViewCell" bundle:nil];
+    [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"OwnedStoryTableViewCell"];
+    self.ownedTableView.estimatedRowHeight = 50;
+    self.ownedTableView.rowHeight = UITableViewAutomaticDimension;
+    self.ownedStories = [API sampleStory];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    OwnedStoryTableViewCell *cell = [_ownedTableView dequeueReusableCellWithIdentifier:@"ownedStoryCell" forIndexPath:indexPath];
+    OwnedStoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OwnedStoryTableViewCell" forIndexPath:indexPath];
+    Story *current = self.ownedStories[indexPath.row];
     
-    if (cell == nil) {
-        cell =  [tableView dequeueReusableCellWithIdentifier:@"ownedStoryCell"];
-    }
-    
-    User *user = [[User alloc] init];
-    cell.ownedStoryTitleLabel.text = user.ownedStories;
-    
-    
+    cell.ownedStoryTitleLabel.text = current.title;
+    cell.ownedStoryDescriptionLabel.text = current.description;
     
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    return [self.ownedStories count];
 }
 
 @end

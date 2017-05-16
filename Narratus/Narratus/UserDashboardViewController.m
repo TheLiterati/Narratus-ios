@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.userNameLabel.text = _user.ownedStories;
+    self.userNameLabel.text = @"username here please";
 }
 
 
