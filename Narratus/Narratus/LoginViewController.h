@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@import GoogleSignIn;
 
-@interface LoginViewController : UIViewController <GIDSignInUIDelegate>
-
-
-
-
+@interface LoginViewController : UIViewController
 
 @end

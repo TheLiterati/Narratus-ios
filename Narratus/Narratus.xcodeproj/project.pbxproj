@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		241E1EA7DD4C98B405A50E68 /* libPods-Narratus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 986D823360266CDDA2329687 /* libPods-Narratus.a */; };
 		BC38B7F71ECA22580090A38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F61ECA22580090A38B /* main.m */; };
 		BC38B7FA1ECA22580090A38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F91ECA22580090A38B /* AppDelegate.m */; };
 		BC38B8001ECA22580090A38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC38B7FE1ECA22580090A38B /* Main.storyboard */; };
@@ -41,7 +40,6 @@
 		BC38B8601ECA78610090A38B /* snippetsample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85D1ECA78610090A38B /* snippetsample.json */; };
 		BC38B8611ECA78610090A38B /* storysample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85E1ECA78610090A38B /* storysample.json */; };
 		BC38B8621ECA78610090A38B /* usersample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85F1ECA78610090A38B /* usersample.json */; };
-		C01AE3161ECA9BD1003C4041 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C01AE3151ECA9BD1003C4041 /* GoogleService-Info.plist */; };
 		C0699A381ECA5AC60083E326 /* OwnedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */; };
 		C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */; };
 		C0699A3D1ECA5AD80083E326 /* FollowedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */; };
@@ -49,9 +47,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		521EBB9CCBFFF510B7D7692E /* Pods-Narratus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Narratus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Narratus/Pods-Narratus.debug.xcconfig"; sourceTree = "<group>"; };
-		8CC922281D7D6691023E43EB /* Pods-Narratus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Narratus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Narratus/Pods-Narratus.release.xcconfig"; sourceTree = "<group>"; };
-		986D823360266CDDA2329687 /* libPods-Narratus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Narratus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC38B7F21ECA22580090A38B /* Narratus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narratus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC38B7F61ECA22580090A38B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC38B7F81ECA22580090A38B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,7 +103,6 @@
 		BC38B85D1ECA78610090A38B /* snippetsample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snippetsample.json; sourceTree = "<group>"; };
 		BC38B85E1ECA78610090A38B /* storysample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storysample.json; sourceTree = "<group>"; };
 		BC38B85F1ECA78610090A38B /* usersample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersample.json; sourceTree = "<group>"; };
-		C01AE3151ECA9BD1003C4041 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStoryTableViewCell.h; sourceTree = "<group>"; };
 		C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStoryTableViewCell.m; sourceTree = "<group>"; };
 		C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedStoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -122,29 +116,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				241E1EA7DD4C98B405A50E68 /* libPods-Narratus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B910710238675C89E311E57 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				521EBB9CCBFFF510B7D7692E /* Pods-Narratus.debug.xcconfig */,
-				8CC922281D7D6691023E43EB /* Pods-Narratus.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		BC38B7E91ECA22580090A38B = {
 			isa = PBXGroup;
 			children = (
 				BC38B7F41ECA22580090A38B /* Narratus */,
 				BC38B7F31ECA22580090A38B /* Products */,
-				6B910710238675C89E311E57 /* Pods */,
-				BC4C7C5A1E0FA23C3DC9B6A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,7 +182,6 @@
 		BC38B8251ECA283C0090A38B /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C01AE3151ECA9BD1003C4041 /* GoogleService-Info.plist */,
 				BC38B8561ECA51890090A38B /* sample.json */,
 				BC38B85D1ECA78610090A38B /* snippetsample.json */,
 				BC38B85E1ECA78610090A38B /* storysample.json */,
@@ -273,14 +254,6 @@
 			name = containter;
 			sourceTree = "<group>";
 		};
-		BC4C7C5A1E0FA23C3DC9B6A8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				986D823360266CDDA2329687 /* libPods-Narratus.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,12 +261,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC38B8091ECA22580090A38B /* Build configuration list for PBXNativeTarget "Narratus" */;
 			buildPhases = (
-				F7460BA5F8ABD1C71C4F15F3 /* [CP] Check Pods Manifest.lock */,
 				BC38B7EE1ECA22580090A38B /* Sources */,
 				BC38B7EF1ECA22580090A38B /* Frameworks */,
 				BC38B7F01ECA22580090A38B /* Resources */,
-				26A705E200728B22231EB415 /* [CP] Embed Pods Frameworks */,
-				DDA4011F06EAB9145A79DDEE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -356,59 +326,10 @@
 				BC38B8351ECA30170090A38B /* SnippetTableViewCell.xib in Resources */,
 				BC38B8621ECA78610090A38B /* usersample.json in Resources */,
 				C0699A3E1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib in Resources */,
-				C01AE3161ECA9BD1003C4041 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		26A705E200728B22231EB415 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Narratus/Pods-Narratus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DDA4011F06EAB9145A79DDEE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Narratus/Pods-Narratus-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F7460BA5F8ABD1C71C4F15F3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC38B7EE1ECA22580090A38B /* Sources */ = {
@@ -558,7 +479,6 @@
 		};
 		BC38B80A1ECA22580090A38B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 521EBB9CCBFFF510B7D7692E /* Pods-Narratus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AYB4L38F4S;
@@ -571,7 +491,6 @@
 		};
 		BC38B80B1ECA22580090A38B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CC922281D7D6691023E43EB /* Pods-Narratus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AYB4L38F4S;
