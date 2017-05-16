@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		838B64E91ECB6BDB0016E49C /* NarratusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 838B64E81ECB6BDB0016E49C /* NarratusTests.m */; };
 		838B64F11ECB6C280016E49C /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 838B64F01ECB6C280016E49C /* APITest.m */; };
+		83A7042E1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */; };
 		BC38B7F71ECA22580090A38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F61ECA22580090A38B /* main.m */; };
 		BC38B7FA1ECA22580090A38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F91ECA22580090A38B /* AppDelegate.m */; };
 		BC38B8001ECA22580090A38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC38B7FE1ECA22580090A38B /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		838B64E81ECB6BDB0016E49C /* NarratusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NarratusTests.m; sourceTree = "<group>"; };
 		838B64EA1ECB6BDB0016E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		838B64F01ECB6C280016E49C /* APITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
+		83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStorySnippetViewControllerTest.m; sourceTree = "<group>"; };
 		BC38B7F21ECA22580090A38B /* Narratus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narratus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC38B7F61ECA22580090A38B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC38B7F81ECA22580090A38B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				838B64E81ECB6BDB0016E49C /* NarratusTests.m */,
 				838B64EA1ECB6BDB0016E49C /* Info.plist */,
 				838B64F01ECB6C280016E49C /* APITest.m */,
+				83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */,
 			);
 			path = NarratusTests;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A7042E1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m in Sources */,
 				838B64F11ECB6C280016E49C /* APITest.m in Sources */,
 				838B64E91ECB6BDB0016E49C /* NarratusTests.m in Sources */,
 			);
@@ -621,6 +625,7 @@
 				838B64EF1ECB6BDB0016E49C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC38B7ED1ECA22580090A38B /* Build configuration list for PBXProject "Narratus" */ = {
 			isa = XCConfigurationList;
