@@ -8,10 +8,12 @@
 
 #import "StoryViewController.h"
 
+
 @interface StoryViewController ()
 @property (weak, nonatomic) IBOutlet UIView *storyTableView;
 @property (weak, nonatomic) IBOutlet UIView *addSnippetView;
 @property (weak, nonatomic) IBOutlet UIButton *toggleButton;
+//@property (strong, nonatomic) NSArray<Snippet*> *allSnippets;
 
 @end
 
