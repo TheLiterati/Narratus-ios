@@ -1,5 +1,5 @@
 //
-//  OwnedStorySnippetViewControllerTest.m
+//  PendingSnippetViewControllerTest.m
 //  Narratus
 //
 //  Created by Mike Miksch on 5/16/17.
@@ -7,26 +7,25 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "OwnedStorySnippetViewController.h"
+#import "PendingSnippetViewController.h"
 #import "API.h"
 
-@interface OwnedStorySnippetViewControllerTest : XCTestCase
+@interface PendingSnippetViewControllerTest : XCTestCase
 
 @property (strong, nonatomic) UIStoryboard *testStoryboard;
-@property (strong, nonatomic) OwnedStorySnippetViewController *testController;
+@property (strong, nonatomic) PendingSnippetViewController *testController;
 
 @end
 
-@implementation OwnedStorySnippetViewControllerTest
+@implementation PendingSnippetViewControllerTest
 
 - (void)setUp {
     [super setUp];
     self.testStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.testController = [self.testStoryboard instantiateViewControllerWithIdentifier:@"OwnedStorySnippetViewController"];
+    self.testController = [self.testStoryboard instantiateViewControllerWithIdentifier:@"PendingSnippetViewController"];
     id storyArray = [API sampleStory];
     self.testController.currentStory = storyArray[0];
     
-
 }
 
 - (void)tearDown {
@@ -38,6 +37,5 @@
 - (void)testValidStory {
     XCTAssertNotNil([self.testController currentStory], @"Story was nil");
 }
-
 
 @end
