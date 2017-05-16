@@ -11,7 +11,7 @@
 @interface NewStoryViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
-@property (weak, nonatomic) IBOutlet UITextField *storyTextField;
+@property (weak, nonatomic) IBOutlet UITextView *storyTextView;
 @property (weak, nonatomic) IBOutlet UILabel *characterCounter;
 
 @end
@@ -20,24 +20,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.storyTextField.delegate = self;
+    self.storyTextView.delegate = self;
 
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
-    length = self.storyTextField.text.length;
+    length = self.storyTextView.text.length;
     NSInteger remaining = 250 - length;
     self.characterCounter.text = [NSString stringWithFormat:@"%li", remaining];
     if (remaining <= 50) {
-        self.characterCounter.text = [UIColor redColor];
+        self.characterCounter.textColor = [UIColor redColor];
     }
     if (remaining == 0) {
-        self.storyTextField.enabled = NO;
+        self.storyTextView.editable = NO;
     }
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+    //self.titleTextField.text = title
+    //self.descriptionTextField.text = description
+    //self.storyTextView.text = content
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
