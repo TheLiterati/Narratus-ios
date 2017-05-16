@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		838B64E91ECB6BDB0016E49C /* NarratusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 838B64E81ECB6BDB0016E49C /* NarratusTests.m */; };
+		838B64F11ECB6C280016E49C /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 838B64F01ECB6C280016E49C /* APITest.m */; };
+		83A7042E1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */; };
+		83A704301ECB961F000CC689 /* PendingSnippetViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A7042F1ECB961F000CC689 /* PendingSnippetViewControllerTest.m */; };
+		83A704321ECB97DB000CC689 /* StoryTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A704311ECB97DB000CC689 /* StoryTableViewControllerTest.m */; };
+		83A704341ECB9922000CC689 /* UserDashboardViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A704331ECB9922000CC689 /* UserDashboardViewControllerTest.m */; };
+		83A704361ECB9A4C000CC689 /* StoryViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A704351ECB9A4C000CC689 /* StoryViewControllerTest.m */; };
+		83A704381ECB9ADC000CC689 /* OwnedStoryViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A704371ECB9ADC000CC689 /* OwnedStoryViewControllerTest.m */; };
 		BC38B7F71ECA22580090A38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F61ECA22580090A38B /* main.m */; };
 		BC38B7FA1ECA22580090A38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F91ECA22580090A38B /* AppDelegate.m */; };
 		BC38B8001ECA22580090A38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC38B7FE1ECA22580090A38B /* Main.storyboard */; };
@@ -47,7 +55,27 @@
 		C0699A3E1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		838B64EB1ECB6BDB0016E49C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC38B7EA1ECA22580090A38B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC38B7F11ECA22580090A38B;
+			remoteInfo = Narratus;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		838B64E61ECB6BDB0016E49C /* NarratusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NarratusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		838B64E81ECB6BDB0016E49C /* NarratusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NarratusTests.m; sourceTree = "<group>"; };
+		838B64EA1ECB6BDB0016E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		838B64F01ECB6C280016E49C /* APITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
+		83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStorySnippetViewControllerTest.m; sourceTree = "<group>"; };
+		83A7042F1ECB961F000CC689 /* PendingSnippetViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSnippetViewControllerTest.m; sourceTree = "<group>"; };
+		83A704311ECB97DB000CC689 /* StoryTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryTableViewControllerTest.m; sourceTree = "<group>"; };
+		83A704331ECB9922000CC689 /* UserDashboardViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDashboardViewControllerTest.m; sourceTree = "<group>"; };
+		83A704351ECB9A4C000CC689 /* StoryViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryViewControllerTest.m; sourceTree = "<group>"; };
+		83A704371ECB9ADC000CC689 /* OwnedStoryViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStoryViewControllerTest.m; sourceTree = "<group>"; };
 		BC38B7F21ECA22580090A38B /* Narratus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narratus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC38B7F61ECA22580090A38B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC38B7F81ECA22580090A38B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +143,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		838B64E31ECB6BDB0016E49C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC38B7EF1ECA22580090A38B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,10 +160,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		838B64E71ECB6BDB0016E49C /* NarratusTests */ = {
+			isa = PBXGroup;
+			children = (
+				83A704331ECB9922000CC689 /* UserDashboardViewControllerTest.m */,
+				838B64E81ECB6BDB0016E49C /* NarratusTests.m */,
+				838B64EA1ECB6BDB0016E49C /* Info.plist */,
+				838B64F01ECB6C280016E49C /* APITest.m */,
+				83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */,
+				83A7042F1ECB961F000CC689 /* PendingSnippetViewControllerTest.m */,
+				83A704311ECB97DB000CC689 /* StoryTableViewControllerTest.m */,
+				83A704351ECB9A4C000CC689 /* StoryViewControllerTest.m */,
+				83A704371ECB9ADC000CC689 /* OwnedStoryViewControllerTest.m */,
+			);
+			path = NarratusTests;
+			sourceTree = "<group>";
+		};
 		BC38B7E91ECA22580090A38B = {
 			isa = PBXGroup;
 			children = (
 				BC38B7F41ECA22580090A38B /* Narratus */,
+				838B64E71ECB6BDB0016E49C /* NarratusTests */,
 				BC38B7F31ECA22580090A38B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				BC38B7F21ECA22580090A38B /* Narratus.app */,
+				838B64E61ECB6BDB0016E49C /* NarratusTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,6 +315,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		838B64E51ECB6BDB0016E49C /* NarratusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 838B64ED1ECB6BDB0016E49C /* Build configuration list for PBXNativeTarget "NarratusTests" */;
+			buildPhases = (
+				838B64E21ECB6BDB0016E49C /* Sources */,
+				838B64E31ECB6BDB0016E49C /* Frameworks */,
+				838B64E41ECB6BDB0016E49C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				838B64EC1ECB6BDB0016E49C /* PBXTargetDependency */,
+			);
+			name = NarratusTests;
+			productName = NarratusTests;
+			productReference = 838B64E61ECB6BDB0016E49C /* NarratusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BC38B7F11ECA22580090A38B /* Narratus */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC38B8091ECA22580090A38B /* Build configuration list for PBXNativeTarget "Narratus" */;
@@ -288,9 +359,15 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Christina Lee";
 				TargetAttributes = {
+					838B64E51ECB6BDB0016E49C = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = HDU39LZWX7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BC38B7F11ECA22580090A38B;
+					};
 					BC38B7F11ECA22580090A38B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = AYB4L38F4S;
+						DevelopmentTeam = HDU39LZWX7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -309,11 +386,19 @@
 			projectRoot = "";
 			targets = (
 				BC38B7F11ECA22580090A38B /* Narratus */,
+				838B64E51ECB6BDB0016E49C /* NarratusTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		838B64E41ECB6BDB0016E49C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC38B7F01ECA22580090A38B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,6 +422,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		838B64E21ECB6BDB0016E49C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83A704341ECB9922000CC689 /* UserDashboardViewControllerTest.m in Sources */,
+				83A704361ECB9A4C000CC689 /* StoryViewControllerTest.m in Sources */,
+				83A704301ECB961F000CC689 /* PendingSnippetViewControllerTest.m in Sources */,
+				83A7042E1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m in Sources */,
+				838B64F11ECB6C280016E49C /* APITest.m in Sources */,
+				838B64E91ECB6BDB0016E49C /* NarratusTests.m in Sources */,
+				83A704381ECB9ADC000CC689 /* OwnedStoryViewControllerTest.m in Sources */,
+				83A704321ECB97DB000CC689 /* StoryTableViewControllerTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC38B7EE1ECA22580090A38B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,6 +471,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		838B64EC1ECB6BDB0016E49C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC38B7F11ECA22580090A38B /* Narratus */;
+			targetProxy = 838B64EB1ECB6BDB0016E49C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		BC38B7FE1ECA22580090A38B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -391,6 +499,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		838B64EE1ECB6BDB0016E49C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = HDU39LZWX7;
+				INFOPLIST_FILE = NarratusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikemiksch.NarratusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Narratus.app/Narratus";
+			};
+			name = Debug;
+		};
+		838B64EF1ECB6BDB0016E49C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = HDU39LZWX7;
+				INFOPLIST_FILE = NarratusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikemiksch.NarratusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Narratus.app/Narratus";
+			};
+			name = Release;
+		};
 		BC38B8071ECA22580090A38B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -487,7 +621,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AYB4L38F4S;
+				DEVELOPMENT_TEAM = HDU39LZWX7;
 				INFOPLIST_FILE = Narratus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.Narratus;
@@ -499,7 +633,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AYB4L38F4S;
+				DEVELOPMENT_TEAM = HDU39LZWX7;
 				INFOPLIST_FILE = Narratus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.Narratus;
@@ -510,6 +644,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		838B64ED1ECB6BDB0016E49C /* Build configuration list for PBXNativeTarget "NarratusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				838B64EE1ECB6BDB0016E49C /* Debug */,
+				838B64EF1ECB6BDB0016E49C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BC38B7ED1ECA22580090A38B /* Build configuration list for PBXProject "Narratus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
