@@ -33,19 +33,6 @@
     self.ownedStories = [API sampleStory];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [super prepareForSegue:segue sender:sender];
-    
-    if ([segue.identifier isEqualToString:@"OwnedStoryViewController"]) {
-        //        Story *currentStory = [[Story alloc]init];
-        //        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
-        //        currentStory = self.allStories[selectedIndex];
-//        StoryViewController *destinationController = segue.destinationViewController;
-        OwnedStoryViewController *destinationController = segue.destinationViewController;
-        //        destinationController.currentStory = currentStory;
-    }
-    
-}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.ownedStories count];
@@ -63,8 +50,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    OwnedStoryViewController
-//    [self performSegueWithIdentifier:@"OwnedStoryViewController" sender:self];
     OwnedStoryViewController *ownVC = [self.storyboard instantiateViewControllerWithIdentifier:@"OwnedStoryViewController"];
     [self.navigationController pushViewController:ownVC animated:YES];
     

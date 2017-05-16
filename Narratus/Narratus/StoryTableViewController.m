@@ -42,7 +42,7 @@
     Snippet *current = self.allSnippets[indexPath.row];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
-    NSLog(@"%@", dateString);
+//    NSLog(@"%@", dateString);
     cell.snippetContentLabel.text = current.content;
     cell.snippetDateLabel.text = @"date goes here";
 
