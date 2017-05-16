@@ -7,6 +7,7 @@
 //
 
 #import "NewStoryViewController.h"
+#import "Story.h"
 
 @interface NewStoryViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -21,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.storyTextField.delegate = self;
-
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
@@ -39,6 +39,12 @@
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
+    
+    Story *newStory = [[Story alloc] init];
+    newStory.title = _titleTextField.text;
+    newStory.storyDescription = _descriptionTextField.text;
+    newStory.storySnippets = _storyTextField.text;
+    
 }
 
 @end

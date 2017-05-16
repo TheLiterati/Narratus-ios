@@ -25,6 +25,4 @@
 @property (strong, nonatomic) NSNumber *pendingSnippetCount;
 @property (strong, nonatomic) NSString *storyID;
 
-
-
 @end
