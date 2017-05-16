@@ -10,7 +10,7 @@
 #import "OwnedTableViewController.h"
 #import "FollowedStoryViewController.h"
 
-@interface UserDashboardViewController ()
+@interface UserDashboardViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @end
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.userNameLabel.text = @"username here please";
-    
+  
 }
 
 

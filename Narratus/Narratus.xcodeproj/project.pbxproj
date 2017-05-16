@@ -40,6 +40,7 @@
 		BC38B8601ECA78610090A38B /* snippetsample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85D1ECA78610090A38B /* snippetsample.json */; };
 		BC38B8611ECA78610090A38B /* storysample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85E1ECA78610090A38B /* storysample.json */; };
 		BC38B8621ECA78610090A38B /* usersample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85F1ECA78610090A38B /* usersample.json */; };
+		C01AE3191ECBBC33003C4041 /* StoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C01AE3181ECBBC33003C4041 /* StoryManager.m */; };
 		C0699A381ECA5AC60083E326 /* OwnedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */; };
 		C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */; };
 		C0699A3D1ECA5AD80083E326 /* FollowedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */; };
@@ -103,6 +104,8 @@
 		BC38B85D1ECA78610090A38B /* snippetsample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snippetsample.json; sourceTree = "<group>"; };
 		BC38B85E1ECA78610090A38B /* storysample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storysample.json; sourceTree = "<group>"; };
 		BC38B85F1ECA78610090A38B /* usersample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersample.json; sourceTree = "<group>"; };
+		C01AE3171ECBBC33003C4041 /* StoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryManager.h; sourceTree = "<group>"; };
+		C01AE3181ECBBC33003C4041 /* StoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryManager.m; sourceTree = "<group>"; };
 		C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStoryTableViewCell.h; sourceTree = "<group>"; };
 		C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStoryTableViewCell.m; sourceTree = "<group>"; };
 		C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedStoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				BC38B82E1ECA292B0090A38B /* API.h */,
 				BC38B82F1ECA292B0090A38B /* API.m */,
 				BC38B8221ECA28380090A38B /* User.h */,
+				C01AE3171ECBBC33003C4041 /* StoryManager.h */,
+				C01AE3181ECBBC33003C4041 /* StoryManager.m */,
 				BC38B8231ECA28380090A38B /* User.m */,
 				BC38B8261ECA284B0090A38B /* Story.h */,
 				BC38B8271ECA284B0090A38B /* Story.m */,
@@ -341,6 +346,7 @@
 				BC38B8491ECA46B80090A38B /* StoryTableViewController.m in Sources */,
 				BC38B8421ECA308D0090A38B /* NewSnippetViewController.m in Sources */,
 				BC38B81E1ECA281A0090A38B /* StoryViewController.m in Sources */,
+				C01AE3191ECBBC33003C4041 /* StoryManager.m in Sources */,
 				BC38B8241ECA28380090A38B /* User.m in Sources */,
 				BC38B8391ECA303C0090A38B /* PendingSnippetTableViewCell.m in Sources */,
 				BC38B83E1ECA30510090A38B /* StoryTableViewCell.m in Sources */,

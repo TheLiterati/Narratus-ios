@@ -11,10 +11,12 @@
 #import "User.h"
 #import "Story.h"
 #import "API.h"
+#import "StoryManager.h"
 
 @interface OwnedTableViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
-@property (strong, nonatomic) NSArray<Story *> *ownedStories;
+@property (strong, nonatomic) NSMutableArray<Story *> *ownedStories;
+
 
 @end
 
@@ -22,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.ownedStories = [[NSArray<Story *> alloc]init];
+    self.ownedStories = [[NSMutableArray alloc]init];
     self.ownedTableView.dataSource = self;
     UINib *cellNib = [UINib nibWithNibName:@"OwnedStoryTableViewCell" bundle:nil];
     [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"OwnedStoryTableViewCell"];
@@ -34,7 +36,12 @@
 }
 
 -(void)updateOwnedStories{
+    NSLog(@"%@",[self.ownedStories lastObject]);
     
+    self.ownedStories = [StoryManager shared].userStories;
+
+//    [[NSUserDefaults standardUserDefaults] arrayForKey:@"ownedStories"];
+    [self.ownedTableView reloadData];
     
 }
 
@@ -53,5 +60,7 @@
     
     return [self.ownedStories count];
 }
+
+
 
 @end
