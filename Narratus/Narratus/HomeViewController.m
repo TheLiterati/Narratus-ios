@@ -43,11 +43,11 @@
     [super prepareForSegue:segue sender:sender];
     
     if ([segue.identifier isEqualToString:@"StoryViewControllerFromHome"]) {
-        Story *currentStory = [[Story alloc]init];
-        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
-        currentStory = self.allStories[selectedIndex];
+//        Story *currentStory = [[Story alloc]init];
+//        NSInteger selectedIndex = self.lastUpdatedTableView.indexPathForSelectedRow.row;
+//        currentStory = self.allStories[selectedIndex];
         StoryViewController *destinationController = segue.destinationViewController;
-        destinationController.currentStory = currentStory;
+//        destinationController.currentStory = currentStory;
     }
     
 }
@@ -68,6 +68,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"StoryViewControllerFromHome" sender:self];
+    
 }
 
 
