@@ -49,7 +49,7 @@
 + (void)testSampleUser {
     id usersArray = [API sampleUser];
     User *user = usersArray[0];
-    XCTAssert([usersArray isKindOfClass:[NSMutableArray class]], @"usersArray is not an isntance of NSMutableArray");
+    XCTAssert([usersArray isKindOfClass:[NSMutableArray class]], @"usersArray is not an instance of NSMutableArray");
     XCTAssertFalse([usersArray isEmpty], @"users is empty");
     XCTAssert([usersArray[0] isKindOfClass:[User class]], @"user is not of class User");
     XCTAssertNotNil(user.userName, @"user.userName is nil");
@@ -62,6 +62,21 @@
 }
 
 + (void)testSampleSnippet {
+    id snippetsArray = [API sampleSnippet];
+    Snippet *snippet = snippetsArray[0];
+    XCTAssert([snippetsArray isKindOfClass:[NSMutableArray class]], @"snippetsArray is not an instance of NSMutableArray");
+    XCTAssertFalse([snippetsArray isEmpty], @"snippetsArray is empty");
+    XCTAssert([snippetsArray[0] isKindOfClass:[Snippet class]], @"snippet is not of class Snippet");
+    XCTAssertNotNil(snippet.likes, @" is nil");
+    XCTAssertNotNil(snippet.content, @" is nil");
+    XCTAssertNotNil(snippet.createdDate, @" is nil");
+    XCTAssertNotNil(snippet.snippetCreator, @" is nil");
+    XCTAssertNotNil(snippet.pending, @" is nil");
+    XCTAssertNotNil(snippet.snippetID, @" is nil");
+    XCTAssertNotNil(snippet.accepted, @" is nil");
+    XCTAssertNotNil(snippet.acceptedDate, @" is nil");
+    XCTAssertNotNil(snippet.lastViewDate, @" is nil");
+    XCTAssertNotNil(snippet.bookmark, @" is nil");
     
 }
 
