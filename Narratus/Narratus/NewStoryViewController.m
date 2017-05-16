@@ -42,6 +42,9 @@
     //self.titleTextField.text = title
     //self.descriptionTextField.text = description
     //self.storyTextView.text = content
+    UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Success!" message:@"Your story has been submitted!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [success show];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
