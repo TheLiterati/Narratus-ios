@@ -9,6 +9,7 @@
 #import "OwnedStorySnippetViewController.h"
 #import "Snippet.h"
 #import "OwnedSnippetTableViewCell.h"
+#import "API.h"
 
 @interface OwnedStorySnippetViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -26,7 +27,7 @@
     self.storyTableView.delegate = self;
     UINib *snippetNib = [UINib nibWithNibName:@"OwnedSnippetTableViewCell" bundle:nil];
     [self.storyTableView registerNib:snippetNib forCellReuseIdentifier:@"OwnedSnippetTableViewCell"];
-
+    self.confirmedSnippets = [API sampleSnippet];
     // Do any additional setup after loading the view.
 }
 

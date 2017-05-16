@@ -15,13 +15,14 @@
 @interface API : NSObject
 
 
-@property(strong, nonatomic) NSMutableArray<User *> *allUsers;
+//@property(strong, nonatomic) NSMutableArray<User *> *allUsers;
 @property(strong, nonatomic) NSMutableArray<Snippet *> *allSnippets;
 
 //+(void)sampleStory;
 +(NSMutableArray *)sampleStory;
--(void)sampleUser;
 
--(void)sampleSnippet;
++(NSMutableArray *)sampleUser;
+
++(NSMutableArray *)sampleSnippet;
 
 @end
