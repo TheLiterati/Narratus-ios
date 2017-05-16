@@ -44,8 +44,8 @@
     NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
     NSLog(@"%@", dateString);
     cell.snippetContentLabel.text = current.content;
-//    cell.snippetDateLabel.text = dateString;
-                                      
+    cell.snippetDateLabel.text = @"date goes here";
+
     return cell;
 }
 

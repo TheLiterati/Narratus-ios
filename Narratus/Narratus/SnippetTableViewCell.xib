@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqH-fH-y4G">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTENT" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqH-fH-y4G">
                         <rect key="frame" x="5" y="5" width="310" height="26.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -42,9 +42,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="snippetContent" destination="TqH-fH-y4G" id="4sD-tW-UeF"/>
                 <outlet property="snippetContentLabel" destination="TqH-fH-y4G" id="WIu-Du-jzY"/>
-                <outlet property="snippetDate" destination="BQ2-C0-KAN" id="RuX-SH-noZ"/>
                 <outlet property="snippetDateLabel" destination="BQ2-C0-KAN" id="aEu-mX-QW7"/>
             </connections>
             <point key="canvasLocation" x="34" y="63.5"/>
