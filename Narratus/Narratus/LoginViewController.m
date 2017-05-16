@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+@import GoogleSignIn;
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -18,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    GIDSignInButton *googleSignIn = [[GIDSignInButton alloc]initWithFrame:CGRectMake(100, 300, 200, 200)];
+    [self.view addSubview:googleSignIn];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,9 +33,14 @@
 }
 
 - (IBAction)loginPressed:(UIButton *)sender {
+    
+    
 }
 - (IBAction)signupPressed:(UIButton *)sender {
 }
 
+- (IBAction)didTapSignOut:(id)sender {
+    [[GIDSignIn sharedInstance] signOut];
+}
 
 @end
