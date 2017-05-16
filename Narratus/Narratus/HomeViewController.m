@@ -10,6 +10,7 @@
 #import "Story.h"
 #import "StoryTableViewCell.h"
 #import "StoryViewController.h"
+#import "API.h"
 
 @interface HomeViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -27,6 +28,8 @@
     self.allStories = [[NSArray<Story *> alloc]init];
     UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
+    self.allStories = [API sampleStory];
+    [self.lastUpdatedTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,8 +56,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
-    cell.titleLabel.text = @"title sample";
-    cell.descriptionLabel.text = @"description sample";
+    Story *current = self.allStories[indexPath.row];
+    
+    cell.titleLabel.text = current.title;
+    cell.descriptionLabel.text = current.description;
     
     return cell;
 }

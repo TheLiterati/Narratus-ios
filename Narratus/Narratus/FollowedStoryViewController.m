@@ -34,7 +34,7 @@
         cell =  [tableView dequeueReusableCellWithIdentifier:@"followedStoryCell"];
     }
     
-    User *user = self.followedStories;
+    User *user = self.followedStories[indexPath.row];
     
     cell.followedStoryTitleLabel.text = user.followedStories;
     

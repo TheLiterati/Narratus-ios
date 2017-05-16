@@ -11,8 +11,8 @@
 
 @implementation API
 
--(void)sampleStory {
-
++(NSMutableArray *)sampleStory {
+    NSMutableArray<Story *> *allStories = [[NSMutableArray<Story *> alloc]init];
     NSDictionary *stories = [[NSDictionary alloc]init];
     NSString *path = [[NSBundle mainBundle]pathForResource:@"storysample" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:path];
@@ -21,7 +21,7 @@
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
     
     if (jsonError) {
-        NSLog(@"%@", jsonError.localizedDescription);
+        NSLog(@"sample error: %@", jsonError.localizedDescription);
     }
     
     stories = jsonDictionary[@"Stories"];
@@ -42,12 +42,13 @@
         newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
         newStory.storyID = story[@"_id"];
     
-        [self.allStories addObject:newStory];
+        [allStories addObject:newStory];
     }
-
+    return allStories;
 }
 
--(void)sampleUser {
++(NSMutableArray *)sampleUser {
+    NSMutableArray<User *> *allUsers = [[NSMutableArray<User *> alloc]init];
     NSDictionary *users = [[NSDictionary alloc]init];
     NSString *path = [[NSBundle mainBundle]pathForResource:@"usersample" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:path];
@@ -70,11 +71,13 @@
         newUser.followedStories = user[@"followedStories"];
         newUser.userID = user[@"_id"];
         
-        [self.allUsers addObject:newUser];
+        [allUsers addObject:newUser];
     }
+    return allUsers;
 }
 
--(void)sampleSnippet {
++(NSMutableArray *)sampleSnippet {
+    NSMutableArray<Snippet *> *allSnippets = [[NSMutableArray<Snippet *> alloc]init];
     NSDictionary *snippets = [[NSDictionary alloc]init];
     NSString *path = [[NSBundle mainBundle]pathForResource:@"snippetsample" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:path];
@@ -101,8 +104,9 @@
         newSnippet.lastViewDate = snippet[@"lastViewedDate"];
         newSnippet.bookmark = snippet[@"bookmark"];
         
-        [self.allSnippets addObject:newSnippet];
+        [allSnippets addObject:newSnippet];
     }
+    return allSnippets;
 }
 @end
 
