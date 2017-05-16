@@ -48,6 +48,7 @@
 		BC38B8601ECA78610090A38B /* snippetsample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85D1ECA78610090A38B /* snippetsample.json */; };
 		BC38B8611ECA78610090A38B /* storysample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85E1ECA78610090A38B /* storysample.json */; };
 		BC38B8621ECA78610090A38B /* usersample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85F1ECA78610090A38B /* usersample.json */; };
+		BC38B8651ECBA7A50090A38B /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8641ECBA7A50090A38B /* SignupViewController.m */; };
 		C0699A381ECA5AC60083E326 /* OwnedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */; };
 		C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */; };
 		C0699A3D1ECA5AD80083E326 /* FollowedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */; };
@@ -131,6 +132,8 @@
 		BC38B85D1ECA78610090A38B /* snippetsample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snippetsample.json; sourceTree = "<group>"; };
 		BC38B85E1ECA78610090A38B /* storysample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storysample.json; sourceTree = "<group>"; };
 		BC38B85F1ECA78610090A38B /* usersample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersample.json; sourceTree = "<group>"; };
+		BC38B8631ECBA7A50090A38B /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		BC38B8641ECBA7A50090A38B /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStoryTableViewCell.h; sourceTree = "<group>"; };
 		C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStoryTableViewCell.m; sourceTree = "<group>"; };
 		C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedStoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				BC38B84B1ECA46F00090A38B /* PendingSnippetViewController.m */,
 				BC38B8471ECA46B80090A38B /* StoryTableViewController.h */,
 				BC38B8481ECA46B80090A38B /* StoryTableViewController.m */,
+				BC38B8631ECBA7A50090A38B /* SignupViewController.h */,
+				BC38B8641ECBA7A50090A38B /* SignupViewController.m */,
 			);
 			name = containter;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				BC38B8551ECA48260090A38B /* OwnedStorySnippetViewController.m in Sources */,
 				BC38B85B1ECA67900090A38B /* OwnedSnippetTableViewCell.m in Sources */,
 				BC38B8521ECA479C0090A38B /* FollowedStoryViewController.m in Sources */,
+				BC38B8651ECBA7A50090A38B /* SignupViewController.m in Sources */,
 				BC38B7F71ECA22580090A38B /* main.m in Sources */,
 				BC38B8151ECA27F40090A38B /* UserDashboardViewController.m in Sources */,
 				BC38B8111ECA27C50090A38B /* HomeViewController.m in Sources */,

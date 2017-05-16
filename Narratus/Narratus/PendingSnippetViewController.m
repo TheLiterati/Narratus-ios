@@ -9,6 +9,7 @@
 #import "PendingSnippetViewController.h"
 #import "Snippet.h"
 #import "PendingSnippetTableViewCell.h"
+#import "API.h"
 
 @interface PendingSnippetViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray<Snippet *> *pendingSnippets;
@@ -24,14 +25,18 @@
     self.pendingSnippets = [[NSArray<Snippet *> alloc]init];
     self.pendingTableView.dataSource = self;
     self.pendingTableView.delegate = self;
-    UINib *snippetNib = [UINib nibWithNibName:@"OPendingSnippetTableViewCell" bundle:nil];
+    UINib *snippetNib = [UINib nibWithNibName:@"PendingSnippetTableViewCell" bundle:nil];
     [self.pendingTableView registerNib:snippetNib forCellReuseIdentifier:@"PendingSnippetTableViewCell"];
+    
     // Do any additional setup after loading the view.
+    self.pendingSnippets = [API sampleSnippet];
+    
+    self.pendingTableView.estimatedRowHeight = 50;
+    self.pendingTableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -44,5 +49,7 @@
     cell.pendingContentLabel.text = self.pendingSnippets[indexPath.row].content;
     return cell;
 }
+
+
 
 @end

@@ -16,7 +16,7 @@
 
 
 //@property(strong, nonatomic) NSMutableArray<User *> *allUsers;
-@property(strong, nonatomic) NSMutableArray<Snippet *> *allSnippets;
+//@property(strong, nonatomic) NSMutableArray<Snippet *> *allSnippets;
 
 //+(void)sampleStory;
 +(NSMutableArray *)sampleStory;

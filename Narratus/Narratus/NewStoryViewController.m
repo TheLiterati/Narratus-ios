@@ -8,7 +8,7 @@
 
 #import "NewStoryViewController.h"
 
-@interface NewStoryViewController () <UITextViewDelegate>
+@interface NewStoryViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextView *storyTextView;

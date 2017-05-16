@@ -11,6 +11,10 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupHeight;
+@property (weak, nonatomic) IBOutlet UIButton *signupButton;
+@property (weak, nonatomic) IBOutlet UIView *signupView;
+
 
 @end
 
@@ -27,9 +31,19 @@
 }
 
 - (IBAction)loginPressed:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)signupPressed:(UIButton *)sender {
+    self.signupView.hidden = NO;
+    self.signupHeight.constant = 275;
+    [UIView animateWithDuration:0.6 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+    
+    
+    self.signupButton.hidden = YES;
 }
+
 
 
 @end
