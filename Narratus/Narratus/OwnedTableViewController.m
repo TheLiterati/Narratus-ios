@@ -32,7 +32,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOwnedStories) name:@"newStoryCreation" object:nil];
 }
 
-
 -(void)updateOwnedStories{
     
     

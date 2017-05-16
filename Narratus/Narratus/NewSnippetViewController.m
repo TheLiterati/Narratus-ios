@@ -37,6 +37,7 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetSubmitted" object:nil];
 }
 
 
