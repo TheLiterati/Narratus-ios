@@ -32,16 +32,16 @@
     if (remaining <= 50) {
         self.characterCounter.textColor = [UIColor redColor];
     }
-    if (remaining == 0) {
-        self.storyTextView.editable = NO;
-    }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return self.storyTextView.text.length + (text.length - range.length) <= 250;
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
     //self.titleTextField.text = title
     //self.descriptionTextField.text = description
     //self.storyTextView.text = content
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
