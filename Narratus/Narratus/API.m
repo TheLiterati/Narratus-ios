@@ -11,8 +11,8 @@
 
 @implementation API
 
--(void)sampleStory {
-
++(NSMutableArray *)sampleStory {
+    NSMutableArray<Story *> *allStories = [[NSMutableArray<Story *> alloc]init];
     NSDictionary *stories = [[NSDictionary alloc]init];
     NSString *path = [[NSBundle mainBundle]pathForResource:@"storysample" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:path];
@@ -21,7 +21,7 @@
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
     
     if (jsonError) {
-        NSLog(@"%@", jsonError.localizedDescription);
+        NSLog(@"sample error: %@", jsonError.localizedDescription);
     }
     
     stories = jsonDictionary[@"Stories"];
@@ -42,9 +42,9 @@
         newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
         newStory.storyID = story[@"_id"];
     
-        [self.allStories addObject:newStory];
+        [allStories addObject:newStory];
     }
-
+    return allStories;
 }
 
 -(void)sampleUser {
