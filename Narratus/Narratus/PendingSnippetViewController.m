@@ -24,9 +24,9 @@
     self.pendingSnippets = [[NSArray<Snippet *> alloc]init];
     self.pendingTableView.dataSource = self;
     self.pendingTableView.delegate = self;
-    UINib *snippetNib = [UINib nibWithNibName:@"OPendingSnippetTableViewCell" bundle:nil];
+    UINib *snippetNib = [UINib nibWithNibName:@"PendingSnippetTableViewCell" bundle:nil];
     [self.pendingTableView registerNib:snippetNib forCellReuseIdentifier:@"PendingSnippetTableViewCell"];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {

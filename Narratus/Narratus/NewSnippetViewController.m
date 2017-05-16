@@ -22,7 +22,6 @@
     self.snippetTextField.delegate = self;
 }
 
-
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
     length = self.snippetTextField.text.length;
@@ -37,6 +36,7 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newSnippetSubmitted" object:nil];
 }
 
 

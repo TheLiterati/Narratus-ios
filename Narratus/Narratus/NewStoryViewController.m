@@ -8,6 +8,7 @@
 
 #import "NewStoryViewController.h"
 
+
 @interface NewStoryViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
@@ -38,6 +39,7 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewStoryCreated" object:nil];
 }
 
 @end
