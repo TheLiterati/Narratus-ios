@@ -46,7 +46,7 @@
     Story *newStory = [[Story alloc] init];
     newStory.title = _titleTextField.text;
     newStory.storyDescription = _descriptionTextField.text;
-    newStory.storySnippets = _storyTextField.text;
+    newStory.storySnippets = _storyTextView.text;
     [self.navigationController popViewControllerAnimated:YES];
     
     [[StoryManager shared].userStories addObject:newStory];
