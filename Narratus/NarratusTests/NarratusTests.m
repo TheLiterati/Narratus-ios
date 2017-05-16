@@ -81,17 +81,3 @@
 }
 
 @end
-
-
-//XCTAssertEqualObjects
-//XCTAssertNotEqualObjects
-//XCTAssertEqual
-//XCTAssertNotEqual
-//XCTAssertGreaterThan
-//XCTAssertGreaterThanOrEqual
-//XCTAssertLessThan
-//XCTAssertLessThanOrEqual
-//XCTAssertNil
-//XCTAssertNotNil
-//XCTAssertTrue
-//XCTAssertFalse
