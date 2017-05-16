@@ -30,25 +30,34 @@
     Story *story = storyArray[0];
     XCTAssert([storyArray isKindOfClass:[NSMutableArray class]], @"storyArray is not an instance of NSMutableArray");
     XCTAssertFalse([storyArray isEmpty], @"storyArray is empty");
-    XCTAssert([storyArray[0] isKindOfClass:[Story class]], @"story is not of class story");
-    XCTAssertNotNil(story.ownerUserName);
-    XCTAssertNotNil(story.ownerID);
-    XCTAssertNotNil(story.title);
-    XCTAssertNotNil(story.storyDescription);
-    XCTAssertNotNil(story.createdDate);
-    XCTAssertNotNil(story.lastUpdatedDate);
-    XCTAssertNotNil(story.category);
-    XCTAssertNotNil(story.open);
-    XCTAssertNotNil(story.storySnippets);
-    XCTAssertNotNil(story.storySnippetCount);
-    XCTAssertNotNil(story.pendingSnippets);
-    XCTAssertNotNil(story.pendingSnippetCount);
-    XCTAssertNotNil(story.storyID);
+    XCTAssert([storyArray[0] isKindOfClass:[Story class]], @"story is not of class Story");
+    XCTAssertNotNil(story.ownerUserName, @"story.ownerUserName is nil");
+    XCTAssertNotNil(story.ownerID, @"story.ownerID is nil");
+    XCTAssertNotNil(story.title, @"story.title is nil");
+    XCTAssertNotNil(story.storyDescription, "story.storyDescription is nil");
+    XCTAssertNotNil(story.createdDate, @"story.createdDate is nil");
+    XCTAssertNotNil(story.lastUpdatedDate, @"story.lastUpdatedDate is nil");
+    XCTAssertNotNil(story.category, @"story.category is nil");
+    XCTAssertNotNil(story.open, @"story.open is nil");
+    XCTAssertNotNil(story.storySnippets, @"story.storySnippets is nil");
+    XCTAssertNotNil(story.storySnippetCount, @"storySnippetCount is nil");
+    XCTAssertNotNil(story.pendingSnippets, @"story.pendingSnippets is nil");
+    XCTAssertNotNil(story.pendingSnippetCount, @"story.pendingSnippetCount is nil");
+    XCTAssertNotNil(story.storyID, @"story.storyID is nil");
 }
 
 + (void)testSampleUser {
-    id users = [API sampleUser];
-    User *user = users[0];
+    id usersArray = [API sampleUser];
+    User *user = usersArray[0];
+    XCTAssert([usersArray isKindOfClass:[NSMutableArray class]], @"usersArray is not an isntance of NSMutableArray");
+    XCTAssertFalse([usersArray isEmpty], @"users is empty");
+    XCTAssert([usersArray[0] isKindOfClass:[User class]], @"user is not of class User");
+    XCTAssertNotNil(user.userName, @"user.userName is nil");
+    XCTAssertNotNil(user.password, @"user.password is nil");
+    XCTAssertNotNil(user.email, @"user.email is nil");
+    XCTAssertNotNil(user.ownedStories, @"user.ownedStories is nil");
+    XCTAssertNotNil(user.followedStories, @"user.followedStories is nil");
+    XCTAssertNotNil(user.userID, @"user.userID is nil");
     
 }
 
