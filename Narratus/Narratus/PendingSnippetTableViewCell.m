@@ -20,5 +20,8 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)selectButtonPressed:(UIButton *)sender {
+    NSLog(@"HI");
+}
 
 @end

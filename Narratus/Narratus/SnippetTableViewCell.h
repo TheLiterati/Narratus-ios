@@ -10,8 +10,8 @@
 
 @interface SnippetTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *snippetDate;
-@property (weak, nonatomic) IBOutlet UILabel *snippetContent;
+@property (weak, nonatomic) IBOutlet UILabel *snippetContentLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *snippetDateLabel;
 
 @end

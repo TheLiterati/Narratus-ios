@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSNumber *likes;
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSDate *createdDate;
-@property (strong, nonatomic) User *snippetCreator;
+@property (strong, nonatomic) NSString *snippetCreator;
 @property (strong, nonatomic) NSString *pending;
 @property (strong, nonatomic) NSString *snippetID;
 @property (strong, nonatomic) NSString *accepted;
