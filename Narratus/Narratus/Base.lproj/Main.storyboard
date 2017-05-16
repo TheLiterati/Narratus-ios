@@ -70,6 +70,14 @@
                                     <segue destination="UUT-6W-pBr" kind="embed" id="ZbR-hv-rnJ"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-gt-0ON">
+                                <rect key="frame" x="164" y="402" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="toggleSnippetView:" destination="obO-tk-84e" eventType="touchUpInside" id="omk-kC-No2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -88,6 +96,7 @@
                         <outlet property="addSnippetViewHeightConstraint" destination="Iy5-0b-ijY" id="e3d-IT-nzH"/>
                         <outlet property="newSnippetView" destination="FFW-IA-R77" id="BDS-Pj-EDX"/>
                         <outlet property="storyTableView" destination="ffH-7s-Ggi" id="aUR-Dc-QK1"/>
+                        <outlet property="toggleButton" destination="JQc-gt-0ON" id="O5V-XY-CnQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08p-rM-88v" userLabel="First Responder" sceneMemberID="firstResponder"/>
