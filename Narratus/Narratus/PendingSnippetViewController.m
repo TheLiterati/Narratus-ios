@@ -9,6 +9,7 @@
 #import "PendingSnippetViewController.h"
 #import "Snippet.h"
 #import "PendingSnippetTableViewCell.h"
+#import "API.h"
 
 @interface PendingSnippetViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray<Snippet *> *pendingSnippets;
@@ -27,6 +28,7 @@
     UINib *snippetNib = [UINib nibWithNibName:@"PendingSnippetTableViewCell" bundle:nil];
     [self.pendingTableView registerNib:snippetNib forCellReuseIdentifier:@"PendingSnippetTableViewCell"];
     // Do any additional setup after loading the view.
+    self.pendingSnippets = [API sampleSnippet];
 }
 
 - (void)didReceiveMemoryWarning {
