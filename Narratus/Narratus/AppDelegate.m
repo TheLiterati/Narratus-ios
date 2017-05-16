@@ -22,7 +22,9 @@
     [[GGLContext sharedInstance] configureWithError: &configureError];
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
-    [GIDSignIn sharedInstance].clientID = @"1072324021433-t5un03o9ja2icumtpr8t79b3h1em8ibq.apps.googleusercontent.com";
+    [GIDSignIn sharedInstance].clientID = @"1072324021433-dulhibq7v2k842is40q1jeptnak6ce6m.apps.googleusercontent.com";
+    
+//    [GIDSignIn sharedInstance].redirectURI = @"";
     
     [GIDSignIn sharedInstance].delegate = self;
     
