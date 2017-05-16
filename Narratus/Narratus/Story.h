@@ -11,14 +11,14 @@
 
 @interface Story : NSObject
 
-@property (strong, nonatomic) NSArray<User *> *ownerUserName;
-@property (strong, nonatomic) NSArray<User *> *ownerID;
+@property (strong, nonatomic) NSString *ownerUserName;
+@property (strong, nonatomic) NSString *ownerID;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *storyDescription;
 @property (strong, nonatomic) NSDate *createdDate;
 @property (strong, nonatomic) NSDate *lastUpdatedDate;
 @property (strong, nonatomic) NSString *category;
-@property (nonatomic) BOOL *open;
+@property (strong, nonatomic) NSString *open;
 @property (strong, nonatomic) NSArray *storySnippets;
 @property (strong, nonatomic) NSNumber *storySnippetCount;
 @property (strong, nonatomic) NSArray *pendingSnippets;

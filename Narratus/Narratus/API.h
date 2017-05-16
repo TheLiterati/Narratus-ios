@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Story.h"
+#import "User.h"
+#import "Snippet.h"
+
 
 @interface API : NSObject
+
+@property(strong, nonatomic) NSMutableArray<Story *> *allStories;
+@property(strong, nonatomic) NSMutableArray<User *> *allUsers;
+@property(strong, nonatomic) NSMutableArray<Snippet *> *allSnippets;
+
+-(void)sampleStory;
+
+-(void)sampleUser;
+
+-(void)sampleSnippet;
 
 @end

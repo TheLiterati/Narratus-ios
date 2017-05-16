@@ -27,12 +27,12 @@
     self.allStories = [[NSArray<Story *> alloc]init];
     UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];

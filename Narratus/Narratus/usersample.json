@@ -1,29 +1,28 @@
-user1:
-{
-  "username": "Allie",
-  "password": "abc123".
-  "email": "blah@nada.com",
-  "ownedStories": [{"story1._id"}, {"story2._id"}, {"story3._id"}],
-  "followedStories": [{"story4._id"}, {"story5._id"}],
-  "_id": "5917ae0a6730f715c1cfc1c6",
-},
-
-user2:
-{
-  "username": "Michael",
-  "password": "abcdefg".
-  "email": "michael@great.net",
-  "ownedStories": [{"story6._id"}, {"story7._id"}, {"story8._id"}],
-  "followedStories": [{"story9._id"}, {"story1._id"}],
-  "_id": "5917ae0a6730f715c1cfc1u3",
-},
-
-user3:
-{
-  "username": "Shelly",
-  "password": "123abc".
-  "email": "shelly@tang.edu",
-  "ownedStories": [{"story2._id"}, {"story5._id"}, {"story6._id"}],
-  "followedStories": [{"story3._id"}, {"story4._id"}],
-  "_id": "5917ae0a6730f715c1cnumu3",
-},
+{"Users":[
+          {
+          "username": "Allie",
+          "password": "abc123".
+          "email": "blah@nada.com",
+          "ownedStories": [{"story1._id"}, {"story2._id"}, {"story3._id"}],
+          "followedStories": [{"story4._id"}, {"story5._id"}],
+          "_id": "5917ae0a6730f715c1cfc1c6",
+          },
+          
+          {
+          "username": "Michael",
+          "password": "abcdefg".
+          "email": "michael@great.net",
+          "ownedStories": [{"story6._id"}, {"story7._id"}, {"story8._id"}],
+          "followedStories": [{"story9._id"}, {"story1._id"}],
+          "_id": "5917ae0a6730f715c1cfc1u3",
+          },
+          
+          {
+          "username": "Shelly",
+          "password": "123abc".
+          "email": "shelly@tang.edu",
+          "ownedStories": [{"story2._id"}, {"story5._id"}, {"story6._id"}],
+          "followedStories": [{"story3._id"}, {"story4._id"}],
+          "_id": "5917ae0a6730f715c1cnumu3",
+          }]
+}
