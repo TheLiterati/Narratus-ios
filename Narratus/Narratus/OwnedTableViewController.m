@@ -11,11 +11,13 @@
 #import "User.h"
 #import "Story.h"
 #import "API.h"
+#import "StoryManager.h"
 #import "OwnedStoryViewController.h"
 
 @interface OwnedTableViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
-@property (strong, nonatomic) NSArray<Story *> *ownedStories;
+@property (strong, nonatomic) NSMutableArray<Story *> *ownedStories;
+
 
 @end
 
@@ -23,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.ownedStories = [[NSArray<Story *> alloc]init];
+    self.ownedStories = [[NSMutableArray alloc]init];
     self.ownedTableView.dataSource = self;
     self.ownedTableView.delegate = self;
     UINib *cellNib = [UINib nibWithNibName:@"OwnedStoryTableViewCell" bundle:nil];
@@ -31,6 +33,16 @@
     self.ownedTableView.estimatedRowHeight = 50;
     self.ownedTableView.rowHeight = UITableViewAutomaticDimension;
     self.ownedStories = [API sampleStory];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOwnedStories) name:@"newStoryCreation" object:nil];
+}
+
+-(void)updateOwnedStories{
+    NSLog(@"%@",[self.ownedStories lastObject]);
+    
+    self.ownedStories = [StoryManager shared].userStories;
+    [self.ownedTableView reloadData];
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

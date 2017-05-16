@@ -7,6 +7,7 @@
 //
 
 #import "NewStoryViewController.h"
+#import "StoryManager.h"
 
 @interface NewStoryViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -20,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.storyTextView.delegate = self;
 
 }
@@ -39,12 +41,26 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+
+    
+    Story *newStory = [[Story alloc] init];
+    newStory.title = _titleTextField.text;
+    newStory.storyDescription = _descriptionTextField.text;
+    newStory.storySnippets = _storyTextField.text;
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    [[StoryManager shared].userStories addObject:newStory];
+   
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
+
     //self.titleTextField.text = title
     //self.descriptionTextField.text = description
     //self.storyTextView.text = content
     UIAlertView *success = [[UIAlertView alloc]initWithTitle:@"Success!" message:@"Your story has been submitted!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [success show];
     [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 @end

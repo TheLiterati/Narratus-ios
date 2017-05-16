@@ -29,6 +29,15 @@
     [self.pendingTableView registerNib:snippetNib forCellReuseIdentifier:@"PendingSnippetTableViewCell"];
     
     // Do any additional setup after loading the view.
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pendingSnippetsUpdate) name:@"pendingSnippetSubmitted" object:nil];
+}
+
+-(void)pendingSnippetsUpdate{
+    
+    
+
     self.pendingSnippets = [API sampleSnippet];
     
     self.pendingTableView.estimatedRowHeight = 50;
@@ -37,6 +46,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

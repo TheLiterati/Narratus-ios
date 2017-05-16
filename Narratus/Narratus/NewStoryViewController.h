@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Story.h"
+
+//@protocol NewStoryViewControllerDelegate <NSObject>
+//- (void)newStoryViewControllerDidSaveStory:(Story *)story;
+//@end
 
 @interface NewStoryViewController : UIViewController
-
+//@property (weak, nonatomic) id<NewStoryViewControllerDelegate> delegate;
 @end

@@ -17,6 +17,4 @@
 @property (strong, nonatomic) NSArray *followedStories;
 @property (strong, nonatomic) NSString *userID;
 
-
-
 @end

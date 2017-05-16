@@ -11,7 +11,8 @@
 #import "FollowedStoryViewController.h"
 
 
-@interface UserDashboardViewController ()
+@interface UserDashboardViewController () 
+
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @end
@@ -23,6 +24,7 @@
     
     
     self.userNameLabel.text = @"username here please";
+  
 }
 
 -(void)viewWillAppear:(BOOL)animated {
