@@ -12,6 +12,9 @@
 @property (weak, nonatomic) IBOutlet UIView *storyTableView;
 @property (weak, nonatomic) IBOutlet UIView *addSnippetView;
 @property (weak, nonatomic) IBOutlet UIButton *toggleButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toggleButtonBottomConstraint;
+@property (nonatomic) float hiddenConstant;
+@property (nonatomic) float showConstant;
 
 @end
 
@@ -19,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.hiddenConstant = 8;
+    self.showConstant = 196;
+    self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
+    [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
 //    if ([self.currentStory.pendingSnippets count] == 10) {
 //        self.toggleButton.hidden = YES;
 //    }
@@ -33,8 +40,11 @@
 
 
 - (IBAction)toggleSnippetView:(id)sender {
-    if (self.addSnippetView.hidden == YES) {
-        self.addSnippetView.hidden = NO;
+    [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
+    if (self.toggleButtonBottomConstraint.constant == self.hiddenConstant) {
+        self.toggleButtonBottomConstraint.constant = self.showConstant;
+    } else if (self.toggleButtonBottomConstraint.constant == self.showConstant) {
+        self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
     }
 }
 
