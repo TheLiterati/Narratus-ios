@@ -12,6 +12,7 @@
 		83A7042E1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */; };
 		83A704301ECB961F000CC689 /* PendingSnippetViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A7042F1ECB961F000CC689 /* PendingSnippetViewControllerTest.m */; };
 		83A704321ECB97DB000CC689 /* StoryTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A704311ECB97DB000CC689 /* StoryTableViewControllerTest.m */; };
+		83A704341ECB9922000CC689 /* UserDashboardViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A704331ECB9922000CC689 /* UserDashboardViewControllerTest.m */; };
 		BC38B7F71ECA22580090A38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F61ECA22580090A38B /* main.m */; };
 		BC38B7FA1ECA22580090A38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B7F91ECA22580090A38B /* AppDelegate.m */; };
 		BC38B8001ECA22580090A38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC38B7FE1ECA22580090A38B /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		83A7042D1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStorySnippetViewControllerTest.m; sourceTree = "<group>"; };
 		83A7042F1ECB961F000CC689 /* PendingSnippetViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSnippetViewControllerTest.m; sourceTree = "<group>"; };
 		83A704311ECB97DB000CC689 /* StoryTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryTableViewControllerTest.m; sourceTree = "<group>"; };
+		83A704331ECB9922000CC689 /* UserDashboardViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDashboardViewControllerTest.m; sourceTree = "<group>"; };
 		BC38B7F21ECA22580090A38B /* Narratus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narratus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC38B7F61ECA22580090A38B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC38B7F81ECA22580090A38B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		838B64E71ECB6BDB0016E49C /* NarratusTests */ = {
 			isa = PBXGroup;
 			children = (
+				83A704331ECB9922000CC689 /* UserDashboardViewControllerTest.m */,
 				838B64E81ECB6BDB0016E49C /* NarratusTests.m */,
 				838B64EA1ECB6BDB0016E49C /* Info.plist */,
 				838B64F01ECB6C280016E49C /* APITest.m */,
@@ -412,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A704341ECB9922000CC689 /* UserDashboardViewControllerTest.m in Sources */,
 				83A704301ECB961F000CC689 /* PendingSnippetViewControllerTest.m in Sources */,
 				83A7042E1ECB9019000CC689 /* OwnedStorySnippetViewControllerTest.m in Sources */,
 				838B64F11ECB6C280016E49C /* APITest.m in Sources */,
