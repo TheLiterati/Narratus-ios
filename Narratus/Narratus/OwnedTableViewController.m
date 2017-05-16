@@ -29,6 +29,13 @@
     self.ownedTableView.estimatedRowHeight = 50;
     self.ownedTableView.rowHeight = UITableViewAutomaticDimension;
     self.ownedStories = [API sampleStory];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOwnedStories) name:@"newStoryCreation" object:nil];
+}
+
+
+-(void)updateOwnedStories{
+    
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

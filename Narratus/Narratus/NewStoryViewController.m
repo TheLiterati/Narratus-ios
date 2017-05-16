@@ -38,6 +38,7 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
 }
 
 @end
