@@ -23,6 +23,7 @@
     [super setUp];
     self.testStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.testController = [self.testStoryboard instantiateViewControllerWithIdentifier:@"OwnedStorySnippetViewController"];
+    [self.testController performSelectorOnMainThread:@selector(loadView) withObject:nil waitUntilDone:YES];
     id storyArray = [API sampleStory];
     self.testController.currentStory = storyArray[0];
     
@@ -37,6 +38,11 @@
 
 - (void)testValidStory {
     XCTAssertNotNil([self.testController currentStory], @"Story was nil");
+}
+
+
+-(void)testThatViewLoads {
+    XCTAssertNotNil(self.testController.view, @"View not initiated properly");
 }
 
 

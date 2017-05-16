@@ -38,4 +38,9 @@
     XCTAssertNotNil([self.testController currentStory], @"Story was nil");
 }
 
+-(void)testThatViewLoads {
+    XCTAssertNotNil(self.testController.view, @"View not initiated properly");
+}
+
+
 @end
