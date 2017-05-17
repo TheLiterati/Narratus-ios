@@ -11,8 +11,9 @@
 #import "Snippet.h"
 #import "PendingSnippetViewController.h"
 
-@interface NewSnippetViewController () <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *snippetTextField;
+@interface NewSnippetViewController () <UITextViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextView *snippetTextView;
 @property (weak, nonatomic) IBOutlet UILabel *characterCounter;
 
 @end
@@ -21,21 +22,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.snippetTextField.delegate = self;
+    self.snippetTextView.delegate = self;
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
-    length = self.snippetTextField.text.length;
+    length = self.snippetTextView.text.length;
     NSInteger remaining = 250 - length;
     self.characterCounter.text = [NSString stringWithFormat:@"%li", remaining];
     
     if (remaining <= 50) {
         self.characterCounter.textColor = [UIColor redColor];
     }
-    if (remaining == 0) {
-        self.snippetTextField.enabled = NO;
-    }
+
+}
+
+- (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return self.snippetTextView.text.length + (text.length - range.length) <= 250;
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
