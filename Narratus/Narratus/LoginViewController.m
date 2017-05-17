@@ -43,12 +43,23 @@
 
 -(void)login {
     
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin?&username=%@&password=%@", self.usernameTextField.text, self.passwordTextField.text];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin"];
     
     NSURL *databaseURL = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     request.HTTPMethod = @"GET";
-    [request addValue:@"token_value" forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSString *authString = [NSString stringWithFormat:@"%@:%@", self.usernameTextField.text, self.passwordTextField.text];
+    NSData *authData = [authString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:0]];
+    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+    
+    
+//    [request setValue:@"%@", self.usernameTextField.text forHTTPHeaderField:@"username"];
+//    [request setValue:@"%@", self.passwordTextField.text forHTTPHeaderField:@"password"];
+    [request setValue:[[NSUserDefaults standardUserDefaults]valueForKey:@"Auth"] forHTTPHeaderField:@"Authorization"];
+    
     
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
