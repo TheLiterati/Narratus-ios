@@ -56,26 +56,19 @@
     [request setValue:authValue forHTTPHeaderField:@"Authorization"];
     
     
-//    [request setValue:@"%@", self.usernameTextField.text forHTTPHeaderField:@"username"];
-//    [request setValue:@"%@", self.passwordTextField.text forHTTPHeaderField:@"password"];
-    [request setValue:[[NSUserDefaults standardUserDefaults]valueForKey:@"Auth"] forHTTPHeaderField:@"Authorization"];
-    
-    
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSLog(@"%@", response);
         
-        if (error) {
-            NSLog(@"%@", error);
-            return;
+        if (!error) {
+            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSLog(@"%@",responseDictionary);
         }
         
         if (data) {
             
-            // Your file writing code here
             NSLog(@"%@", data);
         }
         
