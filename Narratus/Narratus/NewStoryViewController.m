@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextView *storyTextView;
 @property (weak, nonatomic) IBOutlet UILabel *characterCounter;
+@property (strong, nonatomic) NSArray *genres;
 
 @end
 
@@ -21,9 +22,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.genres = [self genres];
     self.storyTextView.delegate = self;
 }
+
+
+- (NSArray *)genres {
+    NSArray *genres = @[@"Adventure",
+                        @"Comedy",
+                        @"Drama",
+                        @"Erotica",
+                        @"Fantasy",
+                        @"Literary",
+                        @"Mysteries",
+                        @"Nonfiction",
+                        @"Poetry",
+                        @"Romance",
+                        @"Science Fiction",
+                        @"Thriller"];
+    return genres;
+}
+
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
