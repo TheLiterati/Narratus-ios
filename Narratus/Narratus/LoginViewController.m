@@ -10,6 +10,7 @@
 
 
 @interface LoginViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupHeight;
@@ -28,7 +29,7 @@
 
 - (IBAction)loginPressed:(UIButton *)sender {
     [self login];
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)signupPressed:(UIButton *)sender {
     self.signupView.hidden = NO;
@@ -45,17 +46,9 @@
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin?&username=%@&password=%@", self.usernameTextField.text, self.passwordTextField.text];
     
     NSURL *databaseURL = [NSURL URLWithString:urlString];
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
-    
-//    NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc]init];
-//    NSLog(@"%@",self.emailTextField.text);
-//    NSLog(@"%@",self.passwordTextField.text);
-//    userDictionary[@"email"] = self.emailTextField.text;
-//    userDictionary[@"password"] = self.passwordTextField.text;
-
     request.HTTPMethod = @"GET";
-//    [request addValue:self.token forHTTPHeaderField:@"Authorization"];
+    [request addValue:@"token_value" forHTTPHeaderField:@"Authorization"];
     
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
