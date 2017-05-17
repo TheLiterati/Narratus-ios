@@ -108,43 +108,6 @@
     return allSnippets;
 }
 
--(void)login {
-    
-    NSString* urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/login"];
-    
-    NSURL *databaseuRL = [NSURL URLWithString:urlString];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    
-    [session dataTaskWithURL:databaseuRL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        
-        
-        
-    }];
-    
-     
-}
-     
-
--(void)signup{
-    
-    NSString* urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signup?"];
-    
-    NSURL *databaseuRL = [NSURL URLWithString:urlString];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    
-    [session dataTaskWithURL:databaseuRL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        
-        
-        
-    }];
-
-}
 
 @end
 

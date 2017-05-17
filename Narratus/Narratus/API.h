@@ -41,9 +41,7 @@ typedef void(^loginCompletion)(NSArray*);
 //newStory
 -(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
 
--(void)login;
 
--(void)signup;
 
 
 

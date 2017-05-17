@@ -31,5 +31,23 @@
     
 }
 
+-(void)signup{
+    
+    NSString* urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signup?username=%@&email=%@&password=%@", self.userNameTextField.text, self.emailTextField.text, self.passwordTextField.text];
+    
+    NSURL *databaseuRL = [NSURL URLWithString:urlString];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [session dataTaskWithURL:databaseuRL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSDictionary *tokenDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        
+        
+    }];
+    
+}
+
 
 @end
