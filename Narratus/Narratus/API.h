@@ -13,6 +13,8 @@
 
 typedef void(^FetchAllStoriesCompletion)(NSArray<Story *> *allStories);
 typedef void(^FetchAllSnippetsCompletion)(NSArray<Snippet *> *allSnippets);
+typedef void(^FetchUserCompletion)(User *loggedInUser);
+//typedef void(^FetchStoriesCompletion)(NSArray<Story *> *stories);
 
 @interface API : NSObject
 
@@ -32,21 +34,22 @@ typedef void(^FetchAllSnippetsCompletion)(NSArray<Snippet *> *allSnippets);
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion;
 
 //storyView controller
--(NSArray<Snippet *> *)fetchSnippetsFrom:(NSString *)storyID;
+//-(NSArray<Snippet *> *)fetchSnippetsFrom:(NSString *)storyID;
 //-(Snippet*)postSnippet:(Snippet*)snippet;
 +(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID;
 +(void)postSnippetFor:(NSString *)storyID with:(NSString *)snippetContent;
 
-////ownedStory
+//ownedStory
 //-(Snippet*)pendingToConfirmed:(Snippet*)pendingSnippet;
 //
 //-(Story*)closeStory:(Story*)openStory;
 //
-////newStory
+//newStory
 //-(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
 //
 
-
-
+//user dashboard
++(void)fetchUser:(FetchUserCompletion)completion;
+//+(void)fetchStories:(FetchStoriesCompletion)completion With:(NSArray *)storyIDs;
 
 @end
