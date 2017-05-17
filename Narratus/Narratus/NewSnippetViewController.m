@@ -44,7 +44,7 @@
 - (IBAction)submitButtonPressed:(UIButton *)sender {
     
     Snippet *newSnippet = [[Snippet alloc]init];
-    newSnippet.pending = _snippetTextField.text;
+    newSnippet.pending = _snippetTextView.text;
     
     [[StoryManager.shared allSnippets] addObject:newSnippet];
     

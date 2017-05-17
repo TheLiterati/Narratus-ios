@@ -92,9 +92,16 @@
                             <constraint firstItem="JQc-gt-0ON" firstAttribute="centerX" secondItem="GFQ-qS-5FK" secondAttribute="centerX" id="lPd-I8-vXi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QMx-Xw-zED"/>
+                    <navigationItem key="navigationItem" id="QMx-Xw-zED">
+                        <barButtonItem key="rightBarButtonItem" title="Follow" id="bjp-1r-5wn">
+                            <connections>
+                                <action selector="followButtonPressed:" destination="obO-tk-84e" id="Bpd-YD-4Ty"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addSnippetView" destination="FFW-IA-R77" id="EhW-ck-EZj"/>
+                        <outlet property="followButton" destination="bjp-1r-5wn" id="pb1-f2-Rki"/>
                         <outlet property="storyTableView" destination="ffH-7s-Ggi" id="aUR-Dc-QK1"/>
                         <outlet property="toggleButton" destination="JQc-gt-0ON" id="O5V-XY-CnQ"/>
                         <outlet property="toggleButtonBottomConstraint" destination="jv1-sY-Orh" id="S8p-pU-sTj"/>

@@ -11,5 +11,6 @@
 
 @interface StoryViewController : UIViewController
 @property (strong, nonatomic) Story *currentStory;
+@property (strong, nonatomic) User *user;
 
 @end
