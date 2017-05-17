@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Snippet.h"
 
+typedef void(^loginCompletion)(NSArray*);
 
 @interface API : NSObject
 
@@ -43,6 +44,7 @@
 -(void)login;
 
 -(void)signup;
+
 
 
 
