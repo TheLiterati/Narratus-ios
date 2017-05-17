@@ -34,24 +34,45 @@
 -(void)signup{
     NSLog(@"The token:");
     
-    NSString* urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signup?"];
-    NSURL *databaseuRL = [NSURL URLWithString:urlString];
+    NSURL *databaseURL = [NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/signup"];
     
-     NSString *bodyURL = [NSString stringWithFormat:@"username=%@&email=%@&password=%@", self.userNameTextField.text, self.emailTextField.text, self.passwordTextField.text];
-    NSData *bodyData = [NSData dataWithContentsOfFile:bodyURL];
+    NSDictionary *userDictionary = @{@"username": @"asdfasdfKHJGIfasdf", @"email": @"hJIHIerAWFAwerasdo", @"password": @"supersmartpaWEsdfasdfasdfassword"};
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseuRL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSLog(@"%@",self.userNameTextField.text);
+    NSLog(@"%@",self.emailTextField.text);
+    NSLog(@"%@",self.passwordTextField.text);
     
-    [request setHTTPBody:bodyData];
-    [request setHTTPMethod:@"POST"];
+//    userDictionary[@"username"] = self.userNameTextField.text;
+//    userDictionary[@"email"] = self.emailTextField.text;
+//    userDictionary[@"password"] = self.passwordTextField.text;
+//    
+    NSError *dataError;
+    
+    NSData *userData = [NSJSONSerialization dataWithJSONObject:userDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
+    
+    if (dataError) {
+        NSLog(@"%@", dataError.localizedDescription);
+    }
+    
+//    NSData *requestData = [bodyURL dataUsingEncoding:NSUTF8StringEncoding];
+    
+//    NSData *bodyData = [NSData dataWithContentsOfFile:bodyURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    
+    request.HTTPMethod = @"POST";
+    [request setHTTPBody:userData];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
-    [[session dataTaskWithURL:databaseuRL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSLog(@"request response: %@", response);
         NSLog(@"request data: %@", data);
+        
+        NSString *dataString = [[NSString alloc]initWithData:userData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", dataString);
         
 //        [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
         
