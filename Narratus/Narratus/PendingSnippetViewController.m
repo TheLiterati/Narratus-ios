@@ -30,8 +30,8 @@
     [self.pendingTableView registerNib:snippetNib forCellReuseIdentifier:@"PendingSnippetTableViewCell"];
     
     // Do any additional setup after loading the view.
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pendingSnippetsUpdate) name:@"pendingSnippetCreation" object:nil];
+
 }
 
 -(void)pendingSnippetsUpdate{
@@ -54,8 +54,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PendingSnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PendingSnippetTableViewCell" forIndexPath:indexPath];
-    
-    cell.pendingContentLabel.text = self.pendingSnippets[indexPath.row].content;
+    cell.currentSnippet = self.pendingSnippets[indexPath.row];
     return cell;
 }
 

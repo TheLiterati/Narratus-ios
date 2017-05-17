@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Snippet.h"
 
 @interface PendingSnippetTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *pendingContentLabel;
+
+@property (strong, nonatomic) Snippet *currentSnippet;
 
 @end
