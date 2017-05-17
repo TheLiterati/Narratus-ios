@@ -29,17 +29,13 @@
     [self.pendingTableView registerNib:snippetNib forCellReuseIdentifier:@"PendingSnippetTableViewCell"];
     
     // Do any additional setup after loading the view.
-
+    [self pendingSnippetsUpdate];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pendingSnippetsUpdate) name:@"pendingSnippetSubmitted" object:nil];
 }
 
 -(void)pendingSnippetsUpdate{
-    
-    
-
     self.pendingSnippets = [API sampleSnippet];
-    
     self.pendingTableView.estimatedRowHeight = 50;
     self.pendingTableView.rowHeight = UITableViewAutomaticDimension;
 }
@@ -55,8 +51,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PendingSnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PendingSnippetTableViewCell" forIndexPath:indexPath];
-    
-    cell.pendingContentLabel.text = self.pendingSnippets[indexPath.row].content;
+    cell.currentSnippet = self.pendingSnippets[indexPath.row];
     return cell;
 }
 

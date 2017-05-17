@@ -30,7 +30,7 @@
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
     self.allStories = [API sampleStory];
     [self.lastUpdatedTableView reloadData];
-    self.lastUpdatedTableView.estimatedRowHeight = 50;
+    self.lastUpdatedTableView.estimatedRowHeight = 70;
     self.lastUpdatedTableView.rowHeight = UITableViewAutomaticDimension;
 }
 
