@@ -107,6 +107,17 @@
     }
     return allSnippets;
 }
+
+-(void)login {
+    
+    
+}
+
+-(void)signup{
+    
+    
+}
+
 @end
 
 

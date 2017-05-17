@@ -25,10 +25,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)loginPressed:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -40,9 +36,9 @@
         [self.view layoutIfNeeded];
     }];
     
-    
     self.signupButton.hidden = YES;
 }
+
 
 
 
