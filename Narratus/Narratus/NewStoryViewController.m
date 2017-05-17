@@ -9,7 +9,7 @@
 #import "NewStoryViewController.h"
 #import "StoryManager.h"
 
-@interface NewStoryViewController () <UITextFieldDelegate>
+@interface NewStoryViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextView *storyTextView;
@@ -23,7 +23,6 @@
     [super viewDidLoad];
 
     self.storyTextView.delegate = self;
-
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
@@ -42,16 +41,13 @@
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
 
-    
     Story *newStory = [[Story alloc] init];
     newStory.title = _titleTextField.text;
     newStory.storyDescription = _descriptionTextField.text;
     newStory.storySnippets = _storyTextView.text;
-    [self.navigationController popViewControllerAnimated:YES];
     
     [[StoryManager shared].userStories addObject:newStory];
    
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
 
     //self.titleTextField.text = title

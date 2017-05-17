@@ -7,11 +7,13 @@
 //
 
 #import "NewSnippetViewController.h"
+#import "StoryManager.h"
+#import "Snippet.h"
+#import "PendingSnippetViewController.h"
 
 @interface NewSnippetViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *snippetTextField;
 @property (weak, nonatomic) IBOutlet UILabel *characterCounter;
-
 
 @end
 
@@ -22,12 +24,12 @@
     self.snippetTextField.delegate = self;
 }
 
-
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
     length = self.snippetTextField.text.length;
     NSInteger remaining = 250 - length;
     self.characterCounter.text = [NSString stringWithFormat:@"%li", remaining];
+    
     if (remaining <= 50) {
         self.characterCounter.textColor = [UIColor redColor];
     }
@@ -37,7 +39,15 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetSubmitted" object:nil];
+    
+    Snippet *newSnippet = [[Snippet alloc]init];
+    newSnippet.pending = _snippetTextField.text;
+    
+    [[StoryManager.shared allSnippets] addObject:newSnippet];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
