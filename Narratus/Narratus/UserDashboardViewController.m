@@ -23,14 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.userNameLabel.text = @"username here please";
   
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-//    [self checkUser];
+    [self checkUser];
 }
 
 -(void)checkUser {

@@ -11,10 +11,14 @@
 #import "User.h"
 #import "Snippet.h"
 
+
 typedef void(^FetchAllStoriesCompletion)(NSArray<Story *> *allStories);
 typedef void(^FetchAllSnippetsCompletion)(NSArray<Snippet *> *allSnippets);
 typedef void(^FetchUserCompletion)(User *loggedInUser);
 //typedef void(^FetchStoriesCompletion)(NSArray<Story *> *stories);
+
+typedef void(^loginCompletion)(NSArray*);
+
 
 @interface API : NSObject
 
@@ -51,5 +55,6 @@ typedef void(^FetchUserCompletion)(User *loggedInUser);
 //user dashboard
 +(void)fetchUser:(FetchUserCompletion)completion;
 //+(void)fetchStories:(FetchStoriesCompletion)completion With:(NSArray *)storyIDs;
+
 
 @end
