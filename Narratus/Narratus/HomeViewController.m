@@ -25,11 +25,16 @@
     [super viewDidLoad];
     self.lastUpdatedTableView.dataSource = self;
     self.lastUpdatedTableView.delegate = self;
-    self.allStories = [[NSArray<Story *> alloc]init];
+
     UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
-    self.allStories = [API sampleStory];
-    [self.lastUpdatedTableView reloadData];
+//    self.allStories = [API sampleStory];
+    self.allStories = [[NSArray<Story *> alloc]init];
+    [API fetchAllStories:^(NSArray<Story *> *allStories) {
+        self.allStories = allStories;
+        [self.lastUpdatedTableView reloadData];
+    }];
+
     self.lastUpdatedTableView.estimatedRowHeight = 70;
     self.lastUpdatedTableView.rowHeight = UITableViewAutomaticDimension;
 }
