@@ -456,6 +456,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wOi-sc-flB"/>
+                    <connections>
+                        <outlet property="openCloseButton" destination="web-aO-gRD" id="BxZ-KT-WZP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX5-GK-jYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

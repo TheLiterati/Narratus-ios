@@ -9,6 +9,7 @@
 #import "OwnedStoryViewController.h"
 
 @interface OwnedStoryViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *openCloseButton;
 
 @end
 
@@ -16,12 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self buttonHandler];
+}
+
+- (void) buttonHandler {
+    if (_currentStory.open == @"true") {
+        self.openCloseButton.titleLabel.text = @"Close story";
+    } else {
+        self.openCloseButton.titleLabel.text = @"Open story";
+    }
 }
 
 - (IBAction)closedButtonPressed:(UIButton *)sender {
-    
-    
+    if (_currentStory.open == @"true") {
+        _currentStory.open = @"false";
+    } else if (_currentStory.open == @"false") {
+        _currentStory.open = @"true";
+    }
+    // Send to server
+    [self buttonHandler];
 }
 
 
