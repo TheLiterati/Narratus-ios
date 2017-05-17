@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Snippet.h"
 
+typedef void(^loginCompletion)(NSArray*);
 
 @interface API : NSObject
 
@@ -39,6 +40,7 @@
 
 //newStory
 -(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
+
 
 
 

@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -25,10 +26,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)loginPressed:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -40,9 +37,29 @@
         [self.view layoutIfNeeded];
     }];
     
-    
     self.signupButton.hidden = YES;
 }
+
+-(void)login {
+    
+    NSString* urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin"];
+    
+    NSURL *databaseuRL = [NSURL URLWithString:urlString];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [session dataTaskWithURL:databaseuRL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        
+    }];
+    
+    
+}
+
+
+
 
 
 
