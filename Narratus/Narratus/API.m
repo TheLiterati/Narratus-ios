@@ -109,14 +109,20 @@
 }
 
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion {
-    NSLog(@"inside fetch");
+    NSLog(@"inside fetch stories");
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/"];
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
     [[session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"data:%@", data);
+        NSLog(@"response:%@", response);
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        if (error) {
+            NSLog(@"error: %@",error.localizedDescription);
+        }
         
         NSMutableArray *allStories = [[NSMutableArray alloc]init];
         
@@ -146,6 +152,69 @@
           }];
         }
     }]resume];
+}
+
++(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID{
+    NSLog(@"inside fetch snippets");
+    //check url
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/%@", storyID];
+    
+    NSURL *databaseURL =[NSURL URLWithString:urlString];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [[session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"data:%@", data);
+        NSLog(@"response:%@", response);
+        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        if (error) {
+            NSLog(@"error: %@",error.localizedDescription);
+        }
+        
+        NSMutableArray *allSnippets = [[NSMutableArray alloc]init];
+        
+        for (NSDictionary *snippet in [rootObject allValues]) {
+            Snippet *newSnippet = [[Snippet alloc]init];
+            newSnippet.likes = snippet[@"likes"];
+            newSnippet.content = snippet[@"snippetContent"];
+            newSnippet.createdDate = snippet[@"created"];
+            newSnippet.snippetCreator = snippet[@"snippetCreator"];
+            newSnippet.pending = snippet[@"pending"];
+            newSnippet.snippetID = snippet[@"_id"];
+            newSnippet.accepted = snippet[@"accepted"];
+            newSnippet.acceptedDate = snippet[@"acceptedDate"];
+            newSnippet.lastViewDate = snippet[@"lastViewedDate"];
+            newSnippet.bookmark = snippet[@"bookmark"];
+            
+            [allSnippets addObject:newSnippet];
+        }
+        
+        if (completion) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                completion(allSnippets);
+            }];
+        }
+    }]resume];
+}
+
++(void)postSnippetFor:(NSString *)storyID with:(NSString *)snippetContent {
+    NSLog(@"inside post snippet");
+    //check url
+    NSString *token = @"test token";
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@ 'Authorization:Bearer %@", storyID, snippetContent, token]; //check token
+    
+    NSURL *databaseURL =[NSURL URLWithString:urlString];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"data:%@", data);
+        NSLog(@"response:%@", response);
+        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        if (error) {
+            NSLog(@"error: %@",error.localizedDescription);
+        }
+    }];
 }
 @end
 
