@@ -34,7 +34,7 @@ typedef void(^loginCompletion)(NSArray*);
 +(NSMutableArray *)sampleSnippet;
 
 //homeView controller
-//-(NSArray*)fetchAllStories;
+
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion;
 
 //storyView controller
@@ -50,7 +50,7 @@ typedef void(^loginCompletion)(NSArray*);
 //
 //newStory
 //-(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
-//
++(void)postNewStory;
 
 //user dashboard
 +(void)fetchUser:(FetchUserCompletion)completion;
