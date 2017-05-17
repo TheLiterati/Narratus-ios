@@ -36,8 +36,6 @@
     
     NSURL *databaseURL = [NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/signup"];
     
-//    NSDictionary *userDictionary = @{@"username": @"asdfasdfKHJGIfasdf", @"email": @"hJIHIerAWFAwerasdo", @"password": @"supersmartpaWEsdfasdfasdfassword"};
-    
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc]init];
     
     NSLog(@"%@",self.userNameTextField.text);
@@ -55,9 +53,7 @@
     if (dataError) {
         NSLog(@"%@", dataError.localizedDescription);
     }
-    
 
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     
     request.HTTPMethod = @"POST";

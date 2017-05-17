@@ -16,18 +16,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
 @property (weak, nonatomic) IBOutlet UIView *signupView;
 
-
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
 
 - (IBAction)loginPressed:(UIButton *)sender {
+    [self login];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)signupPressed:(UIButton *)sender {
@@ -42,18 +42,41 @@
 
 -(void)login {
     
-    NSString* urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin"];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin?&email=%@&password=%@", self.emailTextField.text, self.passwordTextField.text];
     
-    NSURL *databaseuRL = [NSURL URLWithString:urlString];
+    NSURL *databaseURL = [NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    
+//    NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc]init];
+//    NSLog(@"%@",self.emailTextField.text);
+//    NSLog(@"%@",self.passwordTextField.text);
+//    userDictionary[@"email"] = self.emailTextField.text;
+//    userDictionary[@"password"] = self.passwordTextField.text;
+
+    request.HTTPMethod = @"GET";
+//    [request addValue:self.token forHTTPHeaderField:@"Authorization"];
+    
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
-    [session dataTaskWithURL:databaseuRL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@", response);
         
+        if (error) {
+            NSLog(@"%@", error);
+            return;
+        }
         
-    }];
+        if (data) {
+            
+            // Your file writing code here
+            NSLog(@"%@", data);
+        }
+        
+    }] resume];
+    
     
     
 }
