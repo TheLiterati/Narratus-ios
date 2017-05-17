@@ -25,4 +25,23 @@
 
 +(NSMutableArray *)sampleSnippet;
 
+//homeView controller
+-(NSArray*)fetchAllStories;
+
+//storyView controller
+-(NSArray<Snippet*> *)fetchSnippetsFrom:(NSString*)storyID;
+-(Snippet*)postSnippet:(Snippet*)snippet;
+
+//ownedStory
+-(Snippet*)pendingToConfirmed:(Snippet*)pendingSnippet;
+
+-(Story*)closeStory:(Story*)openStory;
+
+//newStory
+-(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
+
+
+
+
+
 @end
