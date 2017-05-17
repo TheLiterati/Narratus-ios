@@ -16,7 +16,6 @@
 @property (strong, nonatomic) NSArray<Snippet *> *pendingSnippets;
 @property (weak, nonatomic) IBOutlet UITableView *pendingTableView;
 
-
 @end
 
 @implementation PendingSnippetViewController

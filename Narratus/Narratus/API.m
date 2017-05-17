@@ -8,7 +8,6 @@
 
 #import "API.h"
 
-
 @implementation API
 
 +(NSMutableArray *)sampleStory {
