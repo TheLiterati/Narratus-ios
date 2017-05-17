@@ -275,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWF-4W-5X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="1103"/>
+            <point key="canvasLocation" x="1745" y="1177"/>
         </scene>
         <!--USER DASHBOARD-->
         <scene sceneID="24H-LE-7aK">
@@ -745,8 +745,9 @@
             <objects>
                 <viewController id="zCV-UK-GuG" customClass="SignupViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bDu-gr-c8d"/>
-                        <viewControllerLayoutGuide type="bottom" id="TZ9-rv-dCQ"/>
+
+                        <viewControllerLayoutGuide type="top" id="Nhj-LJ-Vfx"/>
+                        <viewControllerLayoutGuide type="bottom" id="xs4-h6-2sn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yWa-Ic-nIE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
@@ -805,7 +806,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3W-Jw-Ri4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2567" y="1282"/>
+            <point key="canvasLocation" x="2484" y="1176"/>
         </scene>
     </scenes>
 </document>

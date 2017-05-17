@@ -8,7 +8,19 @@
 
 #import "PendingSnippetTableViewCell.h"
 
+@interface PendingSnippetTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *pendingContentLabel;
+
+@end
+
 @implementation PendingSnippetTableViewCell
+
+-(void)setCurrentSnippet:(Snippet *)currentSnippet {
+    _currentSnippet = currentSnippet;
+    self.pendingContentLabel.text = currentSnippet.content;
+}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -21,7 +33,8 @@
     // Configure the view for the selected state
 }
 - (IBAction)selectButtonPressed:(UIButton *)sender {
-    NSLog(@"HI");
+    self.currentSnippet.accepted = @"True";
+    NSLog(@"accepted: %@", self.currentSnippet.accepted);
 }
 
 @end
