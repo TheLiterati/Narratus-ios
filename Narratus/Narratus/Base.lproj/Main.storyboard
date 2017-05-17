@@ -343,6 +343,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="USER DASHBOARD" id="DDF-f1-u6j">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="dqP-St-DPo">
+                            <connections>
+                                <action selector="logoutPressed:" destination="4OI-Ph-0UG" id="bi4-OO-8hO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="+" id="mKm-6m-epL">
                             <connections>
                                 <segue destination="as4-Wd-GZd" kind="show" id="WMZ-Ng-9td"/>
@@ -516,8 +521,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="57y-iR-4bs">
-                                <rect key="frame" x="0.0" y="60" width="375" height="94"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57y-iR-4bs">
+                                <rect key="frame" x="0.0" y="60" width="375" height="111"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="1cE-Wq-YyT"/>
