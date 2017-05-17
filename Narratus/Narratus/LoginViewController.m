@@ -10,7 +10,7 @@
 
 
 @interface LoginViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupHeight;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
@@ -42,7 +42,7 @@
 
 -(void)login {
     
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin?&email=%@&password=%@", self.emailTextField.text, self.passwordTextField.text];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin?&username=%@&password=%@", self.usernameTextField.text, self.passwordTextField.text];
     
     NSURL *databaseURL = [NSURL URLWithString:urlString];
     
