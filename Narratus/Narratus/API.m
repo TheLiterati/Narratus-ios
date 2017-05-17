@@ -107,6 +107,46 @@
     }
     return allSnippets;
 }
+
++(void)fetchAllStories:(FetchAllStoriesCompletion)completion {
+    NSLog(@"inside fetch");
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/"];
+    
+    NSURL *databaseURL =[NSURL URLWithString:urlString];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [[session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSMutableArray *allStories = [[NSMutableArray alloc]init];
+        
+        for (NSDictionary *story in [rootObject allValues]) {
+            NSLog(@"title: %@", story[@"title"]);
+            Story *newStory = [[Story alloc]init];
+            newStory.ownerUserName = story[@"ownerUsername"];
+            newStory.ownerID = story[@"ownerId"];
+            newStory.title = story[@"title"];
+            newStory.storyDescription = story[@"description"];
+            newStory.createdDate = story[@"created"];
+            newStory.lastUpdatedDate = story[@"lastUpdated"];
+            newStory.category = story[@"categories"];
+            newStory.open = story[@"open"];
+            newStory.storySnippets = story[@"snippets"];
+            newStory.storySnippetCount = story[@"snippetCount"];
+            newStory.pendingSnippets = story[@"pendingSnippets"];
+            newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
+            newStory.storyID = story[@"_id"];
+
+            [allStories addObject:newStory];
+        }
+        
+        if (completion) {
+          [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+              completion(allStories);
+          }];
+        }
+    }]resume];
+}
 @end
 
 

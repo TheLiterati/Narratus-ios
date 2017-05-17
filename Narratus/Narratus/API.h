@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Snippet.h"
 
+typedef void(^FetchAllStoriesCompletion)(NSArray<Story *> *allStories);
 
 @interface API : NSObject
 
@@ -26,20 +27,21 @@
 +(NSMutableArray *)sampleSnippet;
 
 //homeView controller
--(NSArray*)fetchAllStories;
+//-(NSArray*)fetchAllStories;
++(void)fetchAllStories:(FetchAllStoriesCompletion)completion;
 
 //storyView controller
 -(NSArray<Snippet*> *)fetchSnippetsFrom:(NSString*)storyID;
--(Snippet*)postSnippet:(Snippet*)snippet;
-
-//ownedStory
--(Snippet*)pendingToConfirmed:(Snippet*)pendingSnippet;
-
--(Story*)closeStory:(Story*)openStory;
-
-//newStory
--(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
-
+//-(Snippet*)postSnippet:(Snippet*)snippet;
+//
+////ownedStory
+//-(Snippet*)pendingToConfirmed:(Snippet*)pendingSnippet;
+//
+//-(Story*)closeStory:(Story*)openStory;
+//
+////newStory
+//-(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
+//
 
 
 
