@@ -26,7 +26,7 @@
     self.showConstant = 196;
     
     if ([self.currentStory.pendingSnippets count] == 10) {         // or if user is last contributer or user is not logged in
-        self.toggleButton.isHidden;
+        [self.toggleButton isHidden];
     } else {
         self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
     }
@@ -36,7 +36,6 @@
 
 - (IBAction)toggleSnippetView:(id)sender {
     [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
-        [UIView animateWithDuration:0.5 animations:^{[self.view layoutIfNeeded];}];
     if (self.toggleButtonBottomConstraint.constant == self.hiddenConstant) {
         self.toggleButtonBottomConstraint.constant = self.showConstant;
         [self.toggleButton setTitle:@"Cancel contribution" forState:UIControlStateNormal];
