@@ -29,7 +29,7 @@
     
     if (self) {
         self.userStories = [[NSMutableArray alloc]init];
-        
+        self.allSnippets = [[NSMutableArray alloc]init];
     }
     return self;
 }

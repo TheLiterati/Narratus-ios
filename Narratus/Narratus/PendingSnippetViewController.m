@@ -10,6 +10,7 @@
 #import "Snippet.h"
 #import "PendingSnippetTableViewCell.h"
 #import "API.h"
+#import "StoryManager.h"
 
 @interface PendingSnippetViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray<Snippet *> *pendingSnippets;
@@ -30,18 +31,16 @@
     
     // Do any additional setup after loading the view.
 
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pendingSnippetsUpdate) name:@"pendingSnippetSubmitted" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pendingSnippetsUpdate) name:@"pendingSnippetCreation" object:nil];
 }
 
 -(void)pendingSnippetsUpdate{
-    
-    
-
     self.pendingSnippets = [API sampleSnippet];
-    
     self.pendingTableView.estimatedRowHeight = 50;
     self.pendingTableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.pendingSnippets = [StoryManager shared].allSnippets;
+    [self.pendingTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

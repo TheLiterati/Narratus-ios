@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Story.h"
+#import "Snippet.h"
 
 @interface StoryManager : NSObject
 
 @property(strong, nonatomic) NSMutableArray<Story *> *userStories;
+@property(strong, nonatomic) NSMutableArray<Snippet *> *allSnippets;
 
 +(instancetype) shared;
 
