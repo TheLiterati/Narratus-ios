@@ -36,6 +36,7 @@
 
 - (IBAction)toggleSnippetView:(id)sender {
     [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
+        [UIView animateWithDuration:0.5 animations:^{[self.view layoutIfNeeded];}];
     if (self.toggleButtonBottomConstraint.constant == self.hiddenConstant) {
         self.toggleButtonBottomConstraint.constant = self.showConstant;
         [self.toggleButton setTitle:@"Cancel contribution" forState:UIControlStateNormal];
