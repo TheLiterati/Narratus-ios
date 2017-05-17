@@ -29,7 +29,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-//    [self checkUser];
+    [self checkUser];
 }
 
 -(void)checkUser {

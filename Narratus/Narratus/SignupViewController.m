@@ -28,10 +28,11 @@
 }
 
 - (IBAction)signupButtonPressed:(UIButton *)sender {
-    
+    [self signup];
 }
 
 -(void)signup{
+    NSLog(@"The token:");
     
     NSString* urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signup?username=%@&email=%@&password=%@", self.userNameTextField.text, self.emailTextField.text, self.passwordTextField.text];
     
@@ -41,13 +42,21 @@
     
     [session dataTaskWithURL:databaseuRL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        NSDictionary *tokenDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        
-        
-        
-    }];
-    
-}
+        NSString *token = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@", token);
 
+        [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
+        
+//        if (signupCompletion) {
+//            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                
+//                signupCompletion(token);
+//                
+//            });
+//            
+//        }
+    }];
+}
 
 @end

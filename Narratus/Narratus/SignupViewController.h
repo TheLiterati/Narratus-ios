@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^signupCompletion)(NSString*tokenString);
+
 @interface SignupViewController : UIViewController
 
 @end
