@@ -89,7 +89,7 @@
     NSLog(@"%@", newStory.category);
     
     newSnippet.content = _storyTextView.text; //Need to add all other snippet properties
-    [newStory.storySnippets addObject:newSnippet];
+//    [newStory.storySnippets addObject:newSnippet];
     
     [[StoryManager shared].userStories addObject:newStory];
    
