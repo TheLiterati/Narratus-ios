@@ -70,7 +70,7 @@
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-gt-0ON">
                                 <rect key="frame" x="-0.5" y="441" width="375" height="30"/>
-                                <state key="normal" title="ToggleButton"/>
+                                <state key="normal" title="Contribute to the story"/>
                                 <connections>
                                     <action selector="toggleSnippetView:" destination="obO-tk-84e" eventType="touchUpInside" id="Etc-xF-bjO"/>
                                 </connections>
@@ -79,6 +79,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="centerX" secondItem="GFQ-qS-5FK" secondAttribute="centerX" id="1D8-vu-1fi"/>
+                            <constraint firstItem="JQc-gt-0ON" firstAttribute="top" secondItem="ffH-7s-Ggi" secondAttribute="bottom" constant="10" id="6Qy-44-SPE"/>
                             <constraint firstItem="JQc-gt-0ON" firstAttribute="width" secondItem="GFQ-qS-5FK" secondAttribute="width" id="AD3-GW-M8g"/>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="top" secondItem="fZ3-3C-g1f" secondAttribute="bottom" id="B7Q-O5-NbO"/>
                             <constraint firstItem="FFW-IA-R77" firstAttribute="height" secondItem="GFQ-qS-5FK" secondAttribute="height" multiplier="0.3" id="Iy5-0b-ijY"/>
@@ -88,7 +89,6 @@
                             <constraint firstItem="TXD-vh-Oiy" firstAttribute="top" secondItem="FFW-IA-R77" secondAttribute="bottom" id="fug-XS-VNw"/>
                             <constraint firstItem="TXD-vh-Oiy" firstAttribute="top" secondItem="JQc-gt-0ON" secondAttribute="bottom" constant="196" id="jv1-sY-Orh"/>
                             <constraint firstItem="JQc-gt-0ON" firstAttribute="centerX" secondItem="GFQ-qS-5FK" secondAttribute="centerX" id="lPd-I8-vXi"/>
-                            <constraint firstItem="ffH-7s-Ggi" firstAttribute="height" secondItem="GFQ-qS-5FK" secondAttribute="height" multiplier="0.55" id="qeb-17-myc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QMx-Xw-zED"/>
