@@ -36,16 +36,18 @@
     
     NSURL *databaseURL = [NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/signup"];
     
-    NSDictionary *userDictionary = @{@"username": @"asdfasdfKHJGIfasdf", @"email": @"hJIHIerAWFAwerasdo", @"password": @"supersmartpaWEsdfasdfasdfassword"};
+//    NSDictionary *userDictionary = @{@"username": @"asdfasdfKHJGIfasdf", @"email": @"hJIHIerAWFAwerasdo", @"password": @"supersmartpaWEsdfasdfasdfassword"};
+    
+    NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc]init];
     
     NSLog(@"%@",self.userNameTextField.text);
     NSLog(@"%@",self.emailTextField.text);
     NSLog(@"%@",self.passwordTextField.text);
     
-//    userDictionary[@"username"] = self.userNameTextField.text;
-//    userDictionary[@"email"] = self.emailTextField.text;
-//    userDictionary[@"password"] = self.passwordTextField.text;
-//    
+    userDictionary[@"username"] = self.userNameTextField.text;
+    userDictionary[@"email"] = self.emailTextField.text;
+    userDictionary[@"password"] = self.passwordTextField.text;
+
     NSError *dataError;
     
     NSData *userData = [NSJSONSerialization dataWithJSONObject:userDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
@@ -54,9 +56,7 @@
         NSLog(@"%@", dataError.localizedDescription);
     }
     
-//    NSData *requestData = [bodyURL dataUsingEncoding:NSUTF8StringEncoding];
-    
-//    NSData *bodyData = [NSData dataWithContentsOfFile:bodyURL];
+
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     
