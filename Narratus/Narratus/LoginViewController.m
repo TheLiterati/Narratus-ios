@@ -53,6 +53,7 @@
     NSString *authString = [NSString stringWithFormat:@"%@:%@", self.usernameTextField.text, self.passwordTextField.text];
     NSData *authData = [authString dataUsingEncoding:NSUTF8StringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:0]];
+    NSLog(@"%@", authValue);
     [request setValue:authValue forHTTPHeaderField:@"Authorization"];
     
     
@@ -70,10 +71,14 @@
         if (data) {
             
             NSLog(@"%@", data);
-            NSString *token = [[NSString alloc]initWithData:data encoding:kCFStringEncodingUTF8];
-            NSLog(@"%@", token);
+
+            
+            NSString *token = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"token: %@", token);
+            
             [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
-        
+            
+
         }
         
     }] resume];
