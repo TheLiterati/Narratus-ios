@@ -8,7 +8,7 @@
 
 #import "OwnedStorySnippetViewController.h"
 #import "Snippet.h"
-#import "OwnedSnippetTableViewCell.h"
+#import "SnippetTableViewCell.h"
 #import "API.h"
 
 @interface OwnedStorySnippetViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -25,8 +25,8 @@
     self.confirmedSnippets = [[NSArray<Snippet *> alloc]init];
     self.storyTableView.dataSource = self;
     self.storyTableView.delegate = self;
-    UINib *snippetNib = [UINib nibWithNibName:@"OwnedSnippetTableViewCell" bundle:nil];
-    [self.storyTableView registerNib:snippetNib forCellReuseIdentifier:@"OwnedSnippetTableViewCell"];
+    UINib *snippetNib = [UINib nibWithNibName:@"SnippetTableViewCell" bundle:nil];
+    [self.storyTableView registerNib:snippetNib forCellReuseIdentifier:@"SnippetTableViewCell"];
     self.confirmedSnippets = [API sampleSnippet];
     
     self.storyTableView.estimatedRowHeight = 50;
@@ -34,19 +34,15 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.confirmedSnippets count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    OwnedSnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OwnedSnippetTableViewCell" forIndexPath:indexPath];
+    SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
     
-    cell.contentLabel.text = self.confirmedSnippets[indexPath.row].content;
+    cell.snippetContentLabel.text = self.confirmedSnippets[indexPath.row].content;
     
     return cell;
     
