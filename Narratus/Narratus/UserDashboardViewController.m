@@ -29,7 +29,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [self checkUser];
+//    [self checkUser];
 }
 
 -(void)checkUser {
@@ -42,7 +42,10 @@
 
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
     self.user = nil;
+    
+    //this is creating a separate, new instance of the Homeiew controller, not workable with the UI flow
     HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    
     [self presentViewController:homeVC animated:YES completion:nil];
 }
 

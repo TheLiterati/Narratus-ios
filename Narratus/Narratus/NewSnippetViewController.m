@@ -50,6 +50,14 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
     
+    UIAlertController *contribution = [UIAlertController alertControllerWithTitle:@"Thank you for your contribution" message:@"May the story never end 📖" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"📝Wanderlust more" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [contribution addAction:action];
+    [self presentViewController:contribution animated:YES completion:nil];
+    
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
