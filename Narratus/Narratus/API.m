@@ -430,7 +430,39 @@
     }] resume];
 }
 
-+()
++(void)pendingtoConfirmedFor:(NSString *)storyID with:(NSString *)content {
+    NSLog(@"inside pending to confirmed");
+    //check url
+    NSString *token = @"test token";
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ %@ %@ %@", storyID, content, token]; //check token
+    
+    NSURL *databaseURL = [NSURL URLWithString:urlString];
+    
+    NSMutableDictionary *confirmedSnippet = [[NSMutableDictionary alloc]init];
+    confirmedSnippet[@"storyID"] = storyID;
+    confirmedSnippet[@"content"] = content;
+    
+    NSError *dataError;
+    
+    NSData *snippetData = [NSJSONSerialization dataWithJSONObject:confirmedSnippet options:NSJSONWritingPrettyPrinted error:&dataError];
+    
+    if (dataError) {
+        NSLog(@"%@", dataError.localizedDescription);
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    
+    request.HTTPMethod =@"PUT";
+    [request setHTTPBody:snippetData];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"request response: %@", response);
+        NSLog(@"request data: %@", data);
+    }] resume];
+}
 
 
 @end
