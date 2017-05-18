@@ -73,7 +73,8 @@
 - (IBAction)toggleSnippetView:(id)sender {
     NewSnippetViewController *addSnippetView = [self.storyboard instantiateViewControllerWithIdentifier:@"NewSnippetViewController"];
     addSnippetView.currentStory = self.currentStory;
-    [self.navigationController pushViewController:addSnippetView animated:YES];
+    [self presentViewController:addSnippetView animated:YES completion:nil];
+//    [self.navigationController pushViewController:addSnippetView animated:YES];
 }
 
 - (IBAction)followButtonPressed:(id)sender {
