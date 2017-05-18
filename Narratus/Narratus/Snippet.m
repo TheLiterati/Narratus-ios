@@ -10,4 +10,12 @@
 
 @implementation Snippet
 
+-(instancetype)initWithSnippetString:(NSString *)snippetString{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 @end
