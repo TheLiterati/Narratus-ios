@@ -33,12 +33,12 @@
 
     
     self.allStories = [[NSArray<Story *> alloc]init];
-    self.allStories = [API sampleStory];
+//    self.allStories = [API sampleStory];
 
-//    [API fetchAllStories:^(NSArray<Story *> *allStories) {
-//        self.allStories = allStories;
+    [API fetchAllStories:^(NSArray<Story *> *allStories) {
+        self.allStories = allStories;
     
-//    }];
+    }];
     [self.lastUpdatedTableView reloadData];
     self.lastUpdatedTableView.estimatedRowHeight = 70;
     self.lastUpdatedTableView.rowHeight = UITableViewAutomaticDimension;
@@ -68,6 +68,8 @@
     Story *selectedStory = self.allStories[indexPath.row];
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
+    
+     [API postNewStoryWith:@"Once upon a time" with:@"There lived an elf"];
     
     
 }

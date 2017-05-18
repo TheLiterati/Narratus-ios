@@ -36,11 +36,9 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
 
-    
-//    NSLog(<#NSString * _Nonnull format, ...#>)
-//     [API fetchUser:^(User *loggedInUser) {
-//         self.user = loggedInUser;
-//     }];
+     [API fetchUser:^(User *loggedInUser) {
+         self.user = loggedInUser;
+     }];
 
 }
 
