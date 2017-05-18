@@ -511,7 +511,7 @@
     [StoryManager.shared userStories];
    
     //Request string
-    NSString *requestString = [NSString stringWithFormat:@"title=%@, description=%@, startSnippet=%@",titleString, descriptionString];
+    NSString *requestString = [NSString stringWithFormat:@"title=%@, description=%@, startSnippet=%@",titleString, descriptionString, startSnippetString];
      NSLog(@"%@", requestString);
 
     //Request data

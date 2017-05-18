@@ -69,9 +69,9 @@
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
     
-    [API postNewStoryWith:@"heyoo" with:@"sup" and:@"to start it off.."];
+    [API postNewStoryWith:@"start snipp" with:@"yo" and:@"yee"];
     
-    
+
 }
 
 
