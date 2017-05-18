@@ -22,4 +22,5 @@
 @property (strong, nonatomic) NSDate *lastViewDate;
 @property (strong, nonatomic) NSString *bookmark;
 
+
 @end

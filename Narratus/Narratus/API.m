@@ -153,6 +153,7 @@
             newStory.storySnippetCount = story[@"snippetCount"];
             newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
             newStory.storyID = story[@"_id"];
+            newStory.startSnippet = story[@"startSnippet"];
             
             if (story[@"SnippetCount"] > 0) {
                 for (NSDictionary *snippet in story[@"snippets"]) {
@@ -175,16 +176,9 @@
                     newSnippet.createdDate = snippet[@"created"];
                     newSnippet.pending = snippet[@"pending"];
                     newSnippet.snippetID = snippet[@"_id"];
-                    //                newSnippet.accepted = snippet[@"accepted"];
                     newSnippet.acceptedDate = snippet[@"approvedDate"];
                     newSnippet.lastViewDate = snippet[@"lastViewDate"];
-                    //                newSnippet.bookmark = snippet[@"bookmark"];
-                    
-                    for (NSDictionary *content in snippet[@"snippets"]) {
-                        snippetContent = content[@"snippetContent"];
-                    }
-                    
-                    newSnippet.content = snippetContent;
+                    newSnippet.content = snippet[@"snippetContent"];
                     
                     [pendingSnippets addObject:newSnippet];
                 }
