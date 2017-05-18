@@ -30,7 +30,8 @@
     self.storyTableView.estimatedRowHeight = 50;
     self.storyTableView.rowHeight = UITableViewAutomaticDimension;
 
-    self.allSnippets = [API sampleSnippet];
+//    self.allSnippets = [API sampleSnippet];
+//    self.allSnippets = [API ]
     [self.storyTableView reloadData];
 }
 
@@ -39,17 +40,36 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
-    Snippet *current = self.allSnippets[indexPath.row];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
-//    NSLog(@"%@", dateString);
-    cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@", [current content]];
-    cell.snippetDateLabel.text = @"date goes here";
-    cell.backgroundColor=[UIColor clearColor];
+    if (indexPath.row == 0) {
+        SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
+        
+//        cell.snippetContentLabel.text = self.selectedStory.startSnippet;
+        return cell;
+    } else {
+        SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
+//        Snippet *current = self.allSnippets[indexPath.row];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//        NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
+        //    NSLog(@"%@", dateString);
+//        cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@", [current content]];
+//        cell.snippetDateLabel.text = @"date goes here";
+        cell.backgroundColor=[UIColor clearColor];
+        return cell;
+    }
+    
 
-    return cell;
 }
 
 
 @end
+
+//    SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
+//    Snippet *current = self.allSnippets[indexPath.row];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//    NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
+////    NSLog(@"%@", dateString);
+//    cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@", [current content]];
+//    cell.snippetDateLabel.text = @"date goes here";
+//    cell.backgroundColor=[UIColor clearColor];
+
+//    return cell;
