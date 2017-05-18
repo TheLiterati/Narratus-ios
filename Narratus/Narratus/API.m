@@ -145,52 +145,34 @@
             Story *newStory = [[Story alloc]init];
             NSLog(@"story content: %@", story);
             newStory.ownerUserName = story[@"ownerUsername"];
-//            newStory.ownerID = story[@"userId"];
             newStory.title = story[@"title"];
             newStory.storyDescription = story[@"description"];
             newStory.createdDate = story[@"created"];
-//            newStory.lastUpdatedDate = story[@"lastUpdated"];
             newStory.category = story[@"genre"];
             newStory.open = story[@"open"];
             newStory.storySnippetCount = story[@"snippetCount"];
             newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
             newStory.storyID = story[@"_id"];
             
-            for (NSArray *snippets in story[@"snippets"]) {
-                
-//                NSString *snippetContent = [[NSString alloc]init];
-                
-                Snippet *newSnippet = [[Snippet alloc]init];
-//                newSnippet.likes = snippet[@"likes"];
-                NSLog(@"snippet content: %@", snippets);
-                
-//                newSnippet.createdDate = snippet[@"created"];
-//                newSnippet.snippetCreator = snippet[@"snippetCreator"];
-//                newSnippet.pending = snippet[@"pending"];
-//                newSnippet.snippetID = snippet[@"_id"];
-//                newSnippet.accepted = snippet[@"accepted"];
-//                newSnippet.acceptedDate = snippet[@"approvedDate"];
-//                newSnippet.lastViewDate = snippet[@"lastViewDate"];
-//                newSnippet.bookmark = snippet[@"bookmark"];
-               
-                
-                for (NSString *contentString in snippets) {
-                    newSnippet.content = contentString;
+            if (story[@"SnippetCount"] > 0) {
+                for (NSDictionary *snippet in story[@"snippets"]) {
+                    Snippet *newSnippet = [[Snippet alloc]init];
+                    newSnippet.createdDate = snippet[@"created"];
+                    newSnippet.pending = snippet[@"pending"];
+                    newSnippet.snippetID = snippet[@"_id"];
+                    newSnippet.acceptedDate = snippet[@"approvedDate"];
+                    newSnippet.lastViewDate = snippet[@"lastViewDate"];
+                    newSnippet.content = snippet[@"snippetContent"];
+                    
+                    [pendingSnippets addObject:newSnippet];
+
                 }
-                
-//                newSnippet.content = snippetContent;
-                
-                [storySnippets addObject:newSnippet];
             }
             
             if (story[@"pendingSnippetCount"] > 0) {
                 for (NSDictionary *snippet in story[@"pendingSnippets"]) {
-                    NSString *snippetContent = [[NSString alloc]init];
                     Snippet *newSnippet = [[Snippet alloc]init];
-                    //                newSnippet.likes = snippet[@"likes"];
-//                    newSnippet.content = snippet[@"snippetContent"];
                     newSnippet.createdDate = snippet[@"created"];
-                    //                newSnippet.snippetCreator = snippet[@"snippetCreator"];
                     newSnippet.pending = snippet[@"pending"];
                     newSnippet.snippetID = snippet[@"_id"];
                     //                newSnippet.accepted = snippet[@"accepted"];
