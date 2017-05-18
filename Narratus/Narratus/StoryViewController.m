@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *toggleButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toggleButtonBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
+@property (weak, nonatomic) IBOutlet UINavigationItem *storyTitle;
 @property (nonatomic) float hiddenConstant;
 @property (nonatomic) float showConstant;
 
@@ -27,6 +28,8 @@
     self.showConstant = 196;
     [self addSnippetHandler];
     [self followButtonHandler];
+    NSLog([NSString stringWithFormat:@"%@", self.currentStory.title]);
+    self.storyTitle.title = self.currentStory.title;
 
 }
 
@@ -63,7 +66,7 @@
         self.toggleButtonBottomConstraint.constant = self.showConstant;
         [self.toggleButton setTitle:@"Return to story" forState:UIControlStateNormal];
         [self.toggleButton setBackgroundColor:[UIColor whiteColor]];
-        [self.toggleButton setTitleColor:[UIColor colorWithRed:128.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+        [self.toggleButton setTitleColor:[UIColor colorWithRed:149.0f/255.0f green:40.0f/255.0f blue:26.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
         
     } else if (self.toggleButtonBottomConstraint.constant == self.showConstant) {
         self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
