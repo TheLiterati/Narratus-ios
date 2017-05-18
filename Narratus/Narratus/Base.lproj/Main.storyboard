@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nhY-Ld-Ghz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nhY-Ld-Ghz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="special-elite.regular.ttf">
+            <string>SpecialElite-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -126,20 +131,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-DW-CI2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.54901960780000003" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-Ad-aM4">
-                                <rect key="frame" x="0.0" y="74" width="375" height="66.5"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="67"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.58255624770000003" green="0.1581582725" blue="0.10064742710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SpecialElite-Regular" family="Special Elite" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8mO-Es-GbU">
-                                <rect key="frame" x="0.0" y="150.5" width="375" height="66.5"/>
+                                <rect key="frame" x="0.0" y="151" width="375" height="67"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.58255624770000003" green="0.1581582725" blue="0.10064742710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SpecialElite-Regular" family="Special Elite" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-jp-MSt">
@@ -162,34 +171,33 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-v5-7M3">
                                 <rect key="frame" x="187" y="398" width="188" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OhO-T0-NJB">
                                 <rect key="frame" x="0.0" y="440" width="375" height="148"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SpecialElite-Regular" family="Special Elite" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTV-0U-ylt">
                                 <rect key="frame" x="0.0" y="398" width="188" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.58255624770000003" green="0.1581582725" blue="0.10064742710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="hMm-MO-VXM">
-                                <rect key="frame" x="0.0" y="254" width="375" height="136"/>
+                                <rect key="frame" x="0.0" y="255" width="375" height="135"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.58255624770000003" green="0.1581582725" blue="0.10064742710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a genre:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fx-yB-Rad">
-                                <rect key="frame" x="0.0" y="225" width="375" height="21"/>
+                                <rect key="frame" x="0.0" y="226" width="375" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.58255624770000003" green="0.1581582725" blue="0.10064742710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1fx-yB-Rad" secondAttribute="trailing" id="0Pj-8j-mfa"/>
                             <constraint firstItem="Kv3-jp-MSt" firstAttribute="width" secondItem="nxY-xK-Tnn" secondAttribute="width" id="1Ky-kH-7xB"/>
@@ -200,17 +208,20 @@
                             <constraint firstItem="1fx-yB-Rad" firstAttribute="top" secondItem="8mO-Es-GbU" secondAttribute="bottom" constant="8" symbolic="YES" id="CKV-za-XIR"/>
                             <constraint firstItem="Kv3-jp-MSt" firstAttribute="centerX" secondItem="nxY-xK-Tnn" secondAttribute="centerX" id="DF9-i9-hAA"/>
                             <constraint firstItem="8mO-Es-GbU" firstAttribute="height" secondItem="nxY-xK-Tnn" secondAttribute="height" multiplier="0.1" id="GEv-IV-5FV"/>
+                            <constraint firstItem="dVe-DW-CI2" firstAttribute="leading" secondItem="1fx-yB-Rad" secondAttribute="leading" id="Gmq-JF-23k"/>
                             <constraint firstItem="UL8-v5-7M3" firstAttribute="top" secondItem="hMm-MO-VXM" secondAttribute="bottom" constant="8" id="GuO-1s-Pqy"/>
                             <constraint firstItem="lTV-0U-ylt" firstAttribute="height" secondItem="UL8-v5-7M3" secondAttribute="height" id="H4h-Gf-fTO"/>
                             <constraint firstItem="OhO-T0-NJB" firstAttribute="leading" secondItem="Kv3-jp-MSt" secondAttribute="leading" id="JMY-ib-Iar"/>
                             <constraint firstItem="lTV-0U-ylt" firstAttribute="leading" secondItem="8mO-Es-GbU" secondAttribute="leading" id="Jds-rF-QBY"/>
                             <constraint firstItem="b5l-Ad-aM4" firstAttribute="top" secondItem="exG-Vu-jb3" secondAttribute="bottom" constant="10" id="Mg1-XR-3YA"/>
                             <constraint firstItem="1fx-yB-Rad" firstAttribute="width" secondItem="nxY-xK-Tnn" secondAttribute="width" id="Q6d-3P-Q7a"/>
+                            <constraint firstItem="dVe-DW-CI2" firstAttribute="top" secondItem="exG-Vu-jb3" secondAttribute="bottom" id="Qod-Ew-dRX"/>
                             <constraint firstItem="UL8-v5-7M3" firstAttribute="centerX" secondItem="8mO-Es-GbU" secondAttribute="centerX" constant="93.5" id="RAK-ZX-jAr"/>
                             <constraint firstItem="1fx-yB-Rad" firstAttribute="top" secondItem="8mO-Es-GbU" secondAttribute="bottom" constant="8" id="W0n-DK-7pw"/>
                             <constraint firstItem="8mO-Es-GbU" firstAttribute="top" secondItem="b5l-Ad-aM4" secondAttribute="bottom" constant="10" id="X7B-AP-1XU"/>
                             <constraint firstItem="UL8-v5-7M3" firstAttribute="width" secondItem="nxY-xK-Tnn" secondAttribute="width" multiplier="0.5" id="Xxe-nk-a7j"/>
                             <constraint firstItem="1fx-yB-Rad" firstAttribute="centerX" secondItem="8mO-Es-GbU" secondAttribute="centerX" id="bDM-Au-Sus"/>
+                            <constraint firstItem="dVe-DW-CI2" firstAttribute="width" secondItem="nxY-xK-Tnn" secondAttribute="width" id="bdc-E9-xFN"/>
                             <constraint firstItem="8mO-Es-GbU" firstAttribute="centerX" secondItem="nxY-xK-Tnn" secondAttribute="centerX" id="d8u-5L-lPa"/>
                             <constraint firstItem="UL8-v5-7M3" firstAttribute="height" secondItem="nxY-xK-Tnn" secondAttribute="height" multiplier="0.05" id="eAE-pZ-Mmd"/>
                             <constraint firstItem="8mO-Es-GbU" firstAttribute="width" secondItem="nxY-xK-Tnn" secondAttribute="width" id="eaM-QT-cEC"/>
@@ -224,6 +235,7 @@
                             <constraint firstItem="lTV-0U-ylt" firstAttribute="centerY" secondItem="UL8-v5-7M3" secondAttribute="centerY" id="vGN-aQ-Axn"/>
                             <constraint firstItem="1fx-yB-Rad" firstAttribute="leading" secondItem="nxY-xK-Tnn" secondAttribute="leading" id="y5o-q1-fG1"/>
                             <constraint firstItem="b5l-Ad-aM4" firstAttribute="height" secondItem="nxY-xK-Tnn" secondAttribute="height" multiplier="0.1" id="ySF-f1-j8i"/>
+                            <constraint firstItem="dVe-DW-CI2" firstAttribute="bottom" secondItem="rFb-Lw-527" secondAttribute="top" id="zLq-eu-bpa"/>
                             <constraint firstItem="OhO-T0-NJB" firstAttribute="width" secondItem="nxY-xK-Tnn" secondAttribute="width" id="zce-Ku-y04"/>
                             <constraint firstItem="hMm-MO-VXM" firstAttribute="top" secondItem="1fx-yB-Rad" secondAttribute="bottom" constant="8" id="zlL-kA-CrG"/>
                         </constraints>
