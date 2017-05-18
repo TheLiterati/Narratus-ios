@@ -62,9 +62,14 @@
     if (self.toggleButtonBottomConstraint.constant == self.hiddenConstant) {
         self.toggleButtonBottomConstraint.constant = self.showConstant;
         [self.toggleButton setTitle:@"Return to story" forState:UIControlStateNormal];
+        [self.toggleButton setBackgroundColor:[UIColor whiteColor]];
+        [self.toggleButton setTitleColor:[UIColor colorWithRed:128.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+        
     } else if (self.toggleButtonBottomConstraint.constant == self.showConstant) {
         self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
         [self.toggleButton setTitle:@"Contribute to the story" forState:UIControlStateNormal];
+        [self.toggleButton setBackgroundColor:[UIColor colorWithRed:128.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
+        [self.toggleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
 }
 
