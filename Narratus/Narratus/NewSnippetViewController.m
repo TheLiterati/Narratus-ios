@@ -50,15 +50,29 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
     
+    
     UIAlertController *contribution = [UIAlertController alertControllerWithTitle:@"Thank you for your contribution" message:@"May the story never end 📖" preferredStyle: UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"📝Wanderlust more" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
         [self.navigationController popViewControllerAnimated:YES];
+        
+
     }];
-    [contribution addAction:action];
-    [self presentViewController:contribution animated:YES completion:nil];
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        //Background Thread
+        [contribution addAction:action];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            //Run UI Updates
+            
+            [self presentViewController:contribution animated:YES completion:nil];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    });
     
     
-    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 
