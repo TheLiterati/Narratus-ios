@@ -43,8 +43,6 @@
 		BC38B8521ECA479C0090A38B /* FollowedStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8511ECA479C0090A38B /* FollowedStoryViewController.m */; };
 		BC38B8551ECA48260090A38B /* OwnedStorySnippetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */; };
 		BC38B8571ECA51890090A38B /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B8561ECA51890090A38B /* sample.json */; };
-		BC38B85B1ECA67900090A38B /* OwnedSnippetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8591ECA67900090A38B /* OwnedSnippetTableViewCell.m */; };
-		BC38B85C1ECA67900090A38B /* OwnedSnippetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85A1ECA67900090A38B /* OwnedSnippetTableViewCell.xib */; };
 		BC38B8601ECA78610090A38B /* snippetsample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85D1ECA78610090A38B /* snippetsample.json */; };
 		BC38B8611ECA78610090A38B /* storysample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85E1ECA78610090A38B /* storysample.json */; };
 		BC38B8621ECA78610090A38B /* usersample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85F1ECA78610090A38B /* usersample.json */; };
@@ -123,9 +121,6 @@
 		BC38B8531ECA48260090A38B /* OwnedStorySnippetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStorySnippetViewController.h; sourceTree = "<group>"; };
 		BC38B8541ECA48260090A38B /* OwnedStorySnippetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStorySnippetViewController.m; sourceTree = "<group>"; };
 		BC38B8561ECA51890090A38B /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample.json; path = ../sample.json; sourceTree = "<group>"; };
-		BC38B8581ECA67900090A38B /* OwnedSnippetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedSnippetTableViewCell.h; sourceTree = "<group>"; };
-		BC38B8591ECA67900090A38B /* OwnedSnippetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedSnippetTableViewCell.m; sourceTree = "<group>"; };
-		BC38B85A1ECA67900090A38B /* OwnedSnippetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedSnippetTableViewCell.xib; sourceTree = "<group>"; };
 		BC38B85D1ECA78610090A38B /* snippetsample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snippetsample.json; sourceTree = "<group>"; };
 		BC38B85E1ECA78610090A38B /* storysample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storysample.json; sourceTree = "<group>"; };
 		BC38B85F1ECA78610090A38B /* usersample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersample.json; sourceTree = "<group>"; };
@@ -255,9 +250,6 @@
 				BC38B8311ECA30170090A38B /* SnippetTableViewCell.h */,
 				BC38B8321ECA30170090A38B /* SnippetTableViewCell.m */,
 				BC38B8331ECA30170090A38B /* SnippetTableViewCell.xib */,
-				BC38B8581ECA67900090A38B /* OwnedSnippetTableViewCell.h */,
-				BC38B8591ECA67900090A38B /* OwnedSnippetTableViewCell.m */,
-				BC38B85A1ECA67900090A38B /* OwnedSnippetTableViewCell.xib */,
 				BC38B8361ECA303C0090A38B /* PendingSnippetTableViewCell.h */,
 				BC38B8371ECA303C0090A38B /* PendingSnippetTableViewCell.m */,
 				BC38B8381ECA303C0090A38B /* PendingSnippetTableViewCell.xib */,
@@ -397,7 +389,6 @@
 				BC38B8611ECA78610090A38B /* storysample.json in Resources */,
 				BC38B8051ECA22580090A38B /* LaunchScreen.storyboard in Resources */,
 				BC38B8571ECA51890090A38B /* sample.json in Resources */,
-				BC38B85C1ECA67900090A38B /* OwnedSnippetTableViewCell.xib in Resources */,
 				BC38B8021ECA22580090A38B /* Assets.xcassets in Resources */,
 				BC38B8601ECA78610090A38B /* snippetsample.json in Resources */,
 				BC38B8001ECA22580090A38B /* Main.storyboard in Resources */,
@@ -444,7 +435,6 @@
 				BC38B81B1ECA28100090A38B /* NewStoryViewController.m in Sources */,
 				BC38B84F1ECA47800090A38B /* OwnedTableViewController.m in Sources */,
 				BC38B8551ECA48260090A38B /* OwnedStorySnippetViewController.m in Sources */,
-				BC38B85B1ECA67900090A38B /* OwnedSnippetTableViewCell.m in Sources */,
 				BC38B8521ECA479C0090A38B /* FollowedStoryViewController.m in Sources */,
 				BC38B8651ECBA7A50090A38B /* SignupViewController.m in Sources */,
 				BC38B7F71ECA22580090A38B /* main.m in Sources */,

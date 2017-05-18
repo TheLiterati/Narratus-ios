@@ -70,8 +70,10 @@
         if (data) {
             
             NSLog(@"%@", data);
-        }
+            NSString *token = [[NSString alloc]initWithData:data encoding:kCFStringEncodingUTF8];
+            NSLog(@"%@", token);
         
+        }
     }] resume];
     
     
