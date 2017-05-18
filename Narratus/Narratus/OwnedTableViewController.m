@@ -7,7 +7,7 @@
 //
 
 #import "OwnedTableViewController.h"
-#import "OwnedStoryTableViewCell.h"
+#import "StoryTableViewCell.h"
 #import "User.h"
 #import "Story.h"
 #import "API.h"
@@ -28,8 +28,8 @@
     self.ownedStories = [[NSMutableArray alloc]init];
     self.ownedTableView.dataSource = self;
     self.ownedTableView.delegate = self;
-    UINib *cellNib = [UINib nibWithNibName:@"OwnedStoryTableViewCell" bundle:nil];
-    [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"OwnedStoryTableViewCell"];
+    UINib *cellNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
+    [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"StoryTableViewCell"];
     self.ownedTableView.estimatedRowHeight = 50;
     self.ownedTableView.rowHeight = UITableViewAutomaticDimension;
     self.ownedStories = [API sampleStory];
@@ -52,17 +52,17 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    OwnedStoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OwnedStoryTableViewCell" forIndexPath:indexPath];
+    StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
     Story *current = self.ownedStories[indexPath.row];
     
-    cell.ownedStoryTitleLabel.text = current.title;
-    cell.ownedStoryDescriptionLabel.text = current.description;
+    cell.titleLabel.text = current.title;
+    cell.descriptionLabel.text = current.description;
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    OwnedStoryViewController *ownVC = [self.storyboard instantiateViewControllerWithIdentifier:@"OwnedStoryViewController"];
+    OwnedStoryViewController *ownVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StoryViewController"];
     [self.navigationController pushViewController:ownVC animated:YES];
     
 }
