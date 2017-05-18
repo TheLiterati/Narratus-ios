@@ -70,13 +70,19 @@
         if (data) {
             
             NSLog(@"%@", data);
-
             
             NSString *token = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"token: %@", token);
+          
+            
+//            //Removing quotes from the token for when passing as a header in GET requests
+//            NSUInteger charCount = [quoteToken length];
+//            NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+//            
+//            //Pure token, no quotes
+//            NSString *token = [quoteToken substringWithRange:oneToAccount];
+//            NSLog(@"%@", token);
             
             [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
-            
 
         }
         
