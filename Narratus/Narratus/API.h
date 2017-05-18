@@ -14,7 +14,7 @@
 
 typedef void(^FetchAllStoriesCompletion)(NSArray<Story *> *allStories);
 typedef void(^FetchAllSnippetsCompletion)(NSArray<Snippet *> *allSnippets);
-typedef void(^FetchUserCompletion)(User *loggedInUser);
+
 
 typedef void(^loginCompletion)(NSArray*);
 
@@ -44,7 +44,7 @@ typedef void(^loginCompletion)(NSArray*);
 
 
 //user dashboard
-+(void)fetchUser:(FetchUserCompletion)completion;
++(void)fetchUser;
 
 
 
