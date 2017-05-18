@@ -38,8 +38,7 @@ typedef void(^loginCompletion)(NSArray*);
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion;
 
 //storyView controller
-//-(NSArray<Snippet *> *)fetchSnippetsFrom:(NSString *)storyID;
-//-(Snippet*)postSnippet:(Snippet*)snippet;
+
 +(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID;
 +(void)postSnippetFor:(NSString *)storyID with:(NSString *)snippetContent;
 
@@ -50,11 +49,12 @@ typedef void(^loginCompletion)(NSArray*);
 //
 //newStory
 //-(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
-+(void)postNewStory;
++(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)category and:(NSDictionary *)startSnippet;
 
 //user dashboard
-+(void)fetchUser:(FetchUserCompletion)completion;
 //+(void)fetchStories:(FetchStoriesCompletion)completion With:(NSArray *)storyIDs;
++(void)fetchUser:(FetchUserCompletion)completion;
+
 
 
 @end
