@@ -50,10 +50,6 @@
 		BC38B8621ECA78610090A38B /* usersample.json in Resources */ = {isa = PBXBuildFile; fileRef = BC38B85F1ECA78610090A38B /* usersample.json */; };
 		BC38B8651ECBA7A50090A38B /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38B8641ECBA7A50090A38B /* SignupViewController.m */; };
 		C01AE3191ECBBC33003C4041 /* StoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C01AE3181ECBBC33003C4041 /* StoryManager.m */; };
-		C0699A381ECA5AC60083E326 /* OwnedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */; };
-		C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */; };
-		C0699A3D1ECA5AD80083E326 /* FollowedStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */; };
-		C0699A3E1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,12 +133,6 @@
 		BC38B8641ECBA7A50090A38B /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		C01AE3171ECBBC33003C4041 /* StoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryManager.h; sourceTree = "<group>"; };
 		C01AE3181ECBBC33003C4041 /* StoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryManager.m; sourceTree = "<group>"; };
-		C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedStoryTableViewCell.h; sourceTree = "<group>"; };
-		C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedStoryTableViewCell.m; sourceTree = "<group>"; };
-		C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnedStoryTableViewCell.xib; sourceTree = "<group>"; };
-		C0699A3A1ECA5AD80083E326 /* FollowedStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowedStoryTableViewCell.h; sourceTree = "<group>"; };
-		C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowedStoryTableViewCell.m; sourceTree = "<group>"; };
-		C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowedStoryTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,12 +252,6 @@
 		BC38B82C1ECA289E0090A38B /* view */ = {
 			isa = PBXGroup;
 			children = (
-				C0699A351ECA5AC60083E326 /* OwnedStoryTableViewCell.h */,
-				C0699A361ECA5AC60083E326 /* OwnedStoryTableViewCell.m */,
-				C0699A371ECA5AC60083E326 /* OwnedStoryTableViewCell.xib */,
-				C0699A3A1ECA5AD80083E326 /* FollowedStoryTableViewCell.h */,
-				C0699A3B1ECA5AD80083E326 /* FollowedStoryTableViewCell.m */,
-				C0699A3C1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib */,
 				BC38B8311ECA30170090A38B /* SnippetTableViewCell.h */,
 				BC38B8321ECA30170090A38B /* SnippetTableViewCell.m */,
 				BC38B8331ECA30170090A38B /* SnippetTableViewCell.xib */,
@@ -410,7 +394,6 @@
 			files = (
 				BC38B83A1ECA303C0090A38B /* PendingSnippetTableViewCell.xib in Resources */,
 				BC38B83F1ECA30510090A38B /* StoryTableViewCell.xib in Resources */,
-				C0699A391ECA5AC60083E326 /* OwnedStoryTableViewCell.xib in Resources */,
 				BC38B8611ECA78610090A38B /* storysample.json in Resources */,
 				BC38B8051ECA22580090A38B /* LaunchScreen.storyboard in Resources */,
 				BC38B8571ECA51890090A38B /* sample.json in Resources */,
@@ -420,7 +403,6 @@
 				BC38B8001ECA22580090A38B /* Main.storyboard in Resources */,
 				BC38B8351ECA30170090A38B /* SnippetTableViewCell.xib in Resources */,
 				BC38B8621ECA78610090A38B /* usersample.json in Resources */,
-				C0699A3E1ECA5AD80083E326 /* FollowedStoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +428,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0699A3D1ECA5AD80083E326 /* FollowedStoryTableViewCell.m in Sources */,
 				BC38B7FA1ECA22580090A38B /* AppDelegate.m in Sources */,
 				BC38B8491ECA46B80090A38B /* StoryTableViewController.m in Sources */,
 				BC38B8421ECA308D0090A38B /* NewSnippetViewController.m in Sources */,
@@ -457,7 +438,6 @@
 				BC38B83E1ECA30510090A38B /* StoryTableViewCell.m in Sources */,
 				BC38B8341ECA30170090A38B /* SnippetTableViewCell.m in Sources */,
 				BC38B8281ECA284B0090A38B /* Story.m in Sources */,
-				C0699A381ECA5AC60083E326 /* OwnedStoryTableViewCell.m in Sources */,
 				BC38B8211ECA28270090A38B /* OwnedStoryViewController.m in Sources */,
 				BC38B82B1ECA28870090A38B /* Snippet.m in Sources */,
 				BC38B8301ECA292B0090A38B /* API.m in Sources */,

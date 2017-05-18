@@ -7,7 +7,7 @@
 //
 
 #import "FollowedStoryViewController.h"
-#import "FollowedStoryTableViewCell.h"
+#import "StoryTableViewCell.h"
 #import "User.h"
 #import "Story.h"
 #import "API.h"
@@ -27,8 +27,8 @@
     
     self.followedTableView.dataSource = self;
     self.followedTableView.delegate = self;
-    UINib *cellNib = [UINib nibWithNibName:@"FollowedStoryTableViewCell" bundle:nil];
-    [self.followedTableView registerNib:cellNib forCellReuseIdentifier:@"FollowedStoryTableViewCell"];
+    UINib *cellNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
+    [self.followedTableView registerNib:cellNib forCellReuseIdentifier:@"StoryTableViewCell"];
     
     self.followedStories = [API sampleStory];
     self.followedTableView.estimatedRowHeight = 50;
@@ -41,12 +41,12 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    FollowedStoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FollowedStoryTableViewCell" forIndexPath:indexPath];
+    StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
     
     Story *current = self.followedStories[indexPath.row];
     
-    cell.followedStoryTitleLabel.text = current.title;
-    cell.followedStoryDescriptionLabel.text = current.description;
+    cell.titleLabel.text = current.title;
+    cell.descriptionLabel.text = current.description;
     
     return cell;
 }
