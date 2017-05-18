@@ -73,7 +73,7 @@
 
             
             NSString *token = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"token: %@", token);
+            NSLog(@"save token: %@", token);
             
             [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
             
