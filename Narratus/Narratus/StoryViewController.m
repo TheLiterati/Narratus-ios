@@ -7,12 +7,13 @@
 //
 
 #import "StoryViewController.h"
+#import "NewSnippetViewController.h"
 
 @interface StoryViewController ()
 @property (weak, nonatomic) IBOutlet UIView *storyTableView;
 @property (weak, nonatomic) IBOutlet UIView *addSnippetView;
 @property (weak, nonatomic) IBOutlet UIButton *toggleButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toggleButtonBottomConstraint;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toggleButtonBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic) float hiddenConstant;
@@ -27,34 +28,35 @@
 
         NSLog(@"Pending snippets: %@", self.currentStory.pendingSnippets);
     self.titleLabel.text = self.currentStory.title;
-
-    self.hiddenConstant = 0.f;
-    self.showConstant = 196;
-    [self addSnippetHandler];
+//    self.hiddenConstant = 0.f;
+//    self.showConstant = 196;
+//    [self addSnippetHandler];
     [self followButtonHandler];
 
 
 }
 
-- (void)addSnippetHandler {
-    
-    // Gonna need to work with the story object as it's parsed from API to get this part working.
-    
-//    if ([self.currentStory.pendingSnippets count] == 10 ||
-//        [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
-//        [self.currentStory.open  isEqual: @"false"] ||
-//        self.user == nil) { // !self.user is not working for some reason
-//        
-//        [self.toggleButton isHidden];
-//    }
-    self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
-    
-    [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
-    
-    [UIView animateWithDuration: 1.0 animations:^{
-        [self.view layoutIfNeeded];
-    }];
-}
+
+//- (void)addSnippetHandler {
+//    
+//    // Gonna need to work with the story object as it's parsed from API to get this part working.
+//    
+////    if ([self.currentStory.pendingSnippets count] == 10 ||
+////        [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
+////        [self.currentStory.open  isEqual: @"false"] ||
+////        self.user == nil) { // !self.user is not working for some reason
+////        
+////        [self.toggleButton isHidden];
+////    }
+////    self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
+////    
+////    [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
+////    
+////    [UIView animateWithDuration: 1.0 animations:^{
+////        [self.view layoutIfNeeded];
+////    }];
+////}
+//}
 
 - (void)followButtonHandler {
     
@@ -70,14 +72,10 @@
 }
 
 - (IBAction)toggleSnippetView:(id)sender {
-    [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
-    if (self.toggleButtonBottomConstraint.constant == self.hiddenConstant) {
-        self.toggleButtonBottomConstraint.constant = self.showConstant;
-        [self.toggleButton setTitle:@"Return to story" forState:UIControlStateNormal];
-    } else if (self.toggleButtonBottomConstraint.constant == self.showConstant) {
-        self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
-        [self.toggleButton setTitle:@"Contribute to the story" forState:UIControlStateNormal];
-    }
+    NewSnippetViewController *addSnippetView = [self.storyboard instantiateViewControllerWithIdentifier:@"NewSnippetViewController"];
+    addSnippetView.currentStory = self.currentStory;
+    [self presentViewController:addSnippetView animated:YES completion:nil];
+//    [self.navigationController pushViewController:addSnippetView animated:YES];
 }
 
 - (IBAction)followButtonPressed:(id)sender {
