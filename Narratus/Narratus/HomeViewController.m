@@ -37,6 +37,7 @@
 
     [API fetchAllStories:^(NSArray<Story *> *allStories) {
         self.allStories = allStories;
+
         NSLog(@"allstories: %@", self.allStories);
         [self.lastUpdatedTableView reloadData];
     }];
