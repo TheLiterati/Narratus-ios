@@ -15,35 +15,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="62.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTENT" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqH-fH-y4G">
-                        <rect key="frame" x="5" y="5" width="310" height="26.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQ2-C0-KAN">
-                        <rect key="frame" x="5" y="36.5" width="310" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTENT" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqH-fH-y4G">
+                        <rect key="frame" x="10" y="3" width="300" height="56.5"/>
+                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="BQ2-C0-KAN" firstAttribute="top" secondItem="TqH-fH-y4G" secondAttribute="bottom" constant="5" id="HUc-M9-QAp"/>
-                    <constraint firstAttribute="bottom" secondItem="BQ2-C0-KAN" secondAttribute="bottom" constant="5" id="JMy-Wb-PN0"/>
-                    <constraint firstItem="TqH-fH-y4G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Mb8-X3-Jz7"/>
-                    <constraint firstAttribute="trailing" secondItem="BQ2-C0-KAN" secondAttribute="trailing" constant="5" id="cqV-ta-XBW"/>
-                    <constraint firstItem="TqH-fH-y4G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="dGG-nq-UCe"/>
-                    <constraint firstItem="BQ2-C0-KAN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="n2h-Io-2qV"/>
-                    <constraint firstAttribute="trailing" secondItem="TqH-fH-y4G" secondAttribute="trailing" constant="5" id="ucd-ti-Gr7"/>
+                    <constraint firstItem="TqH-fH-y4G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Mb8-X3-Jz7"/>
+                    <constraint firstItem="TqH-fH-y4G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="dGG-nq-UCe"/>
+                    <constraint firstAttribute="trailing" secondItem="TqH-fH-y4G" secondAttribute="trailing" constant="10" id="ucd-ti-Gr7"/>
+                    <constraint firstAttribute="bottom" secondItem="TqH-fH-y4G" secondAttribute="bottom" constant="3" id="y8p-oq-lku"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="snippetContentLabel" destination="TqH-fH-y4G" id="WIu-Du-jzY"/>
-                <outlet property="snippetDateLabel" destination="BQ2-C0-KAN" id="aEu-mX-QW7"/>
             </connections>
             <point key="canvasLocation" x="34" y="63.5"/>
         </tableViewCell>
