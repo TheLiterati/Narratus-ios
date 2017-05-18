@@ -23,7 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.lastUpdatedTableView.separatorColor = [UIColor clearColor];
+//    self.lastUpdatedTableView.separatorColor = [UIColor clearColor];
+    self.lastUpdatedTableView.backgroundColor = [UIColor clearColor];
     self.lastUpdatedTableView.dataSource = self;
     self.lastUpdatedTableView.delegate = self;
 
@@ -57,6 +58,7 @@
     
     cell.titleLabel.text = current.title;
     cell.descriptionLabel.text = current.description;
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
