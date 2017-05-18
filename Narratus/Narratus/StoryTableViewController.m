@@ -21,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.storyTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"papertexture-2061709_1920.jpg"]];
+    self.storyTableView.separatorColor = [UIColor clearColor];
     self.storyTableView.dataSource = self;
     self.allSnippets = [[NSArray<Snippet *> alloc]init];
     UINib *cellNib = [UINib nibWithNibName:@"SnippetTableViewCell" bundle:nil];
@@ -43,8 +44,9 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
 //    NSLog(@"%@", dateString);
-    cell.snippetContentLabel.text = current.content;
+    cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@", [current content]];
     cell.snippetDateLabel.text = @"date goes here";
+    cell.backgroundColor=[UIColor clearColor];
 
     return cell;
 }

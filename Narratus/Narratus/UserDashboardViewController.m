@@ -23,18 +23,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
     self.userNameLabel.text = self.user.userName;
     [self checkUser];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+
     
 //    NSLog(<#NSString * _Nonnull format, ...#>)
-    [API fetchUser:^(User *loggedInUser) {
-        self.user = loggedInUser;
-    }];
+//     [API fetchUser:^(User *loggedInUser) {
+//         self.user = loggedInUser;
+//     }];
+
 }
 
 -(void)checkUser {
@@ -47,7 +51,10 @@
 
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
     self.user = nil;
+    
+    //this is creating a separate, new instance of the Homeiew controller, not workable with the UI flow
     HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    
     [self presentViewController:homeVC animated:YES completion:nil];
 }
 

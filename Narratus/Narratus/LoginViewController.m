@@ -71,17 +71,17 @@
         if (data) {
             
             NSLog(@"%@", data);
+
             
             NSString *token = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"token: %@", token);
             
             [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
             
+
         }
         
     }] resume];
-    
-    
     
 }
 

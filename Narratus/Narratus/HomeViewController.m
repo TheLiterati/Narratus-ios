@@ -23,14 +23,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lastUpdatedTableView.separatorColor = [UIColor clearColor];
     self.lastUpdatedTableView.dataSource = self;
     self.lastUpdatedTableView.delegate = self;
 
     UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
+
     
     self.allStories = [[NSArray<Story *> alloc]init];
     self.allStories = [API sampleStory];
+
 //    [API fetchAllStories:^(NSArray<Story *> *allStories) {
 //        self.allStories = allStories;
     
