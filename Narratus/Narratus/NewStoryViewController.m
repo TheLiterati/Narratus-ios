@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSArray *genres;
 @property (weak, nonatomic) IBOutlet UIPickerView *genrePicker;
 
+
 @end
 
 @implementation NewStoryViewController
@@ -29,6 +30,7 @@
     self.genrePicker.dataSource = self;
     self.genrePicker.delegate = self;
     [self.genrePicker selectRow:5 inComponent:0 animated:YES];
+    
 }
 
 - (NSArray *)genres {
@@ -92,11 +94,15 @@
     newSnippet.content = _storyTextView.text; //Need to add all other snippet properties
 //    [newStory.storySnippets addObject:newSnippet];
     
+    NSString *title = [NSString stringWithFormat:@"%@", self.titleTextField.text];
+    NSString *description = [NSString stringWithFormat:@"%@", self.descriptionTextField.text];
+    NSString *startSnippet = [NSString stringWithFormat:@"%@", self.storyTextView.text];
+    
     [[StoryManager shared].userStories addObject:newStory];
    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
     
-//    [API postNewStoryWith:@"Once upon a time" with:@"There lived an elf"];
+    [API postNewStoryWith:title with:description and:startSnippet];
     
 
     UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Your story has been submitted!" preferredStyle: UIAlertControllerStyleAlert];

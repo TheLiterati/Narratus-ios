@@ -69,9 +69,9 @@
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
     
-     [API postNewStoryWith:@"Once upon a time" with:@"There lived an elf"];
+    [API postNewStoryWith:@"start snipp" with:@"yo" and:@"yee"];
     
-    
+
 }
 
 
