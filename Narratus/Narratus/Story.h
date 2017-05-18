@@ -18,7 +18,7 @@
 @property (strong, nonatomic) NSDate *createdDate;
 @property (strong, nonatomic) NSDate *lastUpdatedDate;
 @property (strong, nonatomic) NSString *category;
-@property (strong, nonatomic) NSString *open;
+@property (strong, nonatomic) NSNumber *open;
 @property (strong, nonatomic) NSArray *storySnippets;
 @property (strong, nonatomic) NSNumber *storySnippetCount;
 @property (strong, nonatomic) NSArray *pendingSnippets;
