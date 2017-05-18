@@ -15,6 +15,7 @@
 
 @end
 
+
 @implementation SignupViewController
 
 - (void)viewDidLoad {
@@ -27,8 +28,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (IBAction)signupButtonPressed:(UIButton *)sender {
     [self signup];
+}
+- (IBAction)cancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)signup{
@@ -90,7 +95,7 @@
 //        }
         
     }] resume];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 
 }

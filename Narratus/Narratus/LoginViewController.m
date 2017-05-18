@@ -29,7 +29,7 @@
 
 - (IBAction)loginPressed:(UIButton *)sender {
     [self login];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)signupPressed:(UIButton *)sender {
     self.signupView.hidden = NO;
@@ -38,7 +38,7 @@
         [self.view layoutIfNeeded];
     }];
     
-    self.signupButton.hidden = YES;
+//    self.signupButton.hidden = YES;
 }
 
 -(void)login {
