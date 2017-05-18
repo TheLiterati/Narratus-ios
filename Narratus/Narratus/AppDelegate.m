@@ -21,6 +21,8 @@
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:240.0f/255.0f alpha:1.0f]];
    
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTranslucent:NO];
+    
     
     UITabBarController *tabBarController = (UITabBarController *) self.window.rootViewController;
     tabBarController.view.tintColor = [UIColor colorWithRed:128.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
