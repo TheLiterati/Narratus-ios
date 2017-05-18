@@ -33,7 +33,7 @@
 - (void)addSnippetHandler {
     if ([self.currentStory.pendingSnippets count] == 10 ||
         [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
-        self.currentStory.open == @"false" ||
+        [self.currentStory.open  isEqual: @"false"] ||
         self.user == nil) { // !self.user is not working for some reason
         
         [self.toggleButton isHidden];
@@ -61,7 +61,7 @@
     [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
     if (self.toggleButtonBottomConstraint.constant == self.hiddenConstant) {
         self.toggleButtonBottomConstraint.constant = self.showConstant;
-        [self.toggleButton setTitle:@"Cancel contribution" forState:UIControlStateNormal];
+        [self.toggleButton setTitle:@"Return to story" forState:UIControlStateNormal];
     } else if (self.toggleButtonBottomConstraint.constant == self.showConstant) {
         self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
         [self.toggleButton setTitle:@"Contribute to the story" forState:UIControlStateNormal];

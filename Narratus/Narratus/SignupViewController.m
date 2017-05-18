@@ -70,14 +70,13 @@
         NSString *token = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@", token);
 
-        
         [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
         
         if (data != nil) {
             NSLog(@"%@", data);
 //            NSString *token = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSLog(@"%@", token);
-//            [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"signupAccessToken"];
             
         }
         
