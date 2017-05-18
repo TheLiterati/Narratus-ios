@@ -416,7 +416,7 @@
     NSLog(@"inside post story");
     //check url
 
-    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"access_token"];
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ title=%@ description=%@ 'Authorization:Bearer %@", title, description, token]; //check token
 //    /api/story title=<title> description=<description> Authorization: Bearer<token>
 

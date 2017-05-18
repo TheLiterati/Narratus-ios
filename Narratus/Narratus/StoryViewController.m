@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleLabel.text = 
+//    self.titleLabel.text = 
     self.hiddenConstant = 0.f;
     self.showConstant = 196;
     [self addSnippetHandler];
