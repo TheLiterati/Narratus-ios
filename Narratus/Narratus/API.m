@@ -389,6 +389,49 @@
     }]resume];
 }
 
++(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)genre and:(NSString *)startSnippet {
+    NSLog(@"inside post story");
+    //check url
+    NSString *token = @"test token";
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ title=%@ description=%@ 'Authorization:Bearer %@", title, description, token]; //check token
+//    /api/story title=<title> description=<description> Authorization: Bearer<token>
+
+    NSURL *databaseURL =[NSURL URLWithString:urlString];
+
+    NSMutableDictionary *storyDictionary = [[NSMutableDictionary alloc]init];
+    storyDictionary[@"title"] = title;
+    storyDictionary[@"description"] = description;
+    storyDictionary[@"genre"] = genre;
+    storyDictionary[@"startSnippet"] = startSnippet;
+
+    NSError *dataError;
+
+    NSData *storyData = [NSJSONSerialization dataWithJSONObject:storyDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
+
+    if (dataError) {
+        NSLog(@"%@", dataError.localizedDescription);
+    }
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+
+    request.HTTPMethod = @"POST";
+    [request setHTTPBody:storyData];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"request response: %@", response);
+        NSLog(@"request data: %@", data);
+        
+    }] resume];
+}
+
++()
+
 
 @end
 

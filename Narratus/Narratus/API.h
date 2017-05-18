@@ -39,17 +39,17 @@ typedef void(^loginCompletion)(NSArray*);
 
 //storyView controller
 
-+(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID;
++(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID; //give id get story object with [snippet objects];
 +(void)postSnippetFor:(NSString *)storyID with:(NSString *)snippetContent;
 
 //ownedStory
 //-(Snippet*)pendingToConfirmed:(Snippet*)pendingSnippet;
-//
 //-(Story*)closeStory:(Story*)openStory;
-//
++(void)pendingtoConfirmedFor:(NSString *)storyID with:(NSString *)content;
+
 //newStory
 //-(Story*)createStory:(Story*)newStoryWith:(NSString*)userID;
-+(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)category and:(NSDictionary *)startSnippet;
++(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)genre and:(NSString *)startSnippet;
 
 //user dashboard
 //+(void)fetchStories:(FetchStoriesCompletion)completion With:(NSArray *)storyIDs;
