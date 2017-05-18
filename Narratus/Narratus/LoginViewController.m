@@ -56,7 +56,6 @@
     NSLog(@"%@", authValue);
     [request setValue:authValue forHTTPHeaderField:@"Authorization"];
     
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {

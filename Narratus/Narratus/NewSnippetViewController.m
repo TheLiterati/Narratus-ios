@@ -46,7 +46,6 @@
     if (remaining <= 50) {
         self.characterCounter.textColor = [UIColor redColor];
     }
-
 }
 
 -(void)keyboardWillAppear {

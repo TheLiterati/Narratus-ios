@@ -53,7 +53,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PendingSnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PendingSnippetTableViewCell" forIndexPath:indexPath];
-    cell.currentSnippet = self.pendingSnippets[indexPath.row];
+//    cell.currentSnippet = self.pendingSnippets[indexPath.row];
     return cell;
 }
 
