@@ -241,7 +241,7 @@
 +(void)fetchUser:(FetchUserCompletion)completion {
     NSLog(@"inside fetch user");
     
-    //check url
+    //retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     NSLog(@"TOKEN: %@", token);
     
@@ -250,16 +250,18 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     request.HTTPMethod = @"GET";
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", token];
+    //Removing quotes from the token for when passing as a header in GET requests
+    NSUInteger charCount = [token length];
+    NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+    
+    //Pure token, no quotes
+    NSString *tokenWork = [token substringWithRange:oneToAccount];
+    NSLog(@"%@", tokenWork);
+    
+    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
     [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
   
-//    NSLog(@"token in call: %@", authString);
-//    NSString *authString = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
-//    NSData *authData = [authString dataUsingEncoding:NSUTF8StringEncoding];
-//    NSString *authValue = [NSString stringWithFormat:@"Bearer %@", [authData base64EncodedStringWithOptions:0]];
-//    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
