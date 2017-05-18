@@ -130,12 +130,17 @@
     } With:testStoryID];
 }
 
-+ (void)testPostSnippetFor {
-    
-}
+//+ (void)testPostSnippetFor {
+//    //Test make new story to get story id from?
+//    NSString *storyID = [[NSString alloc]init];
+//    NSString *snippetContent = @"This is the content of a snippet!";
+//    [API postSnippetFor:storyID with:snippetContent];
+//    
+//}
 
 + (void)testFetchUser {
     
+
 }
 
 @end
