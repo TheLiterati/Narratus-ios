@@ -238,12 +238,34 @@
 +(void)fetchUser:(FetchUserCompletion)completion {
     NSLog(@"inside fetch user");
     //check url
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/"];
+//    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"access_token"];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/dashboard"];
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    request.HTTPMethod = @"GET";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    
+//    NSString *authString = [NSString stringWithFormat:@"%@:%@", self.usernameTextField.text, self.passwordTextField.text];
+//    NSData *authData = [authString dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:0]];
+//    NSLog(@"%@", authValue);
+//    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+//
+    
+    
+    NSString *authString = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    NSLog(@"token in call: %@", authString);
+    NSData *authData = [authString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *authValue = [NSString stringWithFormat:@"Bearer %@", [authData base64EncodedStringWithOptions:0]];
+    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
-    [[session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+   
         NSLog(@"data:%@", data);
         NSLog(@"response:%@", response);
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -257,7 +279,7 @@
         for (NSDictionary *user in [rootObject allValues]) {
             NSMutableArray<Story *> *owned = [[NSMutableArray<Story *> alloc]init];
             NSMutableArray<Story *> *followed = [[NSMutableArray<Story *> alloc]init];
-
+            
             User *newUser = [[User alloc]init];
             newUser.userName = user[@"username"];
             newUser.password = user[@"password"];
@@ -293,7 +315,7 @@
                     newSnippet.acceptedDate = snippet[@"acceptedDate"];
                     newSnippet.lastViewDate = snippet[@"lastViewedDate"];
                     newSnippet.bookmark = snippet[@"bookmark"];
-
+                    
                     [storySnippets addObject:newSnippet];
                 }
                 
@@ -392,7 +414,8 @@
 +(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)genre and:(NSString *)startSnippet {
     NSLog(@"inside post story");
     //check url
-    NSString *token = @"test token";
+
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"access_token"];
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ title=%@ description=%@ 'Authorization:Bearer %@", title, description, token]; //check token
 //    /api/story title=<title> description=<description> Authorization: Bearer<token>
 
