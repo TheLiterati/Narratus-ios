@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NARRATUS HOME-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                             <constraint firstItem="J5G-Kz-lin" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="iZJ-cu-CsC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NARRATUS HOME" id="0ZJ-ac-DNz"/>
+                    <navigationItem key="navigationItem" title="Home" id="0ZJ-ac-DNz"/>
                     <connections>
                         <outlet property="lastUpdatedTableView" destination="J5G-Kz-lin" id="Z4k-6P-FxA"/>
                     </connections>
@@ -258,15 +258,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJJ-BY-kI0">
-                                <rect key="frame" x="47" y="179" width="281" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="47" y="179" width="281" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
                                     <action selector="loginPressed:" destination="1ug-id-NN6" eventType="touchUpInside" id="g4h-dr-6dL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nm-6V-qcz">
-                                <rect key="frame" x="47" y="238" width="281" height="34"/>
+                                <rect key="frame" x="47" y="236" width="281" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="SIGNUP"/>
                                 <connections>
@@ -488,13 +488,13 @@
             </objects>
             <point key="canvasLocation" x="137" y="388"/>
         </scene>
-        <!--USER-->
+        <!--User-->
         <scene sceneID="Vu4-ow-PjO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YpV-J4-dVq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="USER" selectedImage="user" id="z29-Pm-NhW"/>
+                    <tabBarItem key="tabBarItem" title="User" image="user" selectedImage="user" id="z29-Pm-NhW"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="79o-sq-ac0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="79o-sq-ac0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -743,9 +743,9 @@
         <scene sceneID="fHQ-CJ-2eT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WS6-lf-5vn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="home_512" id="vQz-pY-maT"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_512" selectedImage="home_512" id="vQz-pY-maT"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oia-K2-57N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oia-K2-57N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -763,7 +763,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pr1-1y-ESi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iM3-Da-cjJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iM3-Da-cjJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -781,7 +781,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K2r-Ge-XvO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vaM-pO-2fj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vaM-pO-2fj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
