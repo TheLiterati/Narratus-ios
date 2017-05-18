@@ -411,9 +411,9 @@
     }]resume];
 }
 
-+(void)postNewStoryWith:(NSString *)title with:(NSString *)description {
-    // with:(NSString *)genre and:(NSString *)startSnippet
-    NSLog(@"inside post story");
++(void)postNewStoryWith:(NSString *)title with:(NSString *)description and:(NSString *)startSnippet {
+    // with:(NSString *)genre
+    NSLog(@"Inside post Story");
     
     //Retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
@@ -433,18 +433,19 @@
     //Title and description strings for reference to be able to pass into story string
     NSString *titleString = [[NSString alloc]initWithString:title];
     NSString *descriptionString = [[NSString alloc]initWithString:description];
+    NSString *startSnippetString = [[NSString alloc]initWithString:startSnippet];
     
     NSMutableDictionary *storyDictionary = [[NSMutableDictionary alloc]init];
     storyDictionary[@"title"] = titleString;
     storyDictionary[@"description"] = descriptionString;
     //    storyDictionary[@"genre"] = genre;
-    //    storyDictionary[@"startSnippet"] = startSnippet;
+        storyDictionary[@"startSnippet"] = startSnippet;
     
     //Need to pass title, description data into
     [StoryManager.shared userStories];
    
     //Request string
-    NSString *requestString = [NSString stringWithFormat:@"title=%@, description=%@",titleString, descriptionString];
+    NSString *requestString = [NSString stringWithFormat:@"title=%@, description=%@, startSnippet=%@",titleString, descriptionString];
      NSLog(@"%@", requestString);
 
     //Request data
@@ -455,23 +456,22 @@
         NSLog(@"%@", dataError.localizedDescription);
     }
     
-    //Create the request of type POST, set body
+    
+    //Create the request
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     request.HTTPMethod = @"POST";
     [request setHTTPBody:requestData];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
     [request addValue:bearAuth forHTTPHeaderField:@"Authorization"];
-//    [request addValue:requestString forHTTPHeaderField:<#(nonnull NSString *)#>]
-    
+    NSLog(@"%@", bearAuth);
+
     
     //Start the session
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
 
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        //        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
         
-       
          NSString *parsedData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"request data: %@", parsedData);
          NSLog(@"request response: %@", response);

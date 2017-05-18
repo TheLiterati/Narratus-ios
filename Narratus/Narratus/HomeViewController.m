@@ -65,7 +65,7 @@
     StoryViewController *storyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StoryViewController"];
     [self.navigationController pushViewController:storyVC animated:YES];
     
-     [API postNewStoryWith:@"Once upon a time" with:@"There lived an elf"];
+    [API postNewStoryWith:@"heyoo" with:@"sup" and:@"to start it off.."];
     
     
 }

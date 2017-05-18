@@ -40,8 +40,8 @@ typedef void(^loginCompletion)(NSArray*);
 +(void)pendingtoConfirmedFor:(NSString *)storyID with:(NSString *)content;
 
 //newStory
-+(void)postNewStoryWith:(NSString *)title with:(NSString *)description;
-// with:(NSString *)genre and:(NSString *)startSnippet
++(void)postNewStoryWith:(NSString *)title with:(NSString *)description and:(NSString *)startSnippet;
+
 
 //user dashboard
 +(void)fetchUser:(FetchUserCompletion)completion;
