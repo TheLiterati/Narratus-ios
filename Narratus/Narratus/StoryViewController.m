@@ -24,22 +24,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.titleLabel.text = 
+
+        NSLog(@"Pending snippets: %@", self.currentStory.pendingSnippets);
+    self.titleLabel.text = self.currentStory.title;
+
     self.hiddenConstant = 0.f;
     self.showConstant = 196;
     [self addSnippetHandler];
     [self followButtonHandler];
 
+
 }
 
 - (void)addSnippetHandler {
-    if ([self.currentStory.pendingSnippets count] == 10 ||
-        [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
-        [self.currentStory.open  isEqual: @"false"] ||
-        self.user == nil) { // !self.user is not working for some reason
-        
-        [self.toggleButton isHidden];
-    }
+    
+    // Gonna need to work with the story object as it's parsed from API to get this part working.
+    
+//    if ([self.currentStory.pendingSnippets count] == 10 ||
+//        [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
+//        [self.currentStory.open  isEqual: @"false"] ||
+//        self.user == nil) { // !self.user is not working for some reason
+//        
+//        [self.toggleButton isHidden];
+//    }
     self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
     
     [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
