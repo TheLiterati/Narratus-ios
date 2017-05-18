@@ -278,7 +278,7 @@
     }] resume];
 }
 
-+(void)fetchUser:(FetchUserCompletion)completion {
++(void)fetchUser{
     NSLog(@"inside fetch user");
     
     //retreive token
@@ -444,11 +444,11 @@
             currentUser = newUser;
         }
         
-        if (completion) {
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                completion(currentUser);
-            }];
-        }
+//        if (completion) {
+//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+//                completion(currentUser);
+//            }];
+//        }
     }]resume];
 }
 
