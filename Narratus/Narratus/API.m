@@ -110,6 +110,9 @@
 
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion {
     NSLog(@"inside fetch stories");
+    
+    
+    
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/"];
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
@@ -237,30 +240,26 @@
 
 +(void)fetchUser:(FetchUserCompletion)completion {
     NSLog(@"inside fetch user");
-    //check url
-//    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"access_token"];
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/dashboard"];
     
+    //check url
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    NSLog(@"TOKEN: %@", token);
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/dashboard"];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     request.HTTPMethod = @"GET";
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    
-//    NSString *authString = [NSString stringWithFormat:@"%@:%@", self.usernameTextField.text, self.passwordTextField.text];
+    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", token];
+    [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
+  
+//    NSLog(@"token in call: %@", authString);
+//    NSString *authString = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
 //    NSData *authData = [authString dataUsingEncoding:NSUTF8StringEncoding];
-//    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:0]];
-//    NSLog(@"%@", authValue);
+//    NSString *authValue = [NSString stringWithFormat:@"Bearer %@", [authData base64EncodedStringWithOptions:0]];
 //    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
-//
-    
-    
-    NSString *authString = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
-    NSLog(@"token in call: %@", authString);
-    NSData *authData = [authString dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authValue = [NSString stringWithFormat:@"Bearer %@", [authData base64EncodedStringWithOptions:0]];
-    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
