@@ -75,9 +75,8 @@
             [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
         
         }
+        
     }] resume];
-    
-    
     
 }
 
