@@ -43,34 +43,32 @@
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
     
-    Snippet *newSnippet = [[Snippet alloc]init];
-    newSnippet.pending = _snippetTextView.text;
-    
-    [[StoryManager.shared allSnippets] addObject:newSnippet];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
-    
-    
     UIAlertController *contribution = [UIAlertController alertControllerWithTitle:@"Thank you for your contribution" message:@"May the story never end 📖" preferredStyle: UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"📝Wanderlust more" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        
-
-    }];
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        //Background Thread
-        [contribution addAction:action];
+        
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            //Run UI Updates
+            //Run UI Updates, Highest priority
+            
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"📝Wanderlust more" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
             
             [self presentViewController:contribution animated:YES completion:nil];
             
             [self.navigationController popViewControllerAnimated:YES];
+            [contribution addAction:action];
         });
+        
+        //Background Thread(global queue), medium priority aka priority_default
+        Snippet *newSnippet = [[Snippet alloc]init];
+        newSnippet.pending = _snippetTextView.text;
+        
+        [[StoryManager.shared allSnippets] addObject:newSnippet];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
+        
     });
-    
     
     
 }
