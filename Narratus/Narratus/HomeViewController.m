@@ -28,13 +28,14 @@
 
     UINib *storyNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.lastUpdatedTableView registerNib:storyNib forCellReuseIdentifier:@"StoryTableViewCell"];
-//    self.allStories = [API sampleStory];
+    
     self.allStories = [[NSArray<Story *> alloc]init];
+    self.allStories = [API sampleStory];
 //    [API fetchAllStories:^(NSArray<Story *> *allStories) {
 //        self.allStories = allStories;
-//        [self.lastUpdatedTableView reloadData];
+    
 //    }];
-
+    [self.lastUpdatedTableView reloadData];
     self.lastUpdatedTableView.estimatedRowHeight = 70;
     self.lastUpdatedTableView.rowHeight = UITableViewAutomaticDimension;
 }

@@ -348,7 +348,7 @@
 					};
 					BC38B7F11ECA22580090A38B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = HDU39LZWX7;
+						DevelopmentTeam = AYB4L38F4S;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -597,7 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HDU39LZWX7;
+				DEVELOPMENT_TEAM = AYB4L38F4S;
 				INFOPLIST_FILE = Narratus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.Narratus;
@@ -609,7 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HDU39LZWX7;
+				DEVELOPMENT_TEAM = AYB4L38F4S;
 				INFOPLIST_FILE = Narratus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.Narratus;
