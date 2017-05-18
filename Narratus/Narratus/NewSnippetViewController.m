@@ -34,7 +34,6 @@
     if (remaining <= 50) {
         self.characterCounter.textColor = [UIColor redColor];
     }
-
 }
 
 - (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {

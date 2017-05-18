@@ -10,7 +10,7 @@
 #import "OwnedTableViewController.h"
 #import "FollowedStoryViewController.h"
 #import "HomeViewController.h"
-
+#import "LoginViewController.h"
 
 @interface UserDashboardViewController () 
 
@@ -44,9 +44,11 @@
     self.user = nil;
     
     //this is creating a separate, new instance of the Homeiew controller, not workable with the UI flow
-    HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//    HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     
-    [self presentViewController:homeVC animated:YES completion:nil];
+//    LoginViewController *loginVC = [self.navigationController popToViewController:@"LoginViewController" animated:YES:];
+    
+//    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 @end

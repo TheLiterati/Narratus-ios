@@ -549,34 +549,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-96-Vno">
-                                <rect key="frame" x="187" y="31" width="188" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57y-iR-4bs">
-                                <rect key="frame" x="0.0" y="60" width="375" height="111"/>
+                                <rect key="frame" x="0.0" y="37" width="375" height="134"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="1cE-Wq-YyT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnq-eV-GXy">
-                                <rect key="frame" x="0.0" y="31" width="188" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="11" width="188" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf3-XQ-T86">
                                 <rect key="frame" x="150.5" y="170" width="73" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Contribute"/>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="UUT-6W-pBr" eventType="touchUpInside" id="Den-ub-Zpr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-96-Vno">
+                                <rect key="frame" x="187" y="8" width="188" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -587,11 +588,11 @@
                             <constraint firstItem="mnq-eV-GXy" firstAttribute="centerY" secondItem="rGn-96-Vno" secondAttribute="centerY" id="aQI-rB-mx2"/>
                             <constraint firstItem="57y-iR-4bs" firstAttribute="leading" secondItem="9LU-Ri-5q1" secondAttribute="leadingMargin" constant="-16" id="ef3-A7-UOv"/>
                             <constraint firstItem="57y-iR-4bs" firstAttribute="top" secondItem="rGn-96-Vno" secondAttribute="bottom" constant="8" id="fey-Rb-zcs"/>
-                            <constraint firstItem="rGn-96-Vno" firstAttribute="top" secondItem="67l-oI-pRk" secondAttribute="bottom" constant="31" id="gWC-5l-RGp"/>
+                            <constraint firstItem="rGn-96-Vno" firstAttribute="top" secondItem="67l-oI-pRk" secondAttribute="bottom" constant="8" id="gWC-5l-RGp"/>
                             <constraint firstItem="rGn-96-Vno" firstAttribute="height" secondItem="9LU-Ri-5q1" secondAttribute="height" multiplier="0.05" constant="11" id="hMj-dd-8gl"/>
                             <constraint firstItem="57y-iR-4bs" firstAttribute="bottom" secondItem="BVE-3D-eo9" secondAttribute="top" constant="-29" id="kMj-7L-pc1"/>
                             <constraint firstItem="mnq-eV-GXy" firstAttribute="width" secondItem="rGn-96-Vno" secondAttribute="width" id="oIx-nO-Tg7"/>
-                            <constraint firstItem="Lf3-XQ-T86" firstAttribute="top" secondItem="rGn-96-Vno" secondAttribute="bottom" constant="118" id="voN-eJ-kcX"/>
+                            <constraint firstItem="Lf3-XQ-T86" firstAttribute="top" secondItem="rGn-96-Vno" secondAttribute="bottom" constant="141" id="voN-eJ-kcX"/>
                         </constraints>
                     </view>
                     <connections>
