@@ -37,9 +37,10 @@
 
     [API fetchAllStories:^(NSArray<Story *> *allStories) {
         self.allStories = allStories;
-    
+        NSLog(@"allstories: %@", self.allStories);
+        [self.lastUpdatedTableView reloadData];
     }];
-    [self.lastUpdatedTableView reloadData];
+    
     self.lastUpdatedTableView.estimatedRowHeight = 70;
     self.lastUpdatedTableView.rowHeight = UITableViewAutomaticDimension;
 }
@@ -57,7 +58,7 @@
     Story *current = self.allStories[indexPath.row];
     
     cell.titleLabel.text = current.title;
-    cell.descriptionLabel.text = current.description;
+    cell.descriptionLabel.text = current.storyDescription;
     cell.backgroundColor = [UIColor clearColor];
     
     return cell;
