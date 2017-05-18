@@ -18,21 +18,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:128.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:240.0f/255.0f alpha:1]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:240.0f/255.0f alpha:1.0f]];
    
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    
+    UITabBarController *tabBarController = (UITabBarController *) self.window.rootViewController;
+    tabBarController.view.tintColor = [UIColor colorWithRed:128.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    tabBarController.view.backgroundColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:240.0f/255.0f alpha:1.0f];
  //   [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"special-elite.regular" size:21]}];
-    
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
-    
+
 //    tabBarController.moreNavigationController.navigationBar.tintColor = [UIColor blackColor];
 
     return YES;
