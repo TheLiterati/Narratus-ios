@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.confirmedSnippets = [[NSArray<Snippet *> alloc]init];
+    self.storyTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"papertexture-2061709_1920.jpg"]];
+    self.storyTableView.separatorColor = [UIColor clearColor];
     self.storyTableView.dataSource = self;
     self.storyTableView.delegate = self;
     UINib *snippetNib = [UINib nibWithNibName:@"SnippetTableViewCell" bundle:nil];
@@ -42,8 +44,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
     
-    cell.snippetContentLabel.text = self.confirmedSnippets[indexPath.row].content;
-    
+    cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@", self.confirmedSnippets[indexPath.row].content];
+    cell.backgroundColor=[UIColor clearColor];
     return cell;
     
 }
