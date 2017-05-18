@@ -1,4 +1,4 @@
-//
+
 //  API.m
 //  Narratus
 //
@@ -116,35 +116,101 @@
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/"];
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    request.HTTPMethod = @"GET";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
-    [[session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
         NSLog(@"data:%@", data);
         NSLog(@"response:%@", response);
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
+        NSLog(@"root object: %@", rootObject);
         if (error) {
             NSLog(@"error: %@",error.localizedDescription);
         }
         
         NSMutableArray *allStories = [[NSMutableArray alloc]init];
         
-        for (NSDictionary *story in [rootObject allValues]) {
+        for (NSDictionary *story in rootObject) {
             NSLog(@"title: %@", story[@"title"]);
+            
+            NSMutableArray<Snippet *> *storySnippets = [[NSMutableArray alloc]init];
+            NSMutableArray<Snippet *> *pendingSnippets = [[NSMutableArray alloc]init];
+            
             Story *newStory = [[Story alloc]init];
+            NSLog(@"story content: %@", story);
             newStory.ownerUserName = story[@"ownerUsername"];
-            newStory.ownerID = story[@"ownerId"];
+//            newStory.ownerID = story[@"userId"];
             newStory.title = story[@"title"];
             newStory.storyDescription = story[@"description"];
             newStory.createdDate = story[@"created"];
-            newStory.lastUpdatedDate = story[@"lastUpdated"];
-            newStory.category = story[@"categories"];
+//            newStory.lastUpdatedDate = story[@"lastUpdated"];
+            newStory.category = story[@"genre"];
             newStory.open = story[@"open"];
-            newStory.storySnippets = story[@"snippets"];
             newStory.storySnippetCount = story[@"snippetCount"];
-            newStory.pendingSnippets = story[@"pendingSnippets"];
             newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
             newStory.storyID = story[@"_id"];
+            
+            for (NSArray *snippets in story[@"snippets"]) {
+                
+//                NSString *snippetContent = [[NSString alloc]init];
+                
+                Snippet *newSnippet = [[Snippet alloc]init];
+//                newSnippet.likes = snippet[@"likes"];
+                NSLog(@"snippet content: %@", snippets);
+                
+//                newSnippet.createdDate = snippet[@"created"];
+//                newSnippet.snippetCreator = snippet[@"snippetCreator"];
+//                newSnippet.pending = snippet[@"pending"];
+//                newSnippet.snippetID = snippet[@"_id"];
+//                newSnippet.accepted = snippet[@"accepted"];
+//                newSnippet.acceptedDate = snippet[@"approvedDate"];
+//                newSnippet.lastViewDate = snippet[@"lastViewDate"];
+//                newSnippet.bookmark = snippet[@"bookmark"];
+               
+                
+                for (NSString *contentString in snippets) {
+                    newSnippet.content = contentString;
+                }
+                
+//                newSnippet.content = snippetContent;
+                
+                [storySnippets addObject:newSnippet];
+            }
+            
+            if (story[@"pendingSnippetCount"] > 0) {
+                for (NSDictionary *snippet in story[@"pendingSnippets"]) {
+                    NSString *snippetContent = [[NSString alloc]init];
+                    Snippet *newSnippet = [[Snippet alloc]init];
+                    //                newSnippet.likes = snippet[@"likes"];
+//                    newSnippet.content = snippet[@"snippetContent"];
+                    newSnippet.createdDate = snippet[@"created"];
+                    //                newSnippet.snippetCreator = snippet[@"snippetCreator"];
+                    newSnippet.pending = snippet[@"pending"];
+                    newSnippet.snippetID = snippet[@"_id"];
+                    //                newSnippet.accepted = snippet[@"accepted"];
+                    newSnippet.acceptedDate = snippet[@"approvedDate"];
+                    newSnippet.lastViewDate = snippet[@"lastViewDate"];
+                    //                newSnippet.bookmark = snippet[@"bookmark"];
+                    
+                    for (NSDictionary *content in snippet[@"snippets"]) {
+                        snippetContent = content[@"snippetContent"];
+                    }
+                    
+                    newSnippet.content = snippetContent;
+                    
+                    [pendingSnippets addObject:newSnippet];
+                }
+                newStory.pendingSnippets = pendingSnippets;
+            }
+
+            newStory.storySnippets = storySnippets;
 
             [allStories addObject:newStory];
         }
@@ -255,13 +321,13 @@
     NSUInteger charCount = [token length];
     NSRange oneToAccount = NSMakeRange(1, charCount - 2);
     
+
     //Pure token, no quotes
     NSString *tokenWork = [token substringWithRange:oneToAccount];
     NSLog(@"%@", tokenWork);
     
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
     [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
-  
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     

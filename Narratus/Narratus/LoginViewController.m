@@ -72,7 +72,9 @@
             NSLog(@"%@", data);
             
             NSString *token = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-          
+
+            NSLog(@"save token: %@", token);
+
             
 //            //Removing quotes from the token for when passing as a header in GET requests
 //            NSUInteger charCount = [quoteToken length];
