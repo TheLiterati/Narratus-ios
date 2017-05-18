@@ -72,6 +72,7 @@
             NSLog(@"%@", data);
             NSString *token = [[NSString alloc]initWithData:data encoding:kCFStringEncodingUTF8];
             NSLog(@"%@", token);
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
         
         }
     }] resume];
