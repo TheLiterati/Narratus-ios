@@ -96,7 +96,8 @@
    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
     
-//  [API postNewStoryWith:<#(NSString *)#> with:<#(NSString *)#> with:<#(NSString *)#> and:<#(NSString *)#>]
+//    [API postNewStoryWith:@"Once upon a time" with:@"There lived an elf"];
+    
 
     UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Your story has been submitted!" preferredStyle: UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
