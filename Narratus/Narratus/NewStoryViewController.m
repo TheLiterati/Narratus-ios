@@ -8,6 +8,7 @@
 
 #import "NewStoryViewController.h"
 #import "StoryManager.h"
+#import "API.h"
 
 @interface NewStoryViewController () <UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -29,7 +30,6 @@
     self.genrePicker.delegate = self;
     [self.genrePicker selectRow:5 inComponent:0 animated:YES];
 }
-
 
 - (NSArray *)genres {
     NSArray *genres = @[@"Adventure",
@@ -95,6 +95,8 @@
     [[StoryManager shared].userStories addObject:newStory];
    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newStoryCreation" object:nil];
+    
+//  [API postNewStoryWith:<#(NSString *)#> with:<#(NSString *)#> with:<#(NSString *)#> and:<#(NSString *)#>]
 
     UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Your story has been submitted!" preferredStyle: UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

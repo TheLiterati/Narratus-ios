@@ -7,6 +7,7 @@
 //
 
 #import "API.h"
+#import "StoryManager.h"
 
 @implementation API
 
@@ -110,8 +111,6 @@
 
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion {
     NSLog(@"inside fetch stories");
-    
-    
     
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/"];
     
@@ -414,13 +413,29 @@
 
 +(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)genre and:(NSString *)startSnippet {
     NSLog(@"inside post story");
-    //check url
-
+    
+    //retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ title=%@ description=%@ 'Authorization:Bearer %@", title, description, token]; //check token
-//    /api/story title=<title> description=<description> Authorization: Bearer<token>
+    
+    //Removing quotes from the token for when passing as a header in GET requests
+    NSUInteger charCount = [token length];
+    NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+    
+    //Pure token, no quotes
+    NSString *tokenWork = [token substringWithRange:oneToAccount];
+    NSLog(@"%@", tokenWork);
 
-    NSURL *databaseURL =[NSURL URLWithString:urlString];
+    NSURL *databaseURL =[NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/story"];
+    
+    NSString *headerString = [NSString stringWithFormat:@"&title=%@&description=%@,Authorization:Bearer %@",tokenWork, tokenWork,tokenWork ];
+    
+//    NSData *headerURL = [NS]
+    NSError *dataError;
+    
+    NSData *storyData = [NSJSONSerialization dataWithJSONObject:headerString options:NSJSONWritingPrettyPrinted error:&dataError];
+    
+    [StoryManager.shared allSnippets];
+    [StoryManager.shared userStories];
 
     NSMutableDictionary *storyDictionary = [[NSMutableDictionary alloc]init];
     storyDictionary[@"title"] = title;
@@ -428,9 +443,7 @@
     storyDictionary[@"genre"] = genre;
     storyDictionary[@"startSnippet"] = startSnippet;
 
-    NSError *dataError;
-
-    NSData *storyData = [NSJSONSerialization dataWithJSONObject:storyDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
+ 
 
     if (dataError) {
         NSLog(@"%@", dataError.localizedDescription);
