@@ -414,8 +414,13 @@
 +(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)genre and:(NSString *)startSnippet {
     NSLog(@"inside post story");
     
-    //retreive token
+    //Retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    
+    //Base URL
+    NSURL *databaseURL =[NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/story"];
+    
+
     
     //Removing quotes from the token for when passing as a header in GET requests
     NSUInteger charCount = [token length];
@@ -424,38 +429,42 @@
     //Pure token, no quotes
     NSString *tokenWork = [token substringWithRange:oneToAccount];
     NSLog(@"%@", tokenWork);
+    
+    //Title and description strings for reference to be able to pass into story string
+    NSString *titleString = [[NSString alloc]initWithString:title];
+    NSString *descriptionString = [[NSString alloc]initWithString:description];
+   
+    //Request string
+    NSString *requestString = [NSString stringWithFormat:@"&title=%@&description=%@&Authorization:Bearer %@",titleString, descriptionString,tokenWork];
 
-    NSURL *databaseURL =[NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/story"];
-    
-    NSString *headerString = [NSString stringWithFormat:@"&title=%@&description=%@,Authorization:Bearer %@",tokenWork, tokenWork,tokenWork ];
-    
-//    NSData *headerURL = [NS]
+    //Request data
     NSError *dataError;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestString options:NSJSONWritingPrettyPrinted error:&dataError];
     
-    NSData *storyData = [NSJSONSerialization dataWithJSONObject:headerString options:NSJSONWritingPrettyPrinted error:&dataError];
-    
-    [StoryManager.shared allSnippets];
-    [StoryManager.shared userStories];
-
-    NSMutableDictionary *storyDictionary = [[NSMutableDictionary alloc]init];
-    storyDictionary[@"title"] = title;
-    storyDictionary[@"description"] = description;
-    storyDictionary[@"genre"] = genre;
-    storyDictionary[@"startSnippet"] = startSnippet;
-
- 
-
     if (dataError) {
         NSLog(@"%@", dataError.localizedDescription);
     }
-
+    
+    
+    //Create the request of type POST, set body
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
-
     request.HTTPMethod = @"POST";
-    [request setHTTPBody:storyData];
+    [request setHTTPBody:requestData];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     
+    NSMutableDictionary *storyDictionary = [[NSMutableDictionary alloc]init];
+    storyDictionary[@"title"] = titleString;
+    storyDictionary[@"description"] = descriptionString;
+    storyDictionary[@"genre"] = genre;
+    storyDictionary[@"startSnippet"] = startSnippet;
+    
+    //Need to pass title, description data into 
+    [StoryManager.shared userStories];
+    
+    NSLog(@"Story string: %@", requestString);
+    
+    //Start the session
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
 
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
