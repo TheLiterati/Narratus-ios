@@ -24,8 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
         NSLog(@"Pending snippets: %@", self.currentStory.pendingSnippets);
     self.titleLabel.text = self.currentStory.title;
+
     self.hiddenConstant = 0.f;
     self.showConstant = 196;
     [self addSnippetHandler];

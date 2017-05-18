@@ -7,6 +7,7 @@
 //
 
 #import "API.h"
+#import "StoryManager.h"
 
 @implementation API
 
@@ -110,8 +111,6 @@
 
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion {
     NSLog(@"inside fetch stories");
-    
-    
     
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/"];
     
@@ -478,44 +477,70 @@
     }]resume];
 }
 
-+(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)genre and:(NSString *)startSnippet {
++(void)postNewStoryWith:(NSString *)title with:(NSString *)description {
+    // with:(NSString *)genre and:(NSString *)startSnippet
     NSLog(@"inside post story");
-    //check url
+    
+    //Retreive token
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    
+    //Base URL
+    NSURL *databaseURL =[NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/story"];
+    
 
-    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"access_token"];
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ title=%@ description=%@ 'Authorization:Bearer %@", title, description, token]; //check token
-//    /api/story title=<title> description=<description> Authorization: Bearer<token>
-
-    NSURL *databaseURL =[NSURL URLWithString:urlString];
-
+    
+    //Removing quotes from the token for when passing as a header in GET requests
+    NSUInteger charCount = [token length];
+    NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+    
+    //Pure token, no quotes
+    NSString *tokenWork = [token substringWithRange:oneToAccount];
+    
+    //Title and description strings for reference to be able to pass into story string
+    NSString *titleString = [[NSString alloc]initWithString:title];
+    NSString *descriptionString = [[NSString alloc]initWithString:description];
+    
     NSMutableDictionary *storyDictionary = [[NSMutableDictionary alloc]init];
-    storyDictionary[@"title"] = title;
-    storyDictionary[@"description"] = description;
-    storyDictionary[@"genre"] = genre;
-    storyDictionary[@"startSnippet"] = startSnippet;
+    storyDictionary[@"title"] = titleString;
+    storyDictionary[@"description"] = descriptionString;
+    //    storyDictionary[@"genre"] = genre;
+    //    storyDictionary[@"startSnippet"] = startSnippet;
+    
+    //Need to pass title, description data into
+    [StoryManager.shared userStories];
+   
+    //Request string
+    NSString *requestString = [NSString stringWithFormat:@"title=%@, description=%@",titleString, descriptionString];
+     NSLog(@"%@", requestString);
 
+    //Request data
     NSError *dataError;
-
-    NSData *storyData = [NSJSONSerialization dataWithJSONObject:storyDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
-
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:storyDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
+    
     if (dataError) {
         NSLog(@"%@", dataError.localizedDescription);
     }
-
+    
+    //Create the request of type POST, set body
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
-
     request.HTTPMethod = @"POST";
-    [request setHTTPBody:storyData];
+    [request setHTTPBody:requestData];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
+    [request addValue:bearAuth forHTTPHeaderField:@"Authorization"];
+//    [request addValue:requestString forHTTPHeaderField:<#(nonnull NSString *)#>]
     
     
+    //Start the session
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
 
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         //        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
         
-        NSLog(@"request response: %@", response);
-        NSLog(@"request data: %@", data);
+       
+         NSString *parsedData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"request data: %@", parsedData);
+         NSLog(@"request response: %@", response);
         
     }] resume];
 }
