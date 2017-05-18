@@ -204,9 +204,46 @@
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@ 'Authorization:Bearer %@", storyID, snippetContent, token]; //check token
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
+    
+    NSMutableDictionary *snippetDictionary = [[NSMutableDictionary alloc]init];
+    snippetDictionary[@"storyID"] = storyID;
+    snippetDictionary[@"snippetContent"] = snippetContent;
+    
+    NSError *dataError;
+    
+    NSData *snippetData = [NSJSONSerialization dataWithJSONObject:snippetDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
+    
+    if (dataError) {
+        NSLog(@"%@", dataError.localizedDescription);
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    
+    request.HTTPMethod = @"POST";
+    [request setHTTPBody:snippetData];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
-    [session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"request response: %@", response);
+        NSLog(@"request data: %@", data);
+        
+    }] resume];
+}
+
++(void)fetchUser:(FetchUserCompletion)completion {
+    NSLog(@"inside fetch user");
+    //check url
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/"];
+    
+    NSURL *databaseURL =[NSURL URLWithString:urlString];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [[session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSLog(@"data:%@", data);
         NSLog(@"response:%@", response);
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -214,14 +251,221 @@
         if (error) {
             NSLog(@"error: %@",error.localizedDescription);
         }
-    }];
+        
+        User *currentUser = [[User alloc]init];
+        
+        for (NSDictionary *user in [rootObject allValues]) {
+            NSMutableArray<Story *> *owned = [[NSMutableArray<Story *> alloc]init];
+            NSMutableArray<Story *> *followed = [[NSMutableArray<Story *> alloc]init];
+
+            User *newUser = [[User alloc]init];
+            newUser.userName = user[@"username"];
+            newUser.password = user[@"password"];
+            newUser.email = user[@"email"];
+            newUser.userID = user[@"_id"];
+            
+            for (NSDictionary *story in user[@"ownedStories"]) {
+                NSMutableArray<Snippet *> *storySnippets = [[NSMutableArray alloc]init];
+                NSMutableArray<Snippet *> *pendingSnippets = [[NSMutableArray alloc]init];
+                
+                Story *newStory = [[Story alloc]init];
+                newStory.ownerUserName = story[@"ownerUsername"];
+                newStory.ownerID = story[@"ownerId"];
+                newStory.title = story[@"title"];
+                newStory.storyDescription = story[@"description"];
+                newStory.createdDate = story[@"created"];
+                newStory.lastUpdatedDate = story[@"lastUpdated"];
+                newStory.category = story[@"categories"];
+                newStory.open = story[@"open"];
+                newStory.storySnippetCount = story[@"snippetCount"];
+                newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
+                newStory.storyID = story[@"_id"];
+                
+                for (NSDictionary *snippet in story[@"snippets"]) {
+                    Snippet *newSnippet = [[Snippet alloc]init];
+                    newSnippet.likes = snippet[@"likes"];
+                    newSnippet.content = snippet[@"snippetContent"];
+                    newSnippet.createdDate = snippet[@"created"];
+                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
+                    newSnippet.pending = snippet[@"pending"];
+                    newSnippet.snippetID = snippet[@"_id"];
+                    newSnippet.accepted = snippet[@"accepted"];
+                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
+                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
+                    newSnippet.bookmark = snippet[@"bookmark"];
+
+                    [storySnippets addObject:newSnippet];
+                }
+                
+                for (NSDictionary *snippet in story[@"pendingSnippets"]) {
+                    Snippet *newSnippet = [[Snippet alloc]init];
+                    newSnippet.likes = snippet[@"likes"];
+                    newSnippet.content = snippet[@"snippetContent"];
+                    newSnippet.createdDate = snippet[@"created"];
+                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
+                    newSnippet.pending = snippet[@"pending"];
+                    newSnippet.snippetID = snippet[@"_id"];
+                    newSnippet.accepted = snippet[@"accepted"];
+                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
+                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
+                    newSnippet.bookmark = snippet[@"bookmark"];
+                    
+                    [pendingSnippets addObject:newSnippet];
+                }
+                
+                newStory.storySnippets = storySnippets;
+                newStory.pendingSnippets = pendingSnippets;
+                
+                [owned addObject:newStory];
+            }
+            
+            for (NSDictionary *story in user[@"followedStories"]) {
+                NSMutableArray<Snippet *> *storySnippets = [[NSMutableArray alloc]init];
+                NSMutableArray<Snippet *> *pendingSnippets = [[NSMutableArray alloc]init];
+                
+                Story *newStory = [[Story alloc]init];
+                newStory.ownerUserName = story[@"ownerUsername"];
+                newStory.ownerID = story[@"ownerId"];
+                newStory.title = story[@"title"];
+                newStory.storyDescription = story[@"description"];
+                newStory.createdDate = story[@"created"];
+                newStory.lastUpdatedDate = story[@"lastUpdated"];
+                newStory.category = story[@"categories"];
+                newStory.open = story[@"open"];
+                newStory.storySnippetCount = story[@"snippetCount"];
+                newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
+                newStory.storyID = story[@"_id"];
+                
+                for (NSDictionary *snippet in story[@"snippets"]) {
+                    Snippet *newSnippet = [[Snippet alloc]init];
+                    newSnippet.likes = snippet[@"likes"];
+                    newSnippet.content = snippet[@"snippetContent"];
+                    newSnippet.createdDate = snippet[@"created"];
+                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
+                    newSnippet.pending = snippet[@"pending"];
+                    newSnippet.snippetID = snippet[@"_id"];
+                    newSnippet.accepted = snippet[@"accepted"];
+                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
+                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
+                    newSnippet.bookmark = snippet[@"bookmark"];
+                    
+                    [storySnippets addObject:newSnippet];
+                }
+                
+                for (NSDictionary *snippet in story[@"pendingSnippets"]) {
+                    Snippet *newSnippet = [[Snippet alloc]init];
+                    newSnippet.likes = snippet[@"likes"];
+                    newSnippet.content = snippet[@"snippetContent"];
+                    newSnippet.createdDate = snippet[@"created"];
+                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
+                    newSnippet.pending = snippet[@"pending"];
+                    newSnippet.snippetID = snippet[@"_id"];
+                    newSnippet.accepted = snippet[@"accepted"];
+                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
+                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
+                    newSnippet.bookmark = snippet[@"bookmark"];
+                    
+                    [pendingSnippets addObject:newSnippet];
+                }
+                
+                newStory.storySnippets = storySnippets;
+                newStory.pendingSnippets = pendingSnippets;
+                
+                [followed addObject:newStory];
+            }
+            
+            newUser.ownedStories = owned;
+            newUser.followedStories = followed;
+            
+            
+            currentUser = newUser;
+        }
+        
+        if (completion) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                completion(currentUser);
+            }];
+        }
+    }]resume];
 }
 
++(void)postNewStoryWith:(NSString *)title with:(NSString *)description with:(NSString *)genre and:(NSString *)startSnippet {
+    NSLog(@"inside post story");
+    //check url
+    NSString *token = @"test token";
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ title=%@ description=%@ 'Authorization:Bearer %@", title, description, token]; //check token
+//    /api/story title=<title> description=<description> Authorization: Bearer<token>
+
+    NSURL *databaseURL =[NSURL URLWithString:urlString];
+
+    NSMutableDictionary *storyDictionary = [[NSMutableDictionary alloc]init];
+    storyDictionary[@"title"] = title;
+    storyDictionary[@"description"] = description;
+    storyDictionary[@"genre"] = genre;
+    storyDictionary[@"startSnippet"] = startSnippet;
+
+    NSError *dataError;
+
+    NSData *storyData = [NSJSONSerialization dataWithJSONObject:storyDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
+
+    if (dataError) {
+        NSLog(@"%@", dataError.localizedDescription);
+    }
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+
+    request.HTTPMethod = @"POST";
+    [request setHTTPBody:storyData];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"request response: %@", response);
+        NSLog(@"request data: %@", data);
+        
+    }] resume];
+}
+
++(void)pendingtoConfirmedFor:(NSString *)storyID with:(NSString *)content {
+    NSLog(@"inside pending to confirmed");
+    //check url
+    NSString *token = @"test token";
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ %@ %@ %@", storyID, content, token]; //check token
+    
+    NSURL *databaseURL = [NSURL URLWithString:urlString];
+    
+    NSMutableDictionary *confirmedSnippet = [[NSMutableDictionary alloc]init];
+    confirmedSnippet[@"storyID"] = storyID;
+    confirmedSnippet[@"content"] = content;
+    
+    NSError *dataError;
+    
+    NSData *snippetData = [NSJSONSerialization dataWithJSONObject:confirmedSnippet options:NSJSONWritingPrettyPrinted error:&dataError];
+    
+    if (dataError) {
+        NSLog(@"%@", dataError.localizedDescription);
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    
+    request.HTTPMethod =@"PUT";
+    [request setHTTPBody:snippetData];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"request response: %@", response);
+        NSLog(@"request data: %@", data);
+    }] resume];
+}
+
+
 @end
-
-
-
-
 
 
 
