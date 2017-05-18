@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *toggleButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toggleButtonBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic) float hiddenConstant;
 @property (nonatomic) float showConstant;
 
@@ -23,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.titleLabel.text = 
     self.hiddenConstant = 0.f;
     self.showConstant = 196;
     [self addSnippetHandler];

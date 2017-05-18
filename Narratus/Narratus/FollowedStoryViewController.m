@@ -53,6 +53,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     StoryViewController *storyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StoryViewController"];
+    Story *selectedStory = self.followedStories[indexPath.row];
+    storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
 }
 
