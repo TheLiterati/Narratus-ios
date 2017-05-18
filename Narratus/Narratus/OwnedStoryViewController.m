@@ -9,6 +9,7 @@
 #import "OwnedStoryViewController.h"
 
 @interface OwnedStoryViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"%@", self.currentStory);
+    self.titleLabel.text = self.currentStory.title;
 }
 
 - (IBAction)closedButtonPressed:(UIButton *)sender {
