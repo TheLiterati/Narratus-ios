@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NARRATUS HOME-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                             <constraint firstItem="J5G-Kz-lin" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="iZJ-cu-CsC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NARRATUS HOME" id="0ZJ-ac-DNz"/>
+                    <navigationItem key="navigationItem" title="Home" id="0ZJ-ac-DNz"/>
                     <connections>
                         <outlet property="lastUpdatedTableView" destination="J5G-Kz-lin" id="Z4k-6P-FxA"/>
                     </connections>
@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="984.79999999999995" y="1817.5412293853076"/>
         </scene>
-        <!--Story View Controller-->
+        <!--Story Title?-->
         <scene sceneID="XMn-y4-R1x">
             <objects>
                 <viewController storyboardIdentifier="StoryViewController" automaticallyAdjustsScrollViewInsets="NO" id="obO-tk-84e" customClass="StoryViewController" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-7s-Ggi">
-                                <rect key="frame" x="0.0" y="64" width="375" height="367"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                                 <connections>
                                     <segue destination="EQv-XS-Ejn" kind="embed" id="e7F-P1-unE"/>
                                 </connections>
@@ -69,9 +69,12 @@
                                     <segue destination="UUT-6W-pBr" kind="embed" id="ZbR-hv-rnJ"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-gt-0ON">
-                                <rect key="frame" x="-0.5" y="441" width="375" height="30"/>
-                                <state key="normal" title="Contribute to the story"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-gt-0ON">
+                                <rect key="frame" x="0.0" y="431" width="375" height="38"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Contribute to the story">
+                                    <color key="titleColor" red="1" green="1" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="toggleSnippetView:" destination="obO-tk-84e" eventType="touchUpInside" id="Etc-xF-bjO"/>
                                 </connections>
@@ -80,7 +83,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="centerX" secondItem="GFQ-qS-5FK" secondAttribute="centerX" id="1D8-vu-1fi"/>
-                            <constraint firstItem="JQc-gt-0ON" firstAttribute="top" secondItem="ffH-7s-Ggi" secondAttribute="bottom" constant="10" id="6Qy-44-SPE"/>
+                            <constraint firstItem="JQc-gt-0ON" firstAttribute="top" secondItem="ffH-7s-Ggi" secondAttribute="bottom" id="6Qy-44-SPE"/>
                             <constraint firstItem="JQc-gt-0ON" firstAttribute="width" secondItem="GFQ-qS-5FK" secondAttribute="width" id="AD3-GW-M8g"/>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="top" secondItem="fZ3-3C-g1f" secondAttribute="bottom" id="B7Q-O5-NbO"/>
                             <constraint firstItem="FFW-IA-R77" firstAttribute="height" secondItem="GFQ-qS-5FK" secondAttribute="height" multiplier="0.3" id="Iy5-0b-ijY"/>
@@ -88,11 +91,11 @@
                             <constraint firstItem="FFW-IA-R77" firstAttribute="width" secondItem="GFQ-qS-5FK" secondAttribute="width" id="cuY-9u-qUb"/>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="width" secondItem="GFQ-qS-5FK" secondAttribute="width" id="fSO-Ic-c8l"/>
                             <constraint firstItem="TXD-vh-Oiy" firstAttribute="top" secondItem="FFW-IA-R77" secondAttribute="bottom" id="fug-XS-VNw"/>
-                            <constraint firstItem="TXD-vh-Oiy" firstAttribute="top" secondItem="JQc-gt-0ON" secondAttribute="bottom" constant="196" id="jv1-sY-Orh"/>
+                            <constraint firstItem="TXD-vh-Oiy" firstAttribute="top" secondItem="JQc-gt-0ON" secondAttribute="bottom" constant="198" id="jv1-sY-Orh"/>
                             <constraint firstItem="JQc-gt-0ON" firstAttribute="centerX" secondItem="GFQ-qS-5FK" secondAttribute="centerX" id="lPd-I8-vXi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QMx-Xw-zED">
+                    <navigationItem key="navigationItem" title="Story Title?" id="QMx-Xw-zED">
                         <barButtonItem key="rightBarButtonItem" title="Follow" id="bjp-1r-5wn">
                             <connections>
                                 <action selector="followButtonPressed:" destination="obO-tk-84e" id="Bpd-YD-4Ty"/>
@@ -230,7 +233,7 @@
             </objects>
             <point key="canvasLocation" x="3252" y="1101.4992503748126"/>
         </scene>
-        <!--LOGIN-->
+        <!--Login-->
         <scene sceneID="ArG-kn-shz">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="1ug-id-NN6" customClass="LoginViewController" sceneMemberID="viewController">
@@ -255,15 +258,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJJ-BY-kI0">
-                                <rect key="frame" x="47" y="179" width="281" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="47" y="179" width="281" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
                                     <action selector="loginPressed:" destination="1ug-id-NN6" eventType="touchUpInside" id="g4h-dr-6dL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nm-6V-qcz">
-                                <rect key="frame" x="47" y="238" width="281" height="34"/>
+                                <rect key="frame" x="47" y="236" width="281" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="SIGNUP"/>
                                 <connections>
@@ -299,7 +302,7 @@
                             <constraint firstItem="h2o-iP-w28" firstAttribute="centerX" secondItem="UMK-Fe-re2" secondAttribute="centerX" id="zOl-sk-FbA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="LOGIN" id="bBr-nx-K6l"/>
+                    <navigationItem key="navigationItem" title="Login" id="bBr-nx-K6l"/>
                     <connections>
                         <outlet property="passwordTextField" destination="1sW-rF-XiR" id="OSI-Hv-NH7"/>
                         <outlet property="signupButton" destination="8nm-6V-qcz" id="h62-el-fes"/>
@@ -312,7 +315,7 @@
             </objects>
             <point key="canvasLocation" x="1745" y="1177"/>
         </scene>
-        <!--USER DASHBOARD-->
+        <!--Dashboard-->
         <scene sceneID="24H-LE-7aK">
             <objects>
                 <viewController storyboardIdentifier="UserDashboardViewController" automaticallyAdjustsScrollViewInsets="NO" id="4OI-Ph-0UG" customClass="UserDashboardViewController" sceneMemberID="viewController">
@@ -376,8 +379,8 @@
                             <constraint firstItem="psl-9q-Fsd" firstAttribute="width" secondItem="DRV-kQ-6L7" secondAttribute="width" id="zag-Mq-v6c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="USER DASHBOARD" id="DDF-f1-u6j">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="dqP-St-DPo">
+                    <navigationItem key="navigationItem" title="Dashboard" id="DDF-f1-u6j">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dqP-St-DPo">
                             <connections>
                                 <action selector="logoutPressed:" destination="4OI-Ph-0UG" id="bi4-OO-8hO"/>
                             </connections>
@@ -485,13 +488,13 @@
             </objects>
             <point key="canvasLocation" x="137" y="388"/>
         </scene>
-        <!--USER-->
+        <!--User-->
         <scene sceneID="Vu4-ow-PjO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YpV-J4-dVq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="USER" id="z29-Pm-NhW"/>
+                    <tabBarItem key="tabBarItem" title="User" image="user" id="z29-Pm-NhW"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="79o-sq-ac0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="79o-sq-ac0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -513,11 +516,11 @@
                         <viewControllerLayoutGuide type="bottom" id="80v-Lw-k7u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T85-rw-fFv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pv3-nK-HSE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -549,9 +552,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57y-iR-4bs">
                                 <rect key="frame" x="0.0" y="37" width="375" height="134"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="1cE-Wq-YyT"/>
                                 </constraints>
@@ -559,9 +564,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnq-eV-GXy">
+
                                 <rect key="frame" x="0.0" y="11" width="188" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
+
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf3-XQ-T86">
@@ -579,16 +586,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="57y-iR-4bs" firstAttribute="leading" secondItem="9LU-Ri-5q1" secondAttribute="leading" id="5UE-sh-YdU"/>
                             <constraint firstItem="rGn-96-Vno" firstAttribute="width" secondItem="9LU-Ri-5q1" secondAttribute="width" multiplier="0.5" id="8Yn-j5-6PE"/>
                             <constraint firstItem="rGn-96-Vno" firstAttribute="leading" secondItem="9LU-Ri-5q1" secondAttribute="leading" constant="187" id="I5D-mY-3oj"/>
                             <constraint firstItem="rGn-96-Vno" firstAttribute="centerX" secondItem="Lf3-XQ-T86" secondAttribute="centerX" constant="94" id="Rh9-wB-vHi"/>
                             <constraint firstItem="mnq-eV-GXy" firstAttribute="leading" secondItem="9LU-Ri-5q1" secondAttribute="leading" id="Y1I-SR-0Jh"/>
                             <constraint firstItem="mnq-eV-GXy" firstAttribute="centerY" secondItem="rGn-96-Vno" secondAttribute="centerY" id="aQI-rB-mx2"/>
+                            <constraint firstItem="57y-iR-4bs" firstAttribute="centerX" secondItem="9LU-Ri-5q1" secondAttribute="centerX" id="auF-IN-kw0"/>
                             <constraint firstItem="57y-iR-4bs" firstAttribute="leading" secondItem="9LU-Ri-5q1" secondAttribute="leadingMargin" constant="-16" id="ef3-A7-UOv"/>
                             <constraint firstItem="57y-iR-4bs" firstAttribute="top" secondItem="rGn-96-Vno" secondAttribute="bottom" constant="8" id="fey-Rb-zcs"/>
+
                             <constraint firstItem="rGn-96-Vno" firstAttribute="top" secondItem="67l-oI-pRk" secondAttribute="bottom" constant="8" id="gWC-5l-RGp"/>
+
                             <constraint firstItem="rGn-96-Vno" firstAttribute="height" secondItem="9LU-Ri-5q1" secondAttribute="height" multiplier="0.05" constant="11" id="hMj-dd-8gl"/>
                             <constraint firstItem="57y-iR-4bs" firstAttribute="bottom" secondItem="BVE-3D-eo9" secondAttribute="top" constant="-29" id="kMj-7L-pc1"/>
                             <constraint firstItem="mnq-eV-GXy" firstAttribute="width" secondItem="rGn-96-Vno" secondAttribute="width" id="oIx-nO-Tg7"/>
@@ -737,13 +747,13 @@
             </objects>
             <point key="canvasLocation" x="4606" y="431"/>
         </scene>
-        <!--HOME-->
+        <!--Home-->
         <scene sceneID="fHQ-CJ-2eT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WS6-lf-5vn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HOME" id="vQz-pY-maT"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_512" selectedImage="home_512" id="vQz-pY-maT"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oia-K2-57N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oia-K2-57N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -761,7 +771,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pr1-1y-ESi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iM3-Da-cjJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iM3-Da-cjJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -779,7 +789,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K2r-Ge-XvO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vaM-pO-2fj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vaM-pO-2fj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -860,4 +870,8 @@
             <point key="canvasLocation" x="2484" y="1176"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home_512" width="25" height="25"/>
+        <image name="user" width="25" height="25"/>
+    </resources>
 </document>

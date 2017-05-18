@@ -10,7 +10,11 @@
 #import "OwnedTableViewController.h"
 #import "FollowedStoryViewController.h"
 #import "HomeViewController.h"
+
 #import "LoginViewController.h"
+#import "API.h"
+
+
 
 @interface UserDashboardViewController () 
 
@@ -22,14 +26,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
-    self.userNameLabel.text = @"username here please";
-  
+    self.userNameLabel.text = self.user.userName;
+    [self checkUser];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-//    [self checkUser];
+
+    
+//    NSLog(<#NSString * _Nonnull format, ...#>)
+//     [API fetchUser:^(User *loggedInUser) {
+//         self.user = loggedInUser;
+//     }];
+
 }
 
 -(void)checkUser {
