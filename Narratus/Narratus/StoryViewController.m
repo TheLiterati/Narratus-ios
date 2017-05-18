@@ -33,6 +33,7 @@
 - (void)addSnippetHandler {
     if ([self.currentStory.pendingSnippets count] == 10 ||
         [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
+        self.currentStory.open == @"false" ||
         self.user == nil) { // !self.user is not working for some reason
         
         [self.toggleButton isHidden];
