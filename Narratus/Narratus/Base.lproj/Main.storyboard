@@ -644,6 +644,7 @@
                             <constraint firstItem="57y-iR-4bs" firstAttribute="top" secondItem="rGn-96-Vno" secondAttribute="bottom" constant="8" id="fey-Rb-zcs"/>
                             <constraint firstItem="rGn-96-Vno" firstAttribute="top" secondItem="67l-oI-pRk" secondAttribute="bottom" constant="8" id="gWC-5l-RGp"/>
                             <constraint firstItem="rGn-96-Vno" firstAttribute="height" secondItem="9LU-Ri-5q1" secondAttribute="height" multiplier="0.05" constant="11" id="hMj-dd-8gl"/>
+                            <constraint firstItem="Lf3-XQ-T86" firstAttribute="centerX" secondItem="9LU-Ri-5q1" secondAttribute="centerX" id="iP2-LW-5kh"/>
                             <constraint firstItem="57y-iR-4bs" firstAttribute="bottom" secondItem="BVE-3D-eo9" secondAttribute="top" constant="-29" id="kMj-7L-pc1"/>
                             <constraint firstItem="mnq-eV-GXy" firstAttribute="width" secondItem="rGn-96-Vno" secondAttribute="width" constant="9.5" id="oIx-nO-Tg7"/>
                             <constraint firstItem="Lf3-XQ-T86" firstAttribute="top" secondItem="rGn-96-Vno" secondAttribute="bottom" constant="141" id="voN-eJ-kcX"/>
