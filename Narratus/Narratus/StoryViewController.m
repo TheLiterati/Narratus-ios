@@ -45,6 +45,9 @@
     
     [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
     
+    [UIView animateWithDuration: 1.0 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)followButtonHandler {
@@ -91,5 +94,7 @@
     
     [self followButtonHandler];
 }
+
+
 
 @end
