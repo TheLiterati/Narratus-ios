@@ -199,7 +199,7 @@
 
 +(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID {
     NSLog(@"inside fetch snippets");
-    
+   
     //retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     NSLog(@"TOKEN: %@", token);
@@ -207,21 +207,30 @@
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/%@", storyID];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
-    request.HTTPMethod = @"GET";
+//    NSMutableDictionary *snippetDictionary = [[NSMutableDictionary alloc]init];
+//    snippetDictionary[@"_id"] = storyID;
+//    
     
     //Removing quotes from the token for when passing as a header in GET requests
     NSUInteger charCount = [token length];
     NSRange oneToAccount = NSMakeRange(1, charCount - 2);
-    
-    
-    //Pure token, no quotes
     NSString *tokenWork = [token substringWithRange:oneToAccount];
-    NSLog(@"%@", tokenWork);
+    
+    NSError *dataError;
+//    NSData *requestData = [NSJSONSerialization dataWithJSONObject:snippetDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    request.HTTPMethod = @"GET";
+//    [request setHTTPBody:requestData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
-    [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
+    [request setValue:bearAuth forHTTPHeaderField:@"Authorization"];
 
+    
+    if (dataError) {
+        NSLog(@"%@", dataError.localizedDescription);
+    }
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     

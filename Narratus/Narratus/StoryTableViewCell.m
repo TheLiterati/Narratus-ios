@@ -8,7 +8,20 @@
 
 #import "StoryTableViewCell.h"
 
+@interface StoryTableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+
+@end
+
 @implementation StoryTableViewCell
+
+-(void)setCurrentStory:(Story *)currentStory {
+    _currentStory = currentStory;
+    self.titleLabel.text = currentStory.title;
+    self.descriptionLabel.text = currentStory.storyDescription;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -30,9 +30,11 @@
     self.storyTableView.estimatedRowHeight = 50;
     self.storyTableView.rowHeight = UITableViewAutomaticDimension;
 
-//    self.allSnippets = [API sampleSnippet];
-//    self.allSnippets = [API ]
-    [self.storyTableView reloadData];
+    [API fetchSnippets:^(NSArray<Snippet *> *allSnippets) {
+        self.allSnippets = allSnippets;
+        [self.storyTableView reloadData];
+    } With:self.selectedStory.storyID]; //self.selectedStory.storyID]
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

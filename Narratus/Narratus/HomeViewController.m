@@ -56,7 +56,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
-    Story *current = self.allStories[indexPath.row];
+    cell.currentStory = self.allStories[indexPath.row];
     
     cell.titleLabel.text = current.title;
     cell.descriptionLabel.text = current.storyDescription;
@@ -71,14 +71,6 @@
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
     
-<<<<<<< HEAD
-//     [API postNewStoryWith:@"Once upon a time" with:@"There lived an elf"];
-    
-=======
-    [API postNewStoryWith:@"start snipp" with:@"yo" and:@"yee"];
->>>>>>> eded2a0e3cb8384462e9a9ba5e28a67247ae57ab
-    
-
 }
 
 
