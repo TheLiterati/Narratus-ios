@@ -78,24 +78,32 @@
   //  [self presentViewController:addSnippetView animated:YES completion:nil];
 }
 
-/*
+
 - (IBAction)followButtonPressed:(id)sender {
+    
     NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+    
     tempArray = self.user.followedStories.copy;
+    
     if ([self.user.followedStories containsObject:_currentStory.storyID]) {
+        
+        
         [tempArray removeObject:_currentStory.storyID];
         self.user.followedStories = tempArray.copy;
         // Send to server
+        
+        
     } else {
+        
         [tempArray addObject:_currentStory.storyID];
         self.user.followedStories = tempArray.copy;
         // Send to server
+        
     }
     
     [self followButtonHandler];
 }
 
- */
 
 
 @end
