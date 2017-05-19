@@ -292,7 +292,7 @@
     
      NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@", storyID, snippetContent]; //check token
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@", storyID, snippetContent]; 
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
