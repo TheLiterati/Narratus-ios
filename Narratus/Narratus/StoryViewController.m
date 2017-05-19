@@ -12,7 +12,7 @@
 @interface StoryViewController ()
 @property (weak, nonatomic) IBOutlet UIView *storyTableView;
 @property (weak, nonatomic) IBOutlet UIView *addSnippetView;
-@property (weak, nonatomic) IBOutlet UIButton *toggleButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic) float hiddenConstant;
@@ -28,40 +28,46 @@
         NSLog(@"Pending snippets: %@", self.currentStory.pendingSnippets);
     self.titleLabel.text = self.currentStory.title;
 
-//    [self addSnippetHandler];
+    [self addSnippetHandler];
     [self followButtonHandler];
-    [self tokenCheckToggle];
+//    [self tokenCheckToggle];
 }
 
--(void)tokenCheckToggle {
+//-(void)tokenCheckToggle {
+//    
+//    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+//    
+//    if (token) {
+//        [self.addButton setHidden:NO];
+//    } else {
+//        [self.addButton setHidden:YES];
+//    }
+//    
+//}
+
+- (void)addSnippetHandler {
     
+//     Gonna need to work with the story object as it's parsed from API to get this part working.
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
     if (token) {
-        [self.toggleButton setHidden:NO];
+        [self.addButton setHidden:NO];
     } else {
-        [self.toggleButton setHidden:YES];
+        [self.addButton setHidden:YES];
     }
     
+    if ([self.currentStory.pendingSnippets count] == 10 ||
+        [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
+        [self.currentStory.open  isEqual: @"false"]) {
+        
+        [self.addButton setHidden:YES];
+    }
 }
-
-//- (void)addSnippetHandler {
-//    
-//    // Gonna need to work with the story object as it's parsed from API to get this part working.
-//    
-////    if ([self.currentStory.pendingSnippets count] == 10 ||
-////        [[self.currentStory.storySnippets lastObject]ownerID] == self.user.userID ||
-////        [self.currentStory.open  isEqual: @"false"] ||
-////        self.user == nil) { // !self.user is not working for some reason
-////        
-////        [self.toggleButton isHidden];
-////    }
-//}
 
 - (void)followButtonHandler {
     
     if (!self.user) {
-        self.followButton.enabled = NO;
+        self.addButton.enabled = NO;
     }
     
     if ([self.user.followedStories containsObject:_currentStory.storyID]) {
@@ -71,11 +77,11 @@
     }
 }
 
-- (IBAction)toggleSnippetView:(id)sender {
+- (IBAction)addSnippet:(id)sender {
     
     NewSnippetViewController *addSnippetView = [self.storyboard instantiateViewControllerWithIdentifier:@"NewSnippetViewController"];
-  //  addSnippetView.currentStory = self.currentStory;
-  //  [self presentViewController:addSnippetView animated:YES completion:nil];
+    addSnippetView.currentStory = self.currentStory;
+    [self presentViewController:addSnippetView animated:YES completion:nil];
 }
 
 
