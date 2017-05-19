@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Story.h"
 
 @interface OwnedTableViewController : UIViewController
+@property (strong, nonatomic) NSMutableArray<Story *> *ownedStories;
 
 @end

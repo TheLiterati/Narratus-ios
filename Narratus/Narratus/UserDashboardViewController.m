@@ -40,13 +40,23 @@
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
     if (token) {
-        [API fetchUser];
+        [API fetchUser:^(NSArray<Story *> *followedStories, NSArray<Story *> *ownedStories) {
+            OwnedTableViewController *childOwnedVC = self.childViewControllers[0];
+            childOwnedVC.ownedStories = [ownedStories mutableCopy];
+            
+            FollowedStoryViewController *childFollowedVC = self.childViewControllers[1];
+            childFollowedVC.followedStories = [followedStories mutableCopy];
+        }];
     } else {
         LoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         [self.navigationController pushViewController:loginVC animated:YES];
         
     }
 }
+
+//StoryViewController *parent = [self parentViewController];
+//self.selectedStory = parent.currentStory;
+
 
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
     self.user = nil;

@@ -9,14 +9,13 @@
 #import "FollowedStoryViewController.h"
 #import "StoryTableViewCell.h"
 #import "User.h"
-#import "Story.h"
 #import "API.h"
 #import "StoryViewController.h"
 #import "StoryManager.h"
 
 @interface FollowedStoryViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *followedTableView;
-@property(strong, nonatomic) NSArray<Story *> *followedStories;
+
 
 @end
 
@@ -24,14 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.followedStories = [[NSArray<Story *> alloc]init];
+//    self.followedStories = [[NSArray<Story *> alloc]init];
     
     self.followedTableView.dataSource = self;
     self.followedTableView.delegate = self;
     UINib *cellNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.followedTableView registerNib:cellNib forCellReuseIdentifier:@"StoryTableViewCell"];
     
-    self.followedStories = [API sampleStory];
+//    self.followedStories = [API sampleStory];
     self.followedTableView.estimatedRowHeight = 50;
     self.followedTableView.rowHeight = UITableViewAutomaticDimension;
 }
