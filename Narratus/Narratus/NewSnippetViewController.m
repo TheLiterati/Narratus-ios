@@ -11,7 +11,6 @@
 #import "Snippet.h"
 #import "PendingSnippetViewController.h"
 
-#define  k_KEYBOARD_OFFSET 220.0
 
 @interface NewSnippetViewController () <UITextViewDelegate>
 
@@ -27,15 +26,10 @@
     self.snippetTextView.delegate = self;
 }
 
-//-(void)viewWillAppear:(BOOL)animated {
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillAppear) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(KeyboardWillDisappear) name:UIKeyboardWillHideNotification object:nil];
-//}
-//
-//-(void)viewWillDisappear:(BOOL)animated {
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-//}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.snippetTextView.text = @"";
+}
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
@@ -48,39 +42,10 @@
     }
 }
 
-//-(void)keyboardWillAppear {
-//    if (self.view.frame.origin.y >= 0) {
-//        [self moveViewUp:YES];
-//    } else  if (self.view.frame.origin.y < 0) {
-//        [self moveViewUp:NO];
-//    }
-//}
-//
-//-(void)KeyboardWillDisappear {
-//    if (self.view.frame.origin.y >= 0) {
-//        [self moveViewUp:YES];
-//    } else if (self.view.frame.origin.y < 0){
-//        [self moveViewUp:NO];
-//    }
-//}
-//
-//-(void)moveViewUp:(BOOL)bMovedUp {
-//    [UIView beginAnimations:nil context:NULL];
-//    [UIView setAnimationDuration:0.4];
-//    
-//    CGRect rect = self.view.frame;
-//    
-//    if (bMovedUp) {
-//        rect.origin.y -= k_KEYBOARD_OFFSET;
-//    } else {
-//        rect.origin.y += k_KEYBOARD_OFFSET;
-//        rect.size.height -= k_KEYBOARD_OFFSET;
-//    }
-//    
-//    self.view.frame = rect;
-//    
-//    [UIView commitAnimations];
-//}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
 
 - (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     return self.snippetTextView.text.length + (text.length - range.length) <= 250;

@@ -33,6 +33,7 @@
     
 }
 
+
 - (NSArray *)genres {
     NSArray *genres = @[@"Adventure",
                         @"Comedy",
@@ -50,6 +51,27 @@
     return genres;
 }
 
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.storyTextView.text = @"";
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y -220.0, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y +220.0, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
