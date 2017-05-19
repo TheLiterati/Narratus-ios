@@ -7,14 +7,14 @@
 //
 
 #import "OwnedStorySnippetViewController.h"
-#import "Snippet.h"
+
 #import "SnippetTableViewCell.h"
 #import "API.h"
 #import "OwnedStoryViewController.h"
 
 @interface OwnedStorySnippetViewController ()<UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) NSArray<Snippet *> *confirmedSnippets;
+//@property (strong, nonatomic) NSArray<Snippet *> *confirmedSnippets;
 @property (weak, nonatomic) IBOutlet UITableView *storyTableView;
 
 @end
@@ -23,30 +23,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.confirmedSnippets = [[NSArray<Snippet *> alloc]init];
+//    self.confirmedSnippets = [[NSArray<Snippet *> alloc]init];
     self.storyTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"papertexture-2061709_1920.jpg"]];
     self.storyTableView.separatorColor = [UIColor clearColor];
     self.storyTableView.dataSource = self;
     self.storyTableView.delegate = self;
     UINib *snippetNib = [UINib nibWithNibName:@"SnippetTableViewCell" bundle:nil];
     [self.storyTableView registerNib:snippetNib forCellReuseIdentifier:@"SnippetTableViewCell"];
-    self.confirmedSnippets = [API sampleSnippet];
+//    self.confirmedSnippets = [API sampleSnippet];
     
     self.storyTableView.estimatedRowHeight = 50;
     self.storyTableView.rowHeight = UITableViewAutomaticDimension;
     // Do any additional setup after loading the view.
+    
+//    [self.storyTableView reloadData];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    OwnedStoryViewController *parent = [self parentViewController];
-    self.currentStory = parent.currentStory;
-    
-    [API fetchSnippets:^(NSArray<Snippet *> *allSnippets) {
-        self.confirmedSnippets = allSnippets;
-        [self.storyTableView reloadData];
-    } With:self.currentStory.storyID]; //self.selectedStory.storyID]
-    
-}
+//-(void)viewWillAppear:(BOOL)animated {
+//    OwnedStoryViewController *parent = [self parentViewController];
+//    self.currentStory = parent.currentStory;
+//    
+//    [API fetchSnippets:^(NSArray<Snippet *> *allSnippets) {
+//        self.confirmedSnippets = allSnippets;
+//        [self.storyTableView reloadData];
+//    } With:self.currentStory.storyID]; //self.selectedStory.storyID]
+//    
+//}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.confirmedSnippets count] + 1;

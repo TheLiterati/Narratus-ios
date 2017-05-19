@@ -492,7 +492,7 @@
     }] resume];
 }
 
-+(void)pendingtoConfirmedFor:(NSString *)content {
++(void)pendingtoConfirmedFor:(NSString *)content withCompletion:(ownerSnippetCompletion)completion {
     NSLog(@"inside pending to confirmed");
     //check url
     
@@ -536,6 +536,9 @@
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSLog(@"request response: %@", response);
         NSLog(@"request data: %@", data);
+        
+        
+        
     }] resume];
 }
 

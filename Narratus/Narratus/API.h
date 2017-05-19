@@ -19,6 +19,8 @@ typedef void(^UserCompletion)(NSArray<Story *> *followedStories, NSArray<Story *
 
 typedef void(^loginCompletion)(NSArray*);
 
+typedef void(^ownerSnippetCompletion)(NSArray<Snippet *> *confirmedSnippets, NSArray<Snippet *> *pendingSnippets);
+
 
 @interface API : NSObject
 
@@ -38,7 +40,7 @@ typedef void(^loginCompletion)(NSArray*);
 
 //ownedStory
 //-(Story*)closeStory:(Story*)openStory;
-+(void)pendingtoConfirmedFor:(NSString *)content;
++(void)pendingtoConfirmedFor:(NSString *)content withCompletion:(ownerSnippetCompletion)completion;
 +(void)closeStoryFor:(NSString *)storyID;
 
 //newStory
@@ -47,6 +49,8 @@ typedef void(^loginCompletion)(NSArray*);
 
 //user dashboard
 +(void)fetchUser:(UserCompletion)completion;
+
+
 
 
 

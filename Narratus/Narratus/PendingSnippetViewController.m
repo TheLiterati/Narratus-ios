@@ -7,13 +7,13 @@
 //
 
 #import "PendingSnippetViewController.h"
-#import "Snippet.h"
+
 #import "PendingSnippetTableViewCell.h"
 #import "API.h"
 #import "StoryManager.h"
 
 @interface PendingSnippetViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) NSArray<Snippet *> *pendingSnippets;
+
 @property (weak, nonatomic) IBOutlet UITableView *pendingTableView;
 
 @end
@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.pendingSnippets = [[NSArray<Snippet *> alloc]init];
+//    self.pendingSnippets = [[NSArray<Snippet *> alloc]init];
     self.pendingTableView.dataSource = self;
     self.pendingTableView.delegate = self;
     UINib *snippetNib = [UINib nibWithNibName:@"PendingSnippetTableViewCell" bundle:nil];
@@ -34,7 +34,7 @@
 }
 
 -(void)pendingSnippetsUpdate{
-    self.pendingSnippets = [API sampleSnippet];
+//    self.pendingSnippets = [API sampleSnippet];
     self.pendingTableView.estimatedRowHeight = 50;
     self.pendingTableView.rowHeight = UITableViewAutomaticDimension;
     

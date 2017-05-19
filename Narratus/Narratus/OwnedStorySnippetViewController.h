@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Story.h"
+#import "Snippet.h"
 
 @interface OwnedStorySnippetViewController : UIViewController
 @property (strong, nonatomic) Story *currentStory;
+@property (strong, nonatomic) NSArray<Snippet *> *confirmedSnippets;
 
 @end

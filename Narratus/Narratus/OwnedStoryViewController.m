@@ -7,6 +7,9 @@
 //
 
 #import "OwnedStoryViewController.h"
+#import "API.h"
+#import "OwnedStorySnippetViewController.h"
+#import "PendingSnippetViewController.h"
 
 @interface OwnedStoryViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -21,6 +24,18 @@
     [self buttonHandler];
     NSLog(@"%@", self.currentStory);
     self.titleLabel.text = self.currentStory.title;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    [API pendingtoConfirmedFor:self.currentStory.storyID withCompletion:^(NSArray<Snippet *> *confirmedSnippets, NSArray<Snippet *> *pendingSnippets) {
+        OwnedStorySnippetViewController *ownedSnippetVC = self.childViewControllers[0];
+        ownedSnippetVC.confirmedSnippets = confirmedSnippets;
+        
+        PendingSnippetViewController *pendingSnippetVC = self.childViewControllers[1];
+        pendingSnippetVC.pendingSnippets = pendingSnippets;
+    }];
 }
 
 
