@@ -29,7 +29,7 @@
     self.storyTextView.delegate = self;
     self.genrePicker.dataSource = self;
     self.genrePicker.delegate = self;
-    [self.genrePicker selectRow:5 inComponent:0 animated:YES];
+    [self.genrePicker selectRow:4 inComponent:0 animated:YES];
     
 }
 
@@ -37,7 +37,6 @@
     NSArray *genres = @[@"Adventure",
                         @"Comedy",
                         @"Drama",
-                        @"Erotica",
                         @"Fantasy",
                         @"General Fiction",
                         @"Horror",
