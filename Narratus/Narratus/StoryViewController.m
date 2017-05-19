@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIView *storyTableView;
 @property (weak, nonatomic) IBOutlet UIView *addSnippetView;
 @property (weak, nonatomic) IBOutlet UIButton *toggleButton;
-//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toggleButtonBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic) float hiddenConstant;
@@ -25,11 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.followButton.title = @"blah";
         NSLog(@"Pending snippets: %@", self.currentStory.pendingSnippets);
     self.titleLabel.text = self.currentStory.title;
-//    self.hiddenConstant = 0.f;
-//    self.showConstant = 196;
+
 //    [self addSnippetHandler];
     [self followButtonHandler];
 
@@ -48,14 +46,6 @@
 ////        
 ////        [self.toggleButton isHidden];
 ////    }
-////    self.toggleButtonBottomConstraint.constant = self.hiddenConstant;
-////    
-////    [self.childViewControllers[1] view].hidden = ![self.childViewControllers[1] view].hidden;
-////    
-////    [UIView animateWithDuration: 1.0 animations:^{
-////        [self.view layoutIfNeeded];
-////    }];
-////}
 //}
 
 - (void)followButtonHandler {
