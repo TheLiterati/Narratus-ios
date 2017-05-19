@@ -52,6 +52,11 @@
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
     self.user = nil;
     
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
+    
+//    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
+
+    
     //this is creating a separate, new instance of the Homeiew controller, not workable with the UI flow
 //    HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     
