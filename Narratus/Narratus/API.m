@@ -486,20 +486,28 @@
     }] resume];
 }
 
-+(void)pendingtoConfirmedFor:(NSString *)storyID with:(NSString *)content {
++(void)pendingtoConfirmedFor:(NSString *)content {
     NSLog(@"inside pending to confirmed");
     //check url
-    NSString *token = @"test token";
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/story/ %@ %@ %@", storyID, content, token]; //check token
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    
+    //Removing quotes from the token for when passing as a header in GET requests
+    NSUInteger charCount = [token length];
+    NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+    
+    //Pure token, no quotes
+    NSString *tokenWork = [token substringWithRange:oneToAccount];
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/snippet/approve/storyid %@", content];
     
     NSURL *databaseURL = [NSURL URLWithString:urlString];
     
     NSMutableDictionary *confirmedSnippet = [[NSMutableDictionary alloc]init];
-    confirmedSnippet[@"storyID"] = storyID;
+    //confirmedSnippet[@"storyID"] = storyID;
     confirmedSnippet[@"content"] = content;
     
     NSError *dataError;
-    
     NSData *snippetData = [NSJSONSerialization dataWithJSONObject:confirmedSnippet options:NSJSONWritingPrettyPrinted error:&dataError];
     
     if (dataError) {
@@ -511,6 +519,11 @@
     request.HTTPMethod =@"PUT";
     [request setHTTPBody:snippetData];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
+    [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
+    NSLog(@"%@", bearAuth);
+
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
