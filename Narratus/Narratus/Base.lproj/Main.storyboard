@@ -89,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-7s-Ggi">
-                                <rect key="frame" x="0.0" y="85" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="582"/>
                                 <connections>
                                     <segue destination="EQv-XS-Ejn" kind="embed" id="e7F-P1-unE"/>
                                 </connections>
@@ -120,7 +120,7 @@
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="centerX" secondItem="JQc-gt-0ON" secondAttribute="centerX" id="NpO-jk-7dc"/>
                             <constraint firstItem="JQc-gt-0ON" firstAttribute="bottom" secondItem="TXD-vh-Oiy" secondAttribute="top" id="ayg-un-fQJ"/>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="leading" secondItem="WF9-G3-W3I" secondAttribute="leading" id="dET-DV-PSB"/>
-                            <constraint firstItem="TXD-vh-Oiy" firstAttribute="top" secondItem="ffH-7s-Ggi" secondAttribute="bottom" constant="29" id="in6-VJ-zNo"/>
+                            <constraint firstItem="TXD-vh-Oiy" firstAttribute="top" secondItem="ffH-7s-Ggi" secondAttribute="bottom" id="in6-VJ-zNo"/>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="trailing" secondItem="WF9-G3-W3I" secondAttribute="trailing" id="ld6-jF-ZX1"/>
                             <constraint firstItem="WF9-G3-W3I" firstAttribute="top" secondItem="fZ3-3C-g1f" secondAttribute="bottom" id="nR3-xx-bhN"/>
                             <constraint firstItem="ffH-7s-Ggi" firstAttribute="leading" secondItem="JQc-gt-0ON" secondAttribute="leading" id="tDx-Df-1tQ"/>
@@ -138,6 +138,7 @@
                         <outlet property="followButton" destination="bjp-1r-5wn" id="pb1-f2-Rki"/>
                         <outlet property="storyTableView" destination="ffH-7s-Ggi" id="aUR-Dc-QK1"/>
                         <outlet property="titleLabel" destination="WF9-G3-W3I" id="yM5-YO-lpZ"/>
+                        <outlet property="toggleButton" destination="JQc-gt-0ON" id="1Yo-Rb-8Pr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08p-rM-88v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -579,11 +580,11 @@
                         <viewControllerLayoutGuide type="bottom" id="80v-Lw-k7u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T85-rw-fFv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="582"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pv3-nK-HSE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="582"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                             </tableView>

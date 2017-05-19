@@ -30,8 +30,7 @@
 
 //    [self addSnippetHandler];
     [self followButtonHandler];
-
-    
+    [self tokenCheckToggle];
 }
 
 -(void)tokenCheckToggle {
