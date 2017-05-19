@@ -12,5 +12,7 @@
 @interface SnippetTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) Snippet *currentSnippet;
+//@property (strong, nonatomic) NSString *startingSnippet;
+@property (strong, nonatomic) NSString *content;
 
 @end

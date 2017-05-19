@@ -46,25 +46,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.allSnippets count];
+    return [self.allSnippets count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
-        
-//        cell.snippetContentLabel.text = self.selectedStory.startSnippet;
+        cell.content = self.selectedStory.startSnippet;
         cell.backgroundColor=[UIColor clearColor];
         return cell;
     } else {
         SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
-        cell.currentSnippet = self.allSnippets[indexPath.row];
-//        Snippet *current = self.allSnippets[indexPath.row];
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-//        NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
-        //    NSLog(@"%@", dateString);
-//        cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@", [current content]];
-//        cell.snippetDateLabel.text = @"date goes here";
+        cell.content = self.allSnippets[indexPath.row].content;
+
         cell.backgroundColor=[UIColor clearColor];
         return cell;
     }
@@ -85,3 +79,9 @@
 //    cell.backgroundColor=[UIColor clearColor];
 
 //    return cell;
+//        Snippet *current = self.allSnippets[indexPath.row];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//        NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
+//    NSLog(@"%@", dateString);
+//        cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@", [current content]];
+//        cell.snippetDateLabel.text = @"date goes here";

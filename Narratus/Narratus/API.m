@@ -164,7 +164,7 @@
                     newSnippet.lastViewDate = snippet[@"lastViewDate"];
                     newSnippet.content = snippet[@"snippetContent"];
                     
-                    [pendingSnippets addObject:newSnippet];
+                    [storySnippets addObject:newSnippet];
 
                 }
             }
@@ -205,17 +205,12 @@
     
 
     NSError *dataError;
-//    NSData *requestData = [NSJSONSerialization dataWithJSONObject:snippetDictionary options:NSJSONWritingPrettyPrinted error:&dataError];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     request.HTTPMethod = @"GET";
-//    [request setHTTPBody:requestData];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    
-//    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
-//    [request setValue:bearAuth forHTTPHeaderField:@"Authorization"];
 
-    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
     if (dataError) {
         NSLog(@"%@", dataError.localizedDescription);
     }
@@ -225,28 +220,63 @@
      [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
          NSLog(@"data:%@", data);
          NSLog(@"response:%@", response);
-         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+         NSDictionary *story = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
          
-         NSLog(@"root object: %@", rootObject);
+         NSLog(@"root object: %@", story);
+         
          if (error) {
              NSLog(@"error: %@",error.localizedDescription);
          }
         
         NSMutableArray *allSnippets = [[NSMutableArray alloc]init];
         
-        for (NSDictionary *snippet in [rootObject allValues]) {
-            Snippet *newSnippet = [[Snippet alloc]init];
-            newSnippet.content = snippet[@"snippetContent"];
-            newSnippet.createdDate = snippet[@"created"];
-            newSnippet.pending = snippet[@"pending"];
-            newSnippet.snippetID = snippet[@"_id"];
-            newSnippet.accepted = snippet[@"approved"];
-            newSnippet.acceptedDate = snippet[@"approvedDate"];
-            newSnippet.lastViewDate = snippet[@"lastViewDate"];
-            
-            [allSnippets addObject:newSnippet];
+        NSLog(@"TITLE: %@", story[@"title"]);
+        if (story[@"SnippetCount"] > 0) {
+            for (NSDictionary *snippet in story[@"snippets"]) {
+                Snippet *newSnippet = [[Snippet alloc]init];
+                newSnippet.createdDate = snippet[@"created"];
+                newSnippet.pending = snippet[@"pending"];
+                newSnippet.snippetID = snippet[@"_id"];
+                newSnippet.acceptedDate = snippet[@"approvedDate"];
+                newSnippet.lastViewDate = snippet[@"lastViewDate"];
+                newSnippet.content = snippet[@"snippetContent"];
+                 
+                [allSnippets addObject:newSnippet];
+            }
         }
-        
+         
+//         for (NSDictionary *story in rootObject) {
+         
+             
+//             NSMutableArray<Snippet *> *storySnippets = [[NSMutableArray alloc]init];
+
+//             Story *newStory = [[Story alloc]init];
+//             NSLog(@"story content: %@", story);
+//             newStory.ownerUserName = story[@"ownerUsername"];
+//             newStory.title = story[@"title"];
+//             newStory.storyDescription = story[@"description"];
+//             newStory.createdDate = story[@"created"];
+//             newStory.category = story[@"genre"];
+//             newStory.open = story[@"open"];
+//             newStory.storySnippetCount = story[@"snippetCount"];
+//             newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
+//             newStory.storyID = story[@"_id"];
+//             newStory.startSnippet = story[@"startSnippet"];
+             
+//             if (story[@"SnippetCount"] > 0) {
+//                 for (NSDictionary *snippet in story[@"snippets"]) {
+//                     Snippet *newSnippet = [[Snippet alloc]init];
+//                     newSnippet.createdDate = snippet[@"created"];
+//                     newSnippet.pending = snippet[@"pending"];
+//                     newSnippet.snippetID = snippet[@"_id"];
+//                     newSnippet.acceptedDate = snippet[@"approvedDate"];
+//                     newSnippet.lastViewDate = snippet[@"lastViewDate"];
+//                     newSnippet.content = snippet[@"snippetContent"];
+//                     
+//                     [allSnippets addObject:newSnippet];
+//                 }
+//             } 
+//         }
         if (completion) {
             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                 completion(allSnippets);
@@ -566,10 +596,22 @@
     }] resume];
 }
 
++(void)closeStoryFor:(NSString *)storyID{}
 
 @end
 
-
+//        for (NSDictionary *snippet in [rootObject allValues]) {
+//            Snippet *newSnippet = [[Snippet alloc]init];
+//            newSnippet.content = snippet[@"snippetContent"];
+//            newSnippet.createdDate = snippet[@"created"];
+//            newSnippet.pending = snippet[@"pending"];
+//            newSnippet.snippetID = snippet[@"_id"];
+//            newSnippet.accepted = snippet[@"approved"];
+//            newSnippet.acceptedDate = snippet[@"approvedDate"];
+//            newSnippet.lastViewDate = snippet[@"lastViewDate"];
+//
+//            [allSnippets addObject:newSnippet];
+//        }
 
 
 
