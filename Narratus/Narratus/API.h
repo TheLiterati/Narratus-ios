@@ -37,7 +37,7 @@ typedef void(^loginCompletion)(NSArray*);
 
 //ownedStory
 //-(Story*)closeStory:(Story*)openStory;
-+(void)pendingtoConfirmedFor:(NSString *)storyID with:(NSString *)content;
++(void)pendingtoConfirmedFor:(NSString *)content;
 +(void)closeStoryFor:(NSString *)storyID;
 
 //newStory
