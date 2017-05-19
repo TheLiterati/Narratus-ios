@@ -28,12 +28,13 @@
     [super viewDidLoad];
 
     self.userNameLabel.text = self.user.userName;
-    
+    [self checkUser];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [self checkUser];
+//    [self checkUser];
 }
 
 -(void)checkUser {
@@ -62,8 +63,8 @@
 //    HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     
  //   LoginViewController *loginVC = [self.navigationController popToViewController:@"LoginViewController" animated:YES:];
-    LoginViewController *login = [self.navigationController popViewControllerAnimated:@"LoginViewController"];
-    [self presentViewController:login animated:YES completion:nil];
+//    LoginViewController *login = [self.navigationController popViewControllerAnimated:@"LoginViewController"];
+//    [self presentViewController:login animated:YES completion:nil];
 }
 
 @end

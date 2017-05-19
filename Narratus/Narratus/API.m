@@ -328,7 +328,7 @@
     
     //retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
-    NSLog(@"%@", token);
+    NSLog(@"token: %@", token);
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/dashboard"];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
@@ -342,20 +342,21 @@
 
     //Pure token, no quotes
     NSString *tokenWork = [token substringWithRange:oneToAccount];
-    NSLog(@"TOOKEEN: %@", tokenWork);
+    NSLog(@"TOOKEEN work: %@", tokenWork);
     
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
     [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
-    NSLog(@"%@", bearAuth);
+    NSLog(@"bear auth: %@", bearAuth);
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
    
-        NSLog(@"data:%@", data);
-        NSLog(@"response:%@", response);
+        NSLog(@"session data:%@", data);
+        NSLog(@"session response:%@", response);
+        
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@s", rootObject);
+        NSLog(@"root object: %@s", rootObject);
         
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"DATASTRING: %@",dataString);
@@ -365,6 +366,11 @@
         }
         
         User *currentUser = [[User alloc]init];
+        
+        for (NSDictionary *user in [rootObject allValues]) {
+            User *newUser = [[User alloc]init];
+            NSLog(@"user dictionary: %@", user);
+        }
         
        /* for (NSDictionary *user in [rootObject allValues]) {
             NSMutableArray<Story *> *owned = [[NSMutableArray<Story *> alloc]init];
