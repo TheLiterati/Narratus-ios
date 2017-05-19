@@ -196,7 +196,7 @@
                                 <color key="textColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OhO-T0-NJB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What happens first?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OhO-T0-NJB">
                                 <rect key="frame" x="0.0" y="440" width="375" height="148"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="SpecialElite-Regular" family="Special Elite" pointSize="17"/>
@@ -487,7 +487,7 @@
                                     <color key="titleColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="closedButtonPressed:" destination="Bxb-qf-PFi" eventType="touchUpInside" id="DIq-p3-L70"/>
+                                    <action selector="closedButtonPressed:" destination="Bxb-qf-PFi" eventType="touchUpInside" id="vTR-da-FY3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Pending Contributions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lap-Tw-eoS">
@@ -526,6 +526,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wOi-sc-flB"/>
                     <connections>
+                        <outlet property="openCloseButton" destination="web-aO-gRD" id="DMF-sv-Wy6"/>
                         <outlet property="titleLabel" destination="yke-rA-Gjn" id="2T3-Jh-a2z"/>
                     </connections>
                 </viewController>
@@ -558,7 +559,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YpV-J4-dVq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="User" image="user" id="z29-Pm-NhW"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="79o-sq-ac0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="79o-sq-ac0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -832,7 +833,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WS6-lf-5vn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home_512" selectedImage="home_512" id="vQz-pY-maT"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oia-K2-57N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oia-K2-57N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -850,7 +851,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pr1-1y-ESi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iM3-Da-cjJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iM3-Da-cjJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -868,7 +869,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K2r-Ge-XvO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vaM-pO-2fj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vaM-pO-2fj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
