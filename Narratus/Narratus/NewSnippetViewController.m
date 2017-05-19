@@ -10,6 +10,7 @@
 #import "StoryManager.h"
 #import "Snippet.h"
 #import "PendingSnippetViewController.h"
+#import "API.h"
 
 
 @interface NewSnippetViewController () <UITextViewDelegate>
@@ -58,7 +59,8 @@
      */
     
     Snippet *newSnippet = [[Snippet alloc]init];
-    newSnippet.pending = _snippetTextView.text;
+    newSnippet.pending = self.snippetTextView.text;
+    newSnippet.content = self.snippetTextView.text;
     
     [[StoryManager.shared allSnippets] addObject:newSnippet];
     

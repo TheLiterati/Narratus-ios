@@ -154,6 +154,8 @@
             newStory.storyID = story[@"_id"];
             newStory.startSnippet = story[@"startSnippet"];
             
+            NSLog(@"%@, %@", newStory.startSnippet, newStory.ownerUserName);
+            
             if (story[@"SnippetCount"] > 0) {
                 for (NSDictionary *snippet in story[@"snippets"]) {
                     Snippet *newSnippet = [[Snippet alloc]init];
@@ -203,7 +205,6 @@
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/%@", storyID];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
-
     NSError *dataError;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
