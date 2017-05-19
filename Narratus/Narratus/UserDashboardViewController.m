@@ -28,13 +28,13 @@
     [super viewDidLoad];
 
     self.userNameLabel.text = self.user.userName;
-    [self checkUser];
+//    [self checkUser];
 
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-//    [self checkUser];
+    [self checkUser];
 }
 
 -(void)checkUser {
@@ -54,7 +54,7 @@
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
     self.user = nil;
     
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
+//    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
     
 //    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
 
