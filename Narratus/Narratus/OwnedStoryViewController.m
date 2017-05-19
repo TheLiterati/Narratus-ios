@@ -25,7 +25,7 @@
 
 
 - (void) buttonHandler {
-    if (_currentStory.open == @"true") {
+    if (_currentStory.open == [NSString stringWithFormat:@"true"]) {
         self.openCloseButton.titleLabel.text = @"Close story";
     } else {
         self.openCloseButton.titleLabel.text = @"Open story";
