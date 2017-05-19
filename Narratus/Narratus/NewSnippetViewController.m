@@ -87,35 +87,33 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+    /*
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    });
+     */
     
     UIAlertController *contribution = [UIAlertController alertControllerWithTitle:@"Thank you for your contribution" message:@"May the story never end 📖" preferredStyle: UIAlertControllerStyleAlert];
     
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        
         dispatch_async(dispatch_get_main_queue(), ^(void){
             //Run UI Updates, Highest priority
             
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"📝Wanderlust more" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self dismissViewControllerAnimated:YES completion:nil];
             }];
-            
+            [contribution addAction:action];
             [self presentViewController:contribution animated:YES completion:nil];
             
-            [self.navigationController popViewControllerAnimated:YES];
-            [contribution addAction:action];
         });
         
         //Background Thread(global queue), medium priority aka priority_default
         Snippet *newSnippet = [[Snippet alloc]init];
         newSnippet.pending = _snippetTextView.text;
-        
+    
         [[StoryManager.shared allSnippets] addObject:newSnippet];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
         
-    });
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+
     
     
 }
