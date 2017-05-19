@@ -12,6 +12,7 @@
 #import "PendingSnippetViewController.h"
 #import "API.h"
 #import "StoryViewController.h"
+#import "UserDashboardViewController.h"
 
 
 @interface NewSnippetViewController () <UITextViewDelegate>
@@ -26,6 +27,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     StoryViewController *parent = [self parentViewController];
     self.selectedStory = parent.currentStory;
+    UserDashboardViewController *parent2 = [self parentViewController];
+    self.selectedStory2 = parent2.selectedStory;
 
 }
 
@@ -72,10 +75,12 @@
     
     Snippet *snippetContent = newSnippet.content;
     Story *storyID = self.selectedStory.storyID;
-    NSLog(@"%@", snippetContent);
-    NSLog(@"%@", storyID);
+    Story *storyID2 = self.selectedStory2.storyID;
+    NSLog(@"SNIPPET: %@", snippetContent);
+    NSLog(@"STORYID: %@, STORYID2: %@", storyID, storyID2);
     
     [API postSnippetFor:storyID with:snippetContent];
+    [API postSnippetFor:storyID2 with:snippetContent];
     
     
     [[StoryManager.shared allSnippets] addObject:newSnippet];

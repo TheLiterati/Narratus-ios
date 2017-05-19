@@ -317,21 +317,18 @@
     NSUInteger charCount = [token length];
     NSRange oneToAccount = NSMakeRange(1, charCount - 2);
     NSString *tokenWork = [token substringWithRange:oneToAccount];
-    NSLog(@"realToken: %@", tokenWork);
+   // NSLog(@"realToken: %@", tokenWork);
     
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
     [request addValue:bearAuth forHTTPHeaderField:@"Authorization"];
+    NSLog(@"BEARAUTH: %@", bearAuth);
 
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 //        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
         
         NSLog(@"request response: %@", response);
-        
-        
-        NSLog(@"request data: %@", data);
+       // NSLog(@"request data: %@", data);
         
     }] resume];
 }
@@ -352,7 +349,6 @@
     NSUInteger charCount = [token length];
     NSRange oneToAccount = NSMakeRange(1, charCount - 2);
     
-
     //Pure token, no quotes
     NSString *tokenWork = [token substringWithRange:oneToAccount];
     NSLog(@"TOOKEEN: %@", tokenWork);
