@@ -43,8 +43,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
-    
-    cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@",self.confirmedSnippets[indexPath.row].content];
+    cell.currentSnippet = self.confirmedSnippets[indexPath.row];
+//    cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@",self.confirmedSnippets[indexPath.row].content];
     cell.backgroundColor=[UIColor clearColor];
     return cell;
     

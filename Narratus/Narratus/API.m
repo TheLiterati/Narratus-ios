@@ -218,16 +218,13 @@
         
         for (NSDictionary *snippet in [rootObject allValues]) {
             Snippet *newSnippet = [[Snippet alloc]init];
-            newSnippet.likes = snippet[@"likes"];
             newSnippet.content = snippet[@"snippetContent"];
             newSnippet.createdDate = snippet[@"created"];
-            newSnippet.snippetCreator = snippet[@"snippetCreator"];
             newSnippet.pending = snippet[@"pending"];
             newSnippet.snippetID = snippet[@"_id"];
-            newSnippet.accepted = snippet[@"accepted"];
-            newSnippet.acceptedDate = snippet[@"acceptedDate"];
-            newSnippet.lastViewDate = snippet[@"lastViewedDate"];
-            newSnippet.bookmark = snippet[@"bookmark"];
+            newSnippet.accepted = snippet[@"approved"];
+            newSnippet.acceptedDate = snippet[@"approvedDate"];
+            newSnippet.lastViewDate = snippet[@"lastViewDate"];
             
             [allSnippets addObject:newSnippet];
         }

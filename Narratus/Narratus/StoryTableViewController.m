@@ -44,9 +44,11 @@
         SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
         
 //        cell.snippetContentLabel.text = self.selectedStory.startSnippet;
+        cell.backgroundColor=[UIColor clearColor];
         return cell;
     } else {
         SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
+        cell.currentSnippet = self.allSnippets[indexPath.row];
 //        Snippet *current = self.allSnippets[indexPath.row];
 //        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
 //        NSString *dateString = [dateFormatter stringFromDate:current.createdDate];
