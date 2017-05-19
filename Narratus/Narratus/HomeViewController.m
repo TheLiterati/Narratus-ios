@@ -57,9 +57,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
     cell.currentStory = self.allStories[indexPath.row];
-    
-    cell.titleLabel.text = current.title;
-    cell.descriptionLabel.text = current.storyDescription;
+//    
+//    cell.titleLabel.text = current.title;
+//    cell.descriptionLabel.text = current.storyDescription;
     cell.backgroundColor = [UIColor clearColor];
     
     return cell;

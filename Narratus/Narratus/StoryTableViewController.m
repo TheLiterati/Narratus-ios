@@ -10,6 +10,7 @@
 #import "SnippetTableViewCell.h"
 #import "Snippet.h"
 #import "API.h"
+#import "StoryViewController.h"
 
 @interface StoryTableViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *storyTableView;
@@ -30,11 +31,18 @@
     self.storyTableView.estimatedRowHeight = 50;
     self.storyTableView.rowHeight = UITableViewAutomaticDimension;
 
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    StoryViewController *parent = [self parentViewController];
+    self.selectedStory = parent.currentStory;
+    
     [API fetchSnippets:^(NSArray<Snippet *> *allSnippets) {
         self.allSnippets = allSnippets;
         [self.storyTableView reloadData];
     } With:self.selectedStory.storyID]; //self.selectedStory.storyID]
-    
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

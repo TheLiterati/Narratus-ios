@@ -223,9 +223,9 @@
     request.HTTPMethod = @"GET";
 //    [request setHTTPBody:requestData];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
-    [request setValue:bearAuth forHTTPHeaderField:@"Authorization"];
+//    
+//    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
+//    [request setValue:bearAuth forHTTPHeaderField:@"Authorization"];
 
     
     if (dataError) {
