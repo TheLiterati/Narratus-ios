@@ -53,13 +53,24 @@
             XCTAssertNotNil(story.storyID, @"story.storyID is nil");
             
             if ([story.storySnippets count] > 0) {
-                for (Snippet *snippet in story.pendingSnippets) {
+                for (Snippet *snippet in story.storySnippets) {
                     XCTAssertNotNil(snippet.createdDate, @"snippet.createdDate is not nil");
                     XCTAssertNotNil(snippet.pending, @"snippet.pending is not nil");
                     XCTAssertNotNil(snippet.snippetID, @"snippet.snippetID is not nil");
-                    XCTAssertNotNil(snippet. @"snippet. is not nil");
-                    XCTAssertNotNil(snippet. @"snippet. is not nil");
-                    XCTAssertNotNil(snippet. @"snippet. is not nil");
+                    XCTAssertNotNil(snippet.acceptedDate, @"snippet.acceptedDate is not nil");
+                    XCTAssertNotNil(snippet.lastViewDate, @"snippet.lastViewDate is not nil");
+                    XCTAssertNotNil(snippet.content, @"snippet.content is not nil");
+                }
+            }
+            
+            if ([story.pendingSnippets count] > 0) {
+                for (Snippet *snippet in story.pendingSnippets) {
+                    XCTAssertNotNil(snippet.createdDate, @"pending snippet.createdDate is not nil");
+                    XCTAssertNotNil(snippet.pending, @"pending snippet.pending is not nil");
+                    XCTAssertNotNil(snippet.snippetID, @"pending snippet.snippetID is not nil");
+                    XCTAssertNotNil(snippet.acceptedDate, @"pending snippet.acceptedDate is not nil");
+                    XCTAssertNotNil(snippet.lastViewDate, @"pending snippet.lastViewDate is not nil");
+                    XCTAssertNotNil(snippet.content, @"pending snippet.content is not nil");
                 }
             }
         }
