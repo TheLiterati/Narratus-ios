@@ -172,20 +172,20 @@
                 }
             }
             
-            if (story[@"pendingSnippetCount"] > 0) {
-                for (NSDictionary *snippet in story[@"pendingSnippets"]) {
-                    Snippet *newSnippet = [[Snippet alloc]init];
-                    newSnippet.createdDate = snippet[@"created"];
-                    newSnippet.pending = snippet[@"pending"];
-                    newSnippet.snippetID = snippet[@"_id"];
-                    newSnippet.acceptedDate = snippet[@"approvedDate"];
-                    newSnippet.lastViewDate = snippet[@"lastViewDate"];
-                    newSnippet.content = snippet[@"snippetContent"];
-                    
-                    [pendingSnippets addObject:newSnippet];
-                }
-                newStory.pendingSnippets = pendingSnippets;
-            }
+//            if (story[@"pendingSnippetCount"] > 0) {
+//                for (NSDictionary *snippet in story[@"pendingSnippets"]) {
+//                    Snippet *newSnippet = [[Snippet alloc]init];
+//                    newSnippet.createdDate = snippet[@"created"];
+//                    newSnippet.pending = snippet[@"pending"];
+//                    newSnippet.snippetID = snippet[@"_id"];
+//                    newSnippet.acceptedDate = snippet[@"approvedDate"];
+//                    newSnippet.lastViewDate = snippet[@"lastViewDate"];
+//                    newSnippet.content = snippet[@"snippetContent"];
+//                    
+//                    [pendingSnippets addObject:newSnippet];
+//                }
+//                newStory.pendingSnippets = pendingSnippets;
+//            }
 
             newStory.storySnippets = storySnippets;
 
@@ -337,7 +337,7 @@
     }] resume];
 }
 
-+(void)fetchUser{
++(void)fetchUser:(UserCompletion)completion {
     NSLog(@"inside fetch user");
     
     //retreive token
@@ -379,45 +379,51 @@
         
 //        User *currentUser = [[User alloc]init];
         
+        NSMutableArray *ownedStories = [[NSMutableArray alloc]init];
+        NSMutableArray *followedStories = [[NSMutableArray alloc]init];
+        
         for (NSDictionary *items in [rootObject allValues]) {
             
             for (NSDictionary *stories in items[@"ownedStories"]) {
             
-            Story *ownedStory = [[Story alloc]init];
-            ownedStory.ownerID = stories[@"userID"];
-            ownedStory.storyID = stories[@"_id"];
-            ownedStory.title = stories[@"title"];
-            ownedStory.storyDescription = stories[@"description"];
-            ownedStory.category = stories[@"genre"];
-            ownedStory.startSnippet = stories[@"startSnippet"];
-            ownedStory.open = stories[@"open"];
-            ownedStory.createdDate = stories[@"created"];
-            ownedStory.genre = stories[@"genre"];
+                Story *ownedStory = [[Story alloc]init];
+                ownedStory.ownerID = stories[@"userID"];
+                ownedStory.storyID = stories[@"_id"];
+                ownedStory.title = stories[@"title"];
+                ownedStory.storyDescription = stories[@"description"];
+                ownedStory.category = stories[@"genre"];
+                ownedStory.startSnippet = stories[@"startSnippet"];
+                ownedStory.open = stories[@"open"];
+                ownedStory.createdDate = stories[@"created"];
+                ownedStory.genre = stories[@"genre"];
+                
+                [ownedStories addObject:ownedStory];
             }
             
             for (NSDictionary *stories in items[@"followedStories"]) {
                 
-            Story *followedStory = [[Story alloc] init];
-            followedStory.ownerID = stories[@"userID"];
-            followedStory.storyID = stories[@"_id"];
-            followedStory.title = stories[@"title"];
-            followedStory.storyDescription = stories[@"description"];
-            //followedStory.category = stories[@"genre"];
-            followedStory.startSnippet = stories[@"startSnippet"];
-            followedStory.open = stories[@"open"];
-            followedStory.createdDate = stories[@"created"];
-            followedStory.genre = stories[@"genre"];
+                Story *followedStory = [[Story alloc] init];
+                followedStory.ownerID = stories[@"userID"];
+                followedStory.storyID = stories[@"_id"];
+                followedStory.title = stories[@"title"];
+                followedStory.storyDescription = stories[@"description"];
+                //followedStory.category = stories[@"genre"];
+                followedStory.startSnippet = stories[@"startSnippet"];
+                followedStory.open = stories[@"open"];
+                followedStory.createdDate = stories[@"created"];
+                followedStory.genre = stories[@"genre"];
+                
+                [followedStories addObject:followedStory];
             }
-            
         };
         
         
         
-//        if (completion) {
-//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//                completion(currentUser);
-//            }];
-//        }
+        if (completion) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                completion(followedStories, ownedStories);
+            }];
+        }
     }]resume];
 }
 

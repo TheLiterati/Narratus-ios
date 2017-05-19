@@ -9,14 +9,13 @@
 #import "OwnedTableViewController.h"
 #import "StoryTableViewCell.h"
 #import "User.h"
-#import "Story.h"
 #import "API.h"
 #import "StoryManager.h"
 #import "OwnedStoryViewController.h"
 
 @interface OwnedTableViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *ownedTableView;
-@property (strong, nonatomic) NSMutableArray<Story *> *ownedStories;
+
 
 
 @end
@@ -25,14 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.ownedStories = [[NSMutableArray alloc]init];
+//    self.ownedStories = [[NSMutableArray alloc]init];
     self.ownedTableView.dataSource = self;
     self.ownedTableView.delegate = self;
     UINib *cellNib = [UINib nibWithNibName:@"StoryTableViewCell" bundle:nil];
     [self.ownedTableView registerNib:cellNib forCellReuseIdentifier:@"StoryTableViewCell"];
     self.ownedTableView.estimatedRowHeight = 50;
     self.ownedTableView.rowHeight = UITableViewAutomaticDimension;
-    self.ownedStories = [API sampleStory];
+//    self.ownedStories = [API sampleStory];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOwnedStories) name:@"newStoryCreation" object:nil];
 }
