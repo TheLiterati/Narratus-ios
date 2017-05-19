@@ -197,22 +197,43 @@
     }]resume];
 }
 
-+(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID{
++(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID {
     NSLog(@"inside fetch snippets");
-    //check url
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/%@", storyID];
     
+    //retreive token
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    NSLog(@"TOKEN: %@", token);
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/%@", storyID];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
+    request.HTTPMethod = @"GET";
+    
+    //Removing quotes from the token for when passing as a header in GET requests
+    NSUInteger charCount = [token length];
+    NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+    
+    
+    //Pure token, no quotes
+    NSString *tokenWork = [token substringWithRange:oneToAccount];
+    NSLog(@"%@", tokenWork);
+    
+    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
+    [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
+
+    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
-    [[session dataTaskWithURL:databaseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"data:%@", data);
-        NSLog(@"response:%@", response);
-        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        
-        if (error) {
-            NSLog(@"error: %@",error.localizedDescription);
-        }
+     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+         NSLog(@"data:%@", data);
+         NSLog(@"response:%@", response);
+         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+         
+         NSLog(@"root object: %@", rootObject);
+         if (error) {
+             NSLog(@"error: %@",error.localizedDescription);
+         }
         
         NSMutableArray *allSnippets = [[NSMutableArray alloc]init];
         
