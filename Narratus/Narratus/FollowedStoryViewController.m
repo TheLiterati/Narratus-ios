@@ -46,7 +46,7 @@
     Story *current = self.followedStories[indexPath.row];
     
     cell.titleLabel.text = current.title;
-    cell.descriptionLabel.text = current.description;
+    cell.descriptionLabel.text = current.storyDescription;
     
     return cell;
 }

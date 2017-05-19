@@ -37,6 +37,7 @@
 
     [API fetchAllStories:^(NSArray<Story *> *allStories) {
         self.allStories = allStories;
+
         NSLog(@"allstories: %@", self.allStories);
         [self.lastUpdatedTableView reloadData];
     }];
@@ -70,9 +71,14 @@
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
     
+<<<<<<< HEAD
 //     [API postNewStoryWith:@"Once upon a time" with:@"There lived an elf"];
     
+=======
+    [API postNewStoryWith:@"start snipp" with:@"yo" and:@"yee"];
+>>>>>>> eded2a0e3cb8384462e9a9ba5e28a67247ae57ab
     
+
 }
 
 

@@ -36,9 +36,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
 
-     [API fetchUser:^(User *loggedInUser) {
-         self.user = loggedInUser;
-     }];
+    [API fetchUser];
+
 
 }
 
