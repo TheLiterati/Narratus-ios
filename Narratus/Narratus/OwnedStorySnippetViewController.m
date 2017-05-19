@@ -10,6 +10,7 @@
 #import "Snippet.h"
 #import "SnippetTableViewCell.h"
 #import "API.h"
+#import "OwnedStoryViewController.h"
 
 @interface OwnedStorySnippetViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -36,18 +37,34 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    OwnedStoryViewController *parent = [self parentViewController];
+    self.currentStory = parent.currentStory;
+    
+    [API fetchSnippets:^(NSArray<Snippet *> *allSnippets) {
+        self.confirmedSnippets = allSnippets;
+        [self.storyTableView reloadData];
+    } With:self.currentStory.storyID]; //self.selectedStory.storyID]
+    
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.confirmedSnippets count];
+    return [self.confirmedSnippets count] + 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
-    
-    cell.snippetContentLabel.text = [NSString stringWithFormat:@"     %@",self.confirmedSnippets[indexPath.row].content];
-    cell.backgroundColor=[UIColor clearColor];
-    return cell;
-    
+    if (indexPath.row == 0) {
+        SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
+        cell.content = self.currentStory.startSnippet;
+        cell.backgroundColor=[UIColor clearColor];
+        return cell;
+    } else {
+        SnippetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SnippetTableViewCell" forIndexPath:indexPath];
+        cell.content = self.confirmedSnippets[indexPath.row].content;
+        
+        cell.backgroundColor=[UIColor clearColor];
+        return cell;
+    }
 }
 
 @end

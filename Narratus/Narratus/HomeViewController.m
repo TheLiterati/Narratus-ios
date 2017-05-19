@@ -56,10 +56,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
-    Story *current = self.allStories[indexPath.row];
-    
-    cell.titleLabel.text = current.title;
-    cell.descriptionLabel.text = current.storyDescription;
+    cell.currentStory = self.allStories[indexPath.row];
+//    
+//    cell.titleLabel.text = current.title;
+//    cell.descriptionLabel.text = current.storyDescription;
     cell.backgroundColor = [UIColor clearColor];
     
     return cell;
@@ -71,7 +71,6 @@
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
     
-   
 }
 
 

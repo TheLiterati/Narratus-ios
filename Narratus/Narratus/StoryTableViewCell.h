@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Story.h"
 
 @interface StoryTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+//
+//@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-
+@property(strong, nonatomic) Story *currentStory;
 @end
