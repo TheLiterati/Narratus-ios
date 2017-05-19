@@ -376,7 +376,7 @@
             NSLog(@"error: %@",error.localizedDescription);
         }
         
-        User *currentUser = [[User alloc]init];
+//        User *currentUser = [[User alloc]init];
         
        /* for (NSDictionary *user in [rootObject allValues]) {
             NSMutableArray<Story *> *owned = [[NSMutableArray<Story *> alloc]init];
