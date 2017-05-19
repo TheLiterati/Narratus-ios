@@ -41,29 +41,27 @@
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
     if (token) {
-        [API fetchUser];
+        //[API fetchUser];
     } else {
         LoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         [self.navigationController pushViewController:loginVC animated:YES];
         
     }
-    
 }
 
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
     self.user = nil;
     
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
-    
-//    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"accessToken"];
+    //[[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
 
-    
     //this is creating a separate, new instance of the Homeiew controller, not workable with the UI flow
-//    HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    HomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     
  //   LoginViewController *loginVC = [self.navigationController popToViewController:@"LoginViewController" animated:YES:];
     LoginViewController *login = [self.navigationController popViewControllerAnimated:@"LoginViewController"];
-    [self presentViewController:login animated:YES completion:nil];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self presentViewController:login animated:YES completion:nil];
 }
 
 @end

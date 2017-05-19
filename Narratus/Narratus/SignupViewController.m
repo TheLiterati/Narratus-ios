@@ -79,7 +79,7 @@
         
         if (data != nil) {
             NSLog(@"%@", data);
-//            NSString *token = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSString *token = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSLog(@"%@", token);
             [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"signupAccessToken"];
             
@@ -96,7 +96,6 @@
         
     }] resume];
     [self dismissViewControllerAnimated:YES completion:nil];
-
 
 }
 
