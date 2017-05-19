@@ -11,6 +11,7 @@
 #import "Snippet.h"
 #import "PendingSnippetViewController.h"
 #import "API.h"
+#import "StoryViewController.h"
 
 
 @interface NewSnippetViewController () <UITextViewDelegate>
@@ -21,6 +22,13 @@
 @end
 
 @implementation NewSnippetViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    StoryViewController *parent = [self parentViewController];
+    self.selectedStory = parent.currentStory;
+
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,6 +69,14 @@
     Snippet *newSnippet = [[Snippet alloc]init];
     newSnippet.pending = self.snippetTextView.text;
     newSnippet.content = self.snippetTextView.text;
+    
+    Snippet *snippetContent = newSnippet.content;
+    Story *storyID = self.selectedStory.storyID;
+    NSLog(@"%@", snippetContent);
+    NSLog(@"%@", storyID);
+    
+    [API postSnippetFor:storyID with:snippetContent];
+    
     
     [[StoryManager.shared allSnippets] addObject:newSnippet];
     

@@ -289,8 +289,10 @@
 +(void)postSnippetFor:(NSString *)storyID with:(NSString *)snippetContent {
     NSLog(@"inside post snippet");
     //check url
-    NSString *token = @"test token";
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@ 'Authorization:Bearer %@", storyID, snippetContent, token]; //check token
+    
+     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@", storyID, snippetContent]; //check token
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
@@ -311,6 +313,14 @@
     request.HTTPMethod = @"POST";
     [request setHTTPBody:snippetData];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSUInteger charCount = [token length];
+    NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+    NSString *tokenWork = [token substringWithRange:oneToAccount];
+    NSLog(@"realToken: %@", tokenWork);
+    
+    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
+    [request addValue:bearAuth forHTTPHeaderField:@"Authorization"];
 
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
@@ -319,6 +329,8 @@
 //        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
         
         NSLog(@"request response: %@", response);
+        
+        
         NSLog(@"request data: %@", data);
         
     }] resume];
