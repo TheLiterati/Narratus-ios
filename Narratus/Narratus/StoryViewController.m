@@ -38,14 +38,13 @@
     
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
-    if (!token) {
-        [self.toggleButton setHidden:YES];
-    } else {
+    if (token) {
         [self.toggleButton setHidden:NO];
+    } else {
+        [self.toggleButton setHidden:YES];
     }
     
 }
-
 
 //- (void)addSnippetHandler {
 //    
@@ -74,12 +73,18 @@
 }
 
 - (IBAction)toggleSnippetView:(id)sender {
+    
+    /*
+    
     NewSnippetViewController *addSnippetView = [self.storyboard instantiateViewControllerWithIdentifier:@"NewSnippetViewController"];
     addSnippetView.currentStory = self.currentStory;
     [self presentViewController:addSnippetView animated:YES completion:nil];
 //    [self.navigationController pushViewController:addSnippetView animated:YES];
+     
+     */
 }
 
+/*
 - (IBAction)followButtonPressed:(id)sender {
     NSMutableArray *tempArray = [[NSMutableArray alloc]init];
     tempArray = self.user.followedStories.copy;
@@ -96,6 +101,7 @@
     [self followButtonHandler];
 }
 
+ */
 
 
 @end
