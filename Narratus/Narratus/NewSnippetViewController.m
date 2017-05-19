@@ -87,10 +87,17 @@
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
-    /*
+    /* //Background Thread(global queue), medium priority aka priority_default
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
     });
      */
+    
+    Snippet *newSnippet = [[Snippet alloc]init];
+    newSnippet.pending = _snippetTextView.text;
+    
+    [[StoryManager.shared allSnippets] addObject:newSnippet];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
     
     UIAlertController *contribution = [UIAlertController alertControllerWithTitle:@"Thank you for your contribution" message:@"May the story never end 📖" preferredStyle: UIAlertControllerStyleAlert];
     
@@ -104,17 +111,6 @@
             [self presentViewController:contribution animated:YES completion:nil];
             
         });
-        
-        //Background Thread(global queue), medium priority aka priority_default
-        Snippet *newSnippet = [[Snippet alloc]init];
-        newSnippet.pending = _snippetTextView.text;
-    
-        [[StoryManager.shared allSnippets] addObject:newSnippet];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
-        
-
-    
     
 }
 - (IBAction)cancelButtonPressed:(id)sender {

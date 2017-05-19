@@ -31,7 +31,19 @@
 //    [self addSnippetHandler];
     [self followButtonHandler];
 
+    
+}
 
+-(void)tokenCheckToggle {
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    
+    if (!token) {
+        [self.toggleButton setHidden:YES];
+    } else {
+        [self.toggleButton setHidden:NO];
+    }
+    
 }
 
 
