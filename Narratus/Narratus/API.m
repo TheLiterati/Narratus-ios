@@ -311,6 +311,9 @@
         NSLog(@"response:%@", response);
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"DATASTRING: %@",dataString);
+        
         if (error) {
             NSLog(@"error: %@",error.localizedDescription);
         }
