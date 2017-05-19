@@ -44,7 +44,7 @@
 
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoryTableViewCell" forIndexPath:indexPath];
     
-    Story *current = self.followedStories[indexPath.row];
+    cell.currentStory = self.followedStories[indexPath.row];
     
 //    cell.titleLabel.text = current.title;
 //    cell.descriptionLabel.text = current.storyDescription;

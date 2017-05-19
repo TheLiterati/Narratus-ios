@@ -105,11 +105,11 @@
     
     Story *newStory = [[Story alloc] init];
     Snippet *newSnippet = [[Snippet alloc]init];
-    NSInteger *row = [self.genrePicker selectedRowInComponent:0];
+//    NSInteger *row = [self.genrePicker selectedRowInComponent:0];
     
     newStory.title = _titleTextField.text;
     newStory.storyDescription = _descriptionTextField.text;
-    newStory.category = [self.genres objectAtIndex:row];
+    newStory.category = [self.genres objectAtIndex:[self.genrePicker selectedRowInComponent:0]];
     NSLog(@"%@", newStory.category);
     
     newSnippet.content = _storyTextView.text; //Need to add all other snippet properties
