@@ -52,10 +52,14 @@
             XCTAssertNotNil(story.pendingSnippetCount, @"story.pendingSnippetCount is nil");
             XCTAssertNotNil(story.storyID, @"story.storyID is nil");
             
-            if (story[@"SnippetCount"] >0) {
-                for (NSDictionary *snippet in story[@"snippets"]){
-                    Snippet *newSnippet = [[Snippet alloc]init];
-                    
+            if ([story.storySnippets count] > 0) {
+                for (Snippet *snippet in story.pendingSnippets) {
+                    XCTAssertNotNil(snippet.createdDate, @"snippet.createdDate is not nil");
+                    XCTAssertNotNil(snippet.pending, @"snippet.pending is not nil");
+                    XCTAssertNotNil(snippet.snippetID, @"snippet.snippetID is not nil");
+                    XCTAssertNotNil(snippet. @"snippet. is not nil");
+                    XCTAssertNotNil(snippet. @"snippet. is not nil");
+                    XCTAssertNotNil(snippet. @"snippet. is not nil");
                 }
             }
         }
