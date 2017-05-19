@@ -39,7 +39,7 @@
 -(void)signup{
     NSLog(@"The token:");
     
-    NSURL *databaseURL = [NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/signup"];
+    NSURL *databaseURL = [NSURL URLWithString:@"https://narratus-production.herokuapp.com/api/signup"];
     
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc]init];
     

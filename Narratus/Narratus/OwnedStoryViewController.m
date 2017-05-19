@@ -25,7 +25,7 @@
 
 
 - (void) buttonHandler {
-    if (_currentStory.open == @"true") {
+    if ([_currentStory.open isEqual:@"true"]) {
         self.openCloseButton.titleLabel.text = @"Close story";
     } else {
         self.openCloseButton.titleLabel.text = @"Open story";
@@ -33,9 +33,9 @@
 }
 
 - (IBAction)closedButtonPressed:(UIButton *)sender {
-    if (_currentStory.open == @"true") {
+    if ([_currentStory.open isEqual: @"true"]) {
         _currentStory.open = @"false";
-    } else if (_currentStory.open == @"false") {
+    } else if ([_currentStory.open isEqual: @"false"]) {
         _currentStory.open = @"true";
     }
     // Send to server
