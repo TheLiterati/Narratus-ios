@@ -27,26 +27,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
     self.userNameLabel.text = self.user.userName;
-    [self checkUser];
-
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-
-    [API fetchUser];
-
-
+    [self checkUser];
 }
 
 -(void)checkUser {
-    if (!self.user) {
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    
+    if (token) {
+        [API fetchUser];
+    } else {
         LoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         [self.navigationController pushViewController:loginVC animated:YES];
+        
     }
-
+    
 }
 
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {

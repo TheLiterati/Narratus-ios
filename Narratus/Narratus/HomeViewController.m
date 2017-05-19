@@ -35,12 +35,12 @@
     self.allStories = [[NSArray<Story *> alloc]init];
 //    self.allStories = [API sampleStory];
 
-   //[API fetchAllStories:^(NSArray<Story *> *allStories) {
-     //  self.allStories = allStories;
+  // [API fetchAllStories:^(NSArray<Story *> *allStories) {
+   //    self.allStories = allStories;
 
-     //   NSLog(@"allstories: %@", self.allStories);
-     //   [self.lastUpdatedTableView reloadData];
-    //}];
+   //     NSLog(@"allstories: %@", self.allStories);
+  //      [self.lastUpdatedTableView reloadData];
+  //  }];
     
     self.lastUpdatedTableView.estimatedRowHeight = 70;
     self.lastUpdatedTableView.rowHeight = UITableViewAutomaticDimension;
@@ -71,9 +71,7 @@
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
     
-    //[API postNewStoryWith:@"start snipp" with:@"yo" and:@"yee"];
-    
-
+   
 }
 
 
