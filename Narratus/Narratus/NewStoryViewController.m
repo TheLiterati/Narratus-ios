@@ -29,15 +29,15 @@
     self.storyTextView.delegate = self;
     self.genrePicker.dataSource = self;
     self.genrePicker.delegate = self;
-    [self.genrePicker selectRow:5 inComponent:0 animated:YES];
+    [self.genrePicker selectRow:4 inComponent:0 animated:YES];
     
 }
+
 
 - (NSArray *)genres {
     NSArray *genres = @[@"Adventure",
                         @"Comedy",
                         @"Drama",
-                        @"Erotica",
                         @"Fantasy",
                         @"General Fiction",
                         @"Horror",
@@ -51,6 +51,27 @@
     return genres;
 }
 
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.storyTextView.text = @"";
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y -220.0, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y +220.0, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;

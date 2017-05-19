@@ -11,7 +11,6 @@
 #import "Snippet.h"
 #import "PendingSnippetViewController.h"
 
-#define  k_KEYBOARD_OFFSET 220.0
 
 @interface NewSnippetViewController () <UITextViewDelegate>
 
@@ -27,15 +26,10 @@
     self.snippetTextView.delegate = self;
 }
 
-//-(void)viewWillAppear:(BOOL)animated {
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillAppear) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(KeyboardWillDisappear) name:UIKeyboardWillHideNotification object:nil];
-//}
-//
-//-(void)viewWillDisappear:(BOOL)animated {
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-//}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.snippetTextView.text = @"";
+}
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSInteger length;
@@ -48,75 +42,40 @@
     }
 }
 
-//-(void)keyboardWillAppear {
-//    if (self.view.frame.origin.y >= 0) {
-//        [self moveViewUp:YES];
-//    } else  if (self.view.frame.origin.y < 0) {
-//        [self moveViewUp:NO];
-//    }
-//}
-//
-//-(void)KeyboardWillDisappear {
-//    if (self.view.frame.origin.y >= 0) {
-//        [self moveViewUp:YES];
-//    } else if (self.view.frame.origin.y < 0){
-//        [self moveViewUp:NO];
-//    }
-//}
-//
-//-(void)moveViewUp:(BOOL)bMovedUp {
-//    [UIView beginAnimations:nil context:NULL];
-//    [UIView setAnimationDuration:0.4];
-//    
-//    CGRect rect = self.view.frame;
-//    
-//    if (bMovedUp) {
-//        rect.origin.y -= k_KEYBOARD_OFFSET;
-//    } else {
-//        rect.origin.y += k_KEYBOARD_OFFSET;
-//        rect.size.height -= k_KEYBOARD_OFFSET;
-//    }
-//    
-//    self.view.frame = rect;
-//    
-//    [UIView commitAnimations];
-//}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
 
 - (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     return self.snippetTextView.text.length + (text.length - range.length) <= 250;
 }
 
 - (IBAction)submitButtonPressed:(UIButton *)sender {
+    /* //Background Thread(global queue), medium priority aka priority_default
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    });
+     */
+    
+    Snippet *newSnippet = [[Snippet alloc]init];
+    newSnippet.pending = _snippetTextView.text;
+    
+    [[StoryManager.shared allSnippets] addObject:newSnippet];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
     
     UIAlertController *contribution = [UIAlertController alertControllerWithTitle:@"Thank you for your contribution" message:@"May the story never end 📖" preferredStyle: UIAlertControllerStyleAlert];
     
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        
         dispatch_async(dispatch_get_main_queue(), ^(void){
             //Run UI Updates, Highest priority
             
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"📝Wanderlust more" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self dismissViewControllerAnimated:YES completion:nil];
             }];
-            
+            [contribution addAction:action];
             [self presentViewController:contribution animated:YES completion:nil];
             
-            [self.navigationController popViewControllerAnimated:YES];
-            [contribution addAction:action];
         });
-        
-        //Background Thread(global queue), medium priority aka priority_default
-        Snippet *newSnippet = [[Snippet alloc]init];
-        newSnippet.pending = _snippetTextView.text;
-        
-        [[StoryManager.shared allSnippets] addObject:newSnippet];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"pendingSnippetCreation" object:nil];
-        
-    });
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
     
 }
 - (IBAction)cancelButtonPressed:(id)sender {

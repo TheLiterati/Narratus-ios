@@ -328,8 +328,7 @@
     
     //retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
-    NSLog(@"TOKEN: %@", token);
-    
+    NSLog(@"%@", token);
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/dashboard"];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
@@ -343,10 +342,11 @@
 
     //Pure token, no quotes
     NSString *tokenWork = [token substringWithRange:oneToAccount];
-    NSLog(@"%@", tokenWork);
+    NSLog(@"TOOKEEN: %@", tokenWork);
     
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
     [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
+    NSLog(@"%@", bearAuth);
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     
@@ -355,6 +355,10 @@
         NSLog(@"data:%@", data);
         NSLog(@"response:%@", response);
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@s", rootObject);
+        
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"DATASTRING: %@",dataString);
         
         if (error) {
             NSLog(@"error: %@",error.localizedDescription);
@@ -362,7 +366,7 @@
         
         User *currentUser = [[User alloc]init];
         
-        for (NSDictionary *user in [rootObject allValues]) {
+       /* for (NSDictionary *user in [rootObject allValues]) {
             NSMutableArray<Story *> *owned = [[NSMutableArray<Story *> alloc]init];
             NSMutableArray<Story *> *followed = [[NSMutableArray<Story *> alloc]init];
             
@@ -488,6 +492,8 @@
             
             currentUser = newUser;
         }
+        
+        */
         
 //        if (completion) {
 //            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
