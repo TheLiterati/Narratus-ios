@@ -1,4 +1,4 @@
-![alt text](http://imgur.com/63iTrci)
+![alt text](http://i65.tinypic.com/9jkw09.png)
 
 # Narratus
 
