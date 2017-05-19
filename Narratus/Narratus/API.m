@@ -7,6 +7,7 @@
 //
 
 #import "API.h"
+#import "Story.h"
 
 @implementation API
 
@@ -378,134 +379,39 @@
         
         User *currentUser = [[User alloc]init];
         
-       /* for (NSDictionary *user in [rootObject allValues]) {
-            NSMutableArray<Story *> *owned = [[NSMutableArray<Story *> alloc]init];
-            NSMutableArray<Story *> *followed = [[NSMutableArray<Story *> alloc]init];
+        for (NSDictionary *items in [rootObject allValues]) {
             
-            User *newUser = [[User alloc]init];
-            newUser.userName = user[@"username"];
-            newUser.password = user[@"password"];
-            newUser.email = user[@"email"];
-            newUser.userID = user[@"_id"];
+            for (NSDictionary *stories in items[@"ownedStories"]) {
             
-            for (NSDictionary *story in user[@"ownedStories"]) {
-                NSMutableArray<Snippet *> *storySnippets = [[NSMutableArray alloc]init];
-                NSMutableArray<Snippet *> *pendingSnippets = [[NSMutableArray alloc]init];
-                
-                Story *newStory = [[Story alloc]init];
-                newStory.ownerUserName = story[@"ownerUsername"];
-                newStory.ownerID = story[@"ownerId"];
-                newStory.title = story[@"title"];
-                newStory.storyDescription = story[@"description"];
-                newStory.createdDate = story[@"created"];
-                newStory.lastUpdatedDate = story[@"lastUpdated"];
-                newStory.category = story[@"categories"];
-                newStory.open = story[@"open"];
-                newStory.storySnippetCount = story[@"snippetCount"];
-                newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
-                newStory.storyID = story[@"_id"];
-                
-                for (NSDictionary *snippet in story[@"snippets"]) {
-                    Snippet *newSnippet = [[Snippet alloc]init];
-                    newSnippet.likes = snippet[@"likes"];
-                    newSnippet.content = snippet[@"snippetContent"];
-                    newSnippet.createdDate = snippet[@"created"];
-                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
-                    newSnippet.pending = snippet[@"pending"];
-                    newSnippet.snippetID = snippet[@"_id"];
-                    newSnippet.accepted = snippet[@"accepted"];
-                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
-                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
-                    newSnippet.bookmark = snippet[@"bookmark"];
-                    
-                    [storySnippets addObject:newSnippet];
-                }
-                
-                for (NSDictionary *snippet in story[@"pendingSnippets"]) {
-                    Snippet *newSnippet = [[Snippet alloc]init];
-                    newSnippet.likes = snippet[@"likes"];
-                    newSnippet.content = snippet[@"snippetContent"];
-                    newSnippet.createdDate = snippet[@"created"];
-                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
-                    newSnippet.pending = snippet[@"pending"];
-                    newSnippet.snippetID = snippet[@"_id"];
-                    newSnippet.accepted = snippet[@"accepted"];
-                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
-                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
-                    newSnippet.bookmark = snippet[@"bookmark"];
-                    
-                    [pendingSnippets addObject:newSnippet];
-                }
-                
-                newStory.storySnippets = storySnippets;
-                newStory.pendingSnippets = pendingSnippets;
-                
-                [owned addObject:newStory];
+            Story *ownedStory = [[Story alloc]init];
+            ownedStory.ownerID = stories[@"userID"];
+            ownedStory.storyID = stories[@"_id"];
+            ownedStory.title = stories[@"title"];
+            ownedStory.storyDescription = stories[@"description"];
+            ownedStory.category = stories[@"genre"];
+            ownedStory.startSnippet = stories[@"startSnippet"];
+            ownedStory.open = stories[@"open"];
+            ownedStory.createdDate = stories[@"created"];
+            ownedStory.genre = stories[@"genre"];
             }
             
-            for (NSDictionary *story in user[@"followedStories"]) {
-                NSMutableArray<Snippet *> *storySnippets = [[NSMutableArray alloc]init];
-                NSMutableArray<Snippet *> *pendingSnippets = [[NSMutableArray alloc]init];
+            for (NSDictionary *stories in items[@"followedStories"]) {
                 
-                Story *newStory = [[Story alloc]init];
-                newStory.ownerUserName = story[@"ownerUsername"];
-                newStory.ownerID = story[@"ownerId"];
-                newStory.title = story[@"title"];
-                newStory.storyDescription = story[@"description"];
-                newStory.createdDate = story[@"created"];
-                newStory.lastUpdatedDate = story[@"lastUpdated"];
-                newStory.category = story[@"categories"];
-                newStory.open = story[@"open"];
-                newStory.storySnippetCount = story[@"snippetCount"];
-                newStory.pendingSnippetCount = story[@"pendingSnippetCount"];
-                newStory.storyID = story[@"_id"];
-                
-                for (NSDictionary *snippet in story[@"snippets"]) {
-                    Snippet *newSnippet = [[Snippet alloc]init];
-                    newSnippet.likes = snippet[@"likes"];
-                    newSnippet.content = snippet[@"snippetContent"];
-                    newSnippet.createdDate = snippet[@"created"];
-                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
-                    newSnippet.pending = snippet[@"pending"];
-                    newSnippet.snippetID = snippet[@"_id"];
-                    newSnippet.accepted = snippet[@"accepted"];
-                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
-                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
-                    newSnippet.bookmark = snippet[@"bookmark"];
-                    
-                    [storySnippets addObject:newSnippet];
-                }
-                
-                for (NSDictionary *snippet in story[@"pendingSnippets"]) {
-                    Snippet *newSnippet = [[Snippet alloc]init];
-                    newSnippet.likes = snippet[@"likes"];
-                    newSnippet.content = snippet[@"snippetContent"];
-                    newSnippet.createdDate = snippet[@"created"];
-                    newSnippet.snippetCreator = snippet[@"snippetCreator"];
-                    newSnippet.pending = snippet[@"pending"];
-                    newSnippet.snippetID = snippet[@"_id"];
-                    newSnippet.accepted = snippet[@"accepted"];
-                    newSnippet.acceptedDate = snippet[@"acceptedDate"];
-                    newSnippet.lastViewDate = snippet[@"lastViewedDate"];
-                    newSnippet.bookmark = snippet[@"bookmark"];
-                    
-                    [pendingSnippets addObject:newSnippet];
-                }
-                
-                newStory.storySnippets = storySnippets;
-                newStory.pendingSnippets = pendingSnippets;
-                
-                [followed addObject:newStory];
+            Story *followedStory = [[Story alloc] init];
+            followedStory.ownerID = stories[@"userID"];
+            followedStory.storyID = stories[@"_id"];
+            followedStory.title = stories[@"title"];
+            followedStory.storyDescription = stories[@"description"];
+            //followedStory.category = stories[@"genre"];
+            followedStory.startSnippet = stories[@"startSnippet"];
+            followedStory.open = stories[@"open"];
+            followedStory.createdDate = stories[@"created"];
+            followedStory.genre = stories[@"genre"];
             }
             
-            newUser.ownedStories = owned;
-            newUser.followedStories = followed;
-            
-            
-            currentUser = newUser;
-        }
+        };
         
-        */
+        
         
 //        if (completion) {
 //            [[NSOperationQueue mainQueue]addOperationWithBlock:^{

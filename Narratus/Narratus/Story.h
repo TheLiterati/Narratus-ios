@@ -25,5 +25,6 @@
 @property (strong, nonatomic) NSArray *pendingSnippets;
 @property (strong, nonatomic) NSNumber *pendingSnippetCount;
 @property (strong, nonatomic) NSString *storyID;
+@property (strong, nonatomic) NSString *genre;
 
 @end
