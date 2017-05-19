@@ -74,7 +74,7 @@
 - (IBAction)toggleSnippetView:(id)sender {
     
     NewSnippetViewController *addSnippetView = [self.storyboard instantiateViewControllerWithIdentifier:@"NewSnippetViewController"];
-    addSnippetView.currentStory = self.currentStory;
+  //  addSnippetView.currentStory = self.currentStory;
   //  [self presentViewController:addSnippetView animated:YES completion:nil];
 }
 

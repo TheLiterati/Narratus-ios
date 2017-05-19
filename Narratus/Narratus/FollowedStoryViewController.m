@@ -12,6 +12,7 @@
 #import "Story.h"
 #import "API.h"
 #import "StoryViewController.h"
+#import "StoryManager.h"
 
 @interface FollowedStoryViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *followedTableView;
@@ -54,6 +55,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     StoryViewController *storyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StoryViewController"];
     Story *selectedStory = self.followedStories[indexPath.row];
+    
     storyVC.currentStory = selectedStory;
     [self.navigationController pushViewController:storyVC animated:YES];
 }

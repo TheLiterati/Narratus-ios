@@ -154,6 +154,8 @@
             newStory.storyID = story[@"_id"];
             newStory.startSnippet = story[@"startSnippet"];
             
+            NSLog(@"%@, %@", newStory.startSnippet, newStory.ownerUserName);
+            
             if (story[@"SnippetCount"] > 0) {
                 for (NSDictionary *snippet in story[@"snippets"]) {
                     Snippet *newSnippet = [[Snippet alloc]init];
@@ -203,7 +205,6 @@
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/%@", storyID];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
-
     NSError *dataError;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
@@ -288,8 +289,10 @@
 +(void)postSnippetFor:(NSString *)storyID with:(NSString *)snippetContent {
     NSLog(@"inside post snippet");
     //check url
-    NSString *token = @"test token";
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@ 'Authorization:Bearer %@", storyID, snippetContent, token]; //check token
+    
+     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@", storyID, snippetContent]; 
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
@@ -310,15 +313,25 @@
     request.HTTPMethod = @"POST";
     [request setHTTPBody:snippetData];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSUInteger charCount = [token length];
+    NSRange oneToAccount = NSMakeRange(1, charCount - 2);
+    NSString *tokenWork = [token substringWithRange:oneToAccount];
+   // NSLog(@"realToken: %@", tokenWork);
+    
+    NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
+    [request addValue:bearAuth forHTTPHeaderField:@"Authorization"];
+    NSLog(@"BEARAUTH: %@", bearAuth);
 
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 //        NSString *dataString = [[NSString alloc]initWithData:snippetData encoding:NSUTF8StringEncoding];
         
         NSLog(@"request response: %@", response);
-        NSLog(@"request data: %@", data);
+       // NSLog(@"request data: %@", data);
+        
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"DATASTRING: %@",dataString);
         
     }] resume];
 }
@@ -339,7 +352,6 @@
     NSUInteger charCount = [token length];
     NSRange oneToAccount = NSMakeRange(1, charCount - 2);
     
-
     //Pure token, no quotes
     NSString *tokenWork = [token substringWithRange:oneToAccount];
     NSLog(@"TOOKEEN: %@", tokenWork);

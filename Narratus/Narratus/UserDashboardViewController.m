@@ -15,7 +15,6 @@
 #import "API.h"
 
 
-
 @interface UserDashboardViewController () 
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -41,7 +40,7 @@
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
     if (token) {
-        //[API fetchUser];
+        [API fetchUser];
     } else {
         LoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         [self.navigationController pushViewController:loginVC animated:YES];

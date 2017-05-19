@@ -11,6 +11,7 @@
 
 @interface NewSnippetViewController : UIViewController
 
-@property (strong, nonatomic) Story *currentStory;
+@property (strong, nonatomic) Story *selectedStory;
+@property (strong, nonatomic) Story *selectedStory2;
 
 @end
