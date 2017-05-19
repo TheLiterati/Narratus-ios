@@ -164,7 +164,7 @@
                     newSnippet.lastViewDate = snippet[@"lastViewDate"];
                     newSnippet.content = snippet[@"snippetContent"];
                     
-                    [pendingSnippets addObject:newSnippet];
+                    [storySnippets addObject:newSnippet];
 
                 }
             }

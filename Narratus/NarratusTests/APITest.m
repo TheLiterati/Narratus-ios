@@ -30,60 +30,8 @@
     [super tearDown];
 }
 
-//+ (void)testSampleStory {
-//    id storyArray = [API sampleStory];
-//    Story *story = storyArray[0];
-//    XCTAssert([storyArray isKindOfClass:[NSMutableArray class]], @"storyArray is not an instance of NSMutableArray");
-//    XCTAssertFalse([storyArray isEmpty], @"storyArray is empty");
-//    XCTAssert([storyArray[0] isKindOfClass:[Story class]], @"story is not of class Story");
-//    XCTAssertNotNil(story.ownerUserName, @"story.ownerUserName is nil");
-//    XCTAssertNotNil(story.ownerID, @"story.ownerID is nil");
-//    XCTAssertNotNil(story.title, @"story.title is nil");
-//    XCTAssertNotNil(story.storyDescription, "story.storyDescription is nil");
-//    XCTAssertNotNil(story.createdDate, @"story.createdDate is nil");
-//    XCTAssertNotNil(story.lastUpdatedDate, @"story.lastUpdatedDate is nil");
-//    XCTAssertNotNil(story.category, @"story.category is nil");
-//    XCTAssertNotNil(story.open, @"story.open is nil");
-//    XCTAssertNotNil(story.storySnippets, @"story.storySnippets is nil");
-//    XCTAssertNotNil(story.storySnippetCount, @"storySnippetCount is nil");
-//    XCTAssertNotNil(story.pendingSnippets, @"story.pendingSnippets is nil");
-//    XCTAssertNotNil(story.pendingSnippetCount, @"story.pendingSnippetCount is nil");
-//    XCTAssertNotNil(story.storyID, @"story.storyID is nil");
-//}
 
-+ (void)testSampleUser {
-    id usersArray = [API sampleUser];
-    User *user = usersArray[0];
-    XCTAssert([usersArray isKindOfClass:[NSMutableArray class]], @"usersArray is not an instance of NSMutableArray");
-    XCTAssertFalse([usersArray isEmpty], @"users is empty");
-    XCTAssert([usersArray[0] isKindOfClass:[User class]], @"user is not of class User");
-    XCTAssertNotNil(user.userName, @"user.userName is nil");
-    XCTAssertNotNil(user.password, @"user.password is nil");
-    XCTAssertNotNil(user.email, @"user.email is nil");
-    XCTAssertNotNil(user.ownedStories, @"user.ownedStories is nil");
-    XCTAssertNotNil(user.followedStories, @"user.followedStories is nil");
-    XCTAssertNotNil(user.userID, @"user.userID is nil");
-    
-}
 
-//+ (void)testSampleSnippet {
-//    id snippetsArray = [API sampleSnippet];
-//    Snippet *snippet = snippetsArray[0];
-//    XCTAssert([snippetsArray isKindOfClass:[NSMutableArray class]], @"snippetsArray is not an instance of NSMutableArray");
-//    XCTAssertFalse([snippetsArray isEmpty], @"snippetsArray is empty");
-//    XCTAssert([snippetsArray[0] isKindOfClass:[Snippet class]], @"snippet is not of class Snippet");
-//    XCTAssertNotNil(snippet.likes, @" is nil");
-//    XCTAssertNotNil(snippet.content, @" is nil");
-//    XCTAssertNotNil(snippet.createdDate, @" is nil");
-//    XCTAssertNotNil(snippet.snippetCreator, @" is nil");
-//    XCTAssertNotNil(snippet.pending, @" is nil");
-//    XCTAssertNotNil(snippet.snippetID, @" is nil");
-//    XCTAssertNotNil(snippet.accepted, @" is nil");
-//    XCTAssertNotNil(snippet.acceptedDate, @" is nil");
-//    XCTAssertNotNil(snippet.lastViewDate, @" is nil");
-//    XCTAssertNotNil(snippet.bookmark, @" is nil");
-//    
-//}
 
 + (void)testFetchAllStories {
     NSArray<Story *> *controlArray = [[NSArray alloc]init];
@@ -103,6 +51,28 @@
             XCTAssertNotNil(story.pendingSnippets, @"story.pendingSnippets is nil");
             XCTAssertNotNil(story.pendingSnippetCount, @"story.pendingSnippetCount is nil");
             XCTAssertNotNil(story.storyID, @"story.storyID is nil");
+            
+            if ([story.storySnippets count] > 0) {
+                for (Snippet *snippet in story.storySnippets) {
+                    XCTAssertNotNil(snippet.createdDate, @"snippet.createdDate is not nil");
+                    XCTAssertNotNil(snippet.pending, @"snippet.pending is not nil");
+                    XCTAssertNotNil(snippet.snippetID, @"snippet.snippetID is not nil");
+                    XCTAssertNotNil(snippet.acceptedDate, @"snippet.acceptedDate is not nil");
+                    XCTAssertNotNil(snippet.lastViewDate, @"snippet.lastViewDate is not nil");
+                    XCTAssertNotNil(snippet.content, @"snippet.content is not nil");
+                }
+            }
+            
+            if ([story.pendingSnippets count] > 0) {
+                for (Snippet *snippet in story.pendingSnippets) {
+                    XCTAssertNotNil(snippet.createdDate, @"pending snippet.createdDate is not nil");
+                    XCTAssertNotNil(snippet.pending, @"pending snippet.pending is not nil");
+                    XCTAssertNotNil(snippet.snippetID, @"pending snippet.snippetID is not nil");
+                    XCTAssertNotNil(snippet.acceptedDate, @"pending snippet.acceptedDate is not nil");
+                    XCTAssertNotNil(snippet.lastViewDate, @"pending snippet.lastViewDate is not nil");
+                    XCTAssertNotNil(snippet.content, @"pending snippet.content is not nil");
+                }
+            }
         }
     }];
 }
@@ -127,20 +97,10 @@
             XCTAssertNotNil(snippet.lastViewDate, @"snippet.lastViewDate is nil");
             XCTAssertNotNil(snippet.bookmark, @"snippet.bookmark is nil");
         }
+        
     } With:testStoryID];
 }
 
-//+ (void)testPostSnippetFor {
-//    //Test make new story to get story id from?
-//    NSString *storyID = [[NSString alloc]init];
-//    NSString *snippetContent = @"This is the content of a snippet!";
-//    [API postSnippetFor:storyID with:snippetContent];
-//    
-//}
 
-+ (void)testFetchUser {
-    
-
-}
 
 @end
