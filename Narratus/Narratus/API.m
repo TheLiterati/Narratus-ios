@@ -330,6 +330,9 @@
         NSLog(@"request response: %@", response);
        // NSLog(@"request data: %@", data);
         
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"DATASTRING: %@",dataString);
+        
     }] resume];
 }
 
