@@ -112,7 +112,7 @@
 +(void)fetchAllStories:(FetchAllStoriesCompletion)completion {
     NSLog(@"inside fetch stories");
     
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/"];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/story/"];
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
@@ -203,7 +203,7 @@
 +(void)fetchSnippets:(FetchAllSnippetsCompletion)completion With:(NSString *)storyID {
     NSLog(@"inside fetch snippets");
 
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/%@", storyID];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/story/%@", storyID];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
     NSError *dataError;
@@ -293,7 +293,7 @@
     
      NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/snippet/%@ snippetContent=%@", storyID, snippetContent]; 
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/snippet/%@ snippetContent=%@", storyID, snippetContent];
     
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
@@ -343,7 +343,7 @@
     //retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     NSLog(@"%@", token);
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/dashboard"];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/dashboard"];
     NSURL *databaseURL =[NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
@@ -429,7 +429,7 @@
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
     //Base URL
-    NSURL *baseURL =[NSURL URLWithString:@"https://narratus-staging.herokuapp.com/api/story"];
+    NSURL *baseURL =[NSURL URLWithString:@"https://narratus-production.herokuapp.com/api/story"];
 
     
     //Removing quotes from the token for when passing as a header in GET requests
@@ -490,7 +490,7 @@
     NSLog(@"inside pending to confirmed");
     //check url
     NSString *token = @"test token";
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/story/ %@ %@ %@", storyID, content, token]; //check token
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/story/ %@ %@ %@", storyID, content, token]; //check token
     
     NSURL *databaseURL = [NSURL URLWithString:urlString];
     

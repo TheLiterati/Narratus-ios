@@ -43,7 +43,7 @@
 
 -(void)login {
     
-    NSString *urlString = [NSString stringWithFormat:@"https://narratus-staging.herokuapp.com/api/signin"];
+    NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/signin"];
     
     NSURL *databaseURL = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];

@@ -73,9 +73,9 @@
     newSnippet.pending = self.snippetTextView.text;
     newSnippet.content = self.snippetTextView.text;
     
-    Snippet *snippetContent = newSnippet.content;
-    Story *storyID = self.selectedStory.storyID;
-    Story *storyID2 = self.selectedStory2.storyID;
+    NSString *snippetContent = newSnippet.content;
+    NSString *storyID = self.selectedStory.storyID;
+    NSString *storyID2 = self.selectedStory2.storyID;
     NSLog(@"SNIPPET: %@", snippetContent);
     NSLog(@"STORYID: %@, STORYID2: %@", storyID, storyID2);
     
