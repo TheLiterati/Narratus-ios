@@ -289,9 +289,9 @@
 
 +(void)postSnippetFor:(NSString *)storyID with:(NSString *)snippetContent {
     NSLog(@"inside post snippet");
-    //check url
     
-     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
+    //Retrieve token
+    NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/snippet/%@ snippetContent=%@", storyID, snippetContent];
     
@@ -334,13 +334,21 @@
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"DATASTRING: %@",dataString);
         
+        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSLog(@"root object: %@", rootObject);
+        if (error) {
+            NSLog(@"error: %@",error.localizedDescription);
+        }
+
+        
     }] resume];
 }
 
 +(void)fetchUser:(UserCompletion)completion {
     NSLog(@"inside fetch user");
     
-    //retreive token
+    //Retreive token
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     NSLog(@"%@", token);
     NSString *urlString = [NSString stringWithFormat:@"https://narratus-production.herokuapp.com/api/dashboard"];
@@ -536,6 +544,28 @@
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSLog(@"request response: %@", response);
         NSLog(@"request data: %@", data);
+        
+        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@s", rootObject);
+        
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"DATASTRING: %@",dataString);
+        
+        NSMutableArray<Snippet *> *mostRecentSnippets = [[NSMutableArray<Snippet *> alloc]init];
+        
+                for (NSDictionary *snippet in [rootObject allValues]) {
+                    Snippet *newSnippet = [[Snippet alloc]init];
+                    newSnippet.content = snippet[@"snippetContent"];
+                    newSnippet.createdDate = snippet[@"created"];
+                    newSnippet.pending = snippet[@"pending"];
+                    newSnippet.snippetID = snippet[@"_id"];
+                    newSnippet.accepted = snippet[@"approved"];
+                    newSnippet.acceptedDate = snippet[@"approvedDate"];
+                    newSnippet.lastViewDate = snippet[@"lastViewDate"];
+        
+                    [mostRecentSnippets addObject:newSnippet];
+                }
+        
     }] resume];
 }
 
@@ -545,18 +575,7 @@
 
 @end
 
-//        for (NSDictionary *snippet in [rootObject allValues]) {
-//            Snippet *newSnippet = [[Snippet alloc]init];
-//            newSnippet.content = snippet[@"snippetContent"];
-//            newSnippet.createdDate = snippet[@"created"];
-//            newSnippet.pending = snippet[@"pending"];
-//            newSnippet.snippetID = snippet[@"_id"];
-//            newSnippet.accepted = snippet[@"approved"];
-//            newSnippet.acceptedDate = snippet[@"approvedDate"];
-//            newSnippet.lastViewDate = snippet[@"lastViewDate"];
-//
-//            [allSnippets addObject:newSnippet];
-//        }
+
 
 
 
