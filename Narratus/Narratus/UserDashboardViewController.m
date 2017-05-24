@@ -39,7 +39,7 @@
     
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"accessToken"];
     
-    if (token) {
+    if (![token  isEqual: @""]) {
         [API fetchUser:^(NSArray<Story *> *followedStories, NSArray<Story *> *ownedStories) {
             OwnedTableViewController *childOwnedVC = self.childViewControllers[0];
             childOwnedVC.ownedStories = [ownedStories mutableCopy];
@@ -59,7 +59,8 @@
 
 
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
-    self.user = nil;
+
+    [[NSUserDefaults standardUserDefaults]setValue:@"" forKey:@"accessToken"];
     
 
 //    //[[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
