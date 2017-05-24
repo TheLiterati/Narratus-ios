@@ -356,6 +356,7 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:databaseURL];
     request.HTTPMethod = @"GET";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     //Removing quotes from the token for when passing as a header in GET requests
     NSUInteger charCount = [token length];
@@ -366,7 +367,7 @@
     NSLog(@"TOOKEEN: %@", tokenWork);
     
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
-    [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
+    [request setValue:bearAuth forHTTPHeaderField:@"Authorization"];
     NSLog(@"%@", bearAuth);
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
@@ -385,7 +386,6 @@
             NSLog(@"error: %@",error.localizedDescription);
         }
         
-//        User *currentUser = [[User alloc]init];
         
         NSMutableArray *ownedStories = [[NSMutableArray alloc]init];
         NSMutableArray *followedStories = [[NSMutableArray alloc]init];
@@ -399,7 +399,7 @@
                 ownedStory.storyID = stories[@"_id"];
                 ownedStory.title = stories[@"title"];
                 ownedStory.storyDescription = stories[@"description"];
-                ownedStory.category = stories[@"genre"];
+//                ownedStory.category = stories[@"genre"];
                 ownedStory.startSnippet = stories[@"startSnippet"];
                 ownedStory.open = stories[@"open"];
                 ownedStory.createdDate = stories[@"created"];
