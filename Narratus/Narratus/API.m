@@ -367,7 +367,7 @@
     NSLog(@"TOOKEEN: %@", tokenWork);
     
     NSString *bearAuth = [NSString stringWithFormat:@"Bearer %@", tokenWork];
-    [request setValue:bearAuth forHTTPHeaderField:@"Authorization"];
+    [request setValue:bearAuth forHTTPHeaderField:@"Authorization:"];
     NSLog(@"%@", bearAuth);
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
